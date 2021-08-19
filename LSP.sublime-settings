@@ -1,0 +1,5 @@
+// Settings in here override those in "LSP/LSP.sublime-settings"
+{
+  "log_debug": true,
+  "log_server": ["panel"]
+}
