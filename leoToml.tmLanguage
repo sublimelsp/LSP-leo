@@ -11,7 +11,6 @@
     <key>fileTypes</key>
     <array>
       <string>toml</string>
-      <string>tml</string>
     </array>
     <key>patterns</key>
     <array>

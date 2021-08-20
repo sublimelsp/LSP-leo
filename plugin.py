@@ -1,5 +1,4 @@
 import os
-from threading import Timer
 import sublime, sublime_plugin
 from lsp_utils import NpmClientHandler
 from LSP.plugin.core.registry import windows
@@ -44,33 +43,22 @@ class LspLeoPlugin(NpmClientHandler):
 
 
 def setListener(view):
-    listener = windows.listener_for_view(view)
     uri = view_to_uri(view)
     if uri.endswith('.leo'):
         view.assign_syntax("Packages/LSP-leo/leo.tmLanguage")
-        listener._language_id = "leo"
+        view.settings().set("lsp_uri", uri)
     if uri.endswith('.in'):
         view.assign_syntax("Packages/LSP-leo/leoInput.tmLanguage")
-        listener._language_id = "leoInput"
+        view.settings().set("lsp_uri", uri)
     if uri.endswith('.state'):
         view.assign_syntax("Packages/LSP-leo/leoInput.tmLanguage")
-        listener._language_id = "leoInput"
+        view.settings().set("lsp_uri", uri)
     if uri.endswith('.out'):
         view.assign_syntax("Packages/LSP-leo/leoInput.tmLanguage")
-        listener._language_id = "leoInput"
+        view.settings().set("lsp_uri", uri)
     if uri.endswith('.toml'):
         view.assign_syntax("Packages/LSP-leo/leoToml.tmLanguage")
-        listener._language_id = "leoToml"
-
-    if listener:
-        language = listener.get_language_id()
-        if language == "leo":    
-            exists = bool(listener.session_async('hoverProvider'))
-            if not exists:
-                # if there is no listener need to wait for it
-                print("No listener found!")
-                view.settings().set("lsp_uri", uri)
-                Timer(1.0, setListener, (view,)).start()
+        view.settings().set("lsp_uri", uri)
 
 def sendColorizeRequest(view):
     listener = windows.listener_for_view(view)
@@ -102,6 +90,11 @@ class SyntaxColoringViewListener(sublime_plugin.ViewEventListener):
 
 class SyntaxColoring():
     def colorize(self, request) -> None:
+        settings = self.view.settings()
+        color_scheme = settings.get("color_scheme")
+        if color_scheme != "Packages/LSP-leo/leo.sublime-color-scheme":
+            return None
+        highlight_line = settings.get("highlight_line")
         for key, values in request["scopes"].items():
             if len(values):
                 flags = sublime.DRAW_NO_OUTLINE
@@ -123,7 +116,7 @@ class SyntaxColoring():
                     if not is_point and selected_row.contains(region):
                         scope = highlightedScope
 
-                    if is_point:
+                    if is_point and highlight_line:
                         cursorRange = region_to_range(self.view, cursorRegion)
                         if sublime_range.start.row == cursorRange.start.row:
                             scope = highlightedScope

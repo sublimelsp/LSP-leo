@@ -8,6 +8,10 @@
     <string>source.leo</string>
     <key>scope</key>
     <string>source.leo</string>
+    <key>fileTypes</key>
+    <array>
+      <string>leo</string>
+    </array>
     <key>patterns</key>
     <array>
       <dict>
