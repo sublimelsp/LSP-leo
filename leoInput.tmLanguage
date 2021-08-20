@@ -14,6 +14,12 @@
       <string>out</string>
       <string>state</string>
     </array>
+    <key>extension</key>
+    <array>
+      <string>in</string>
+      <string>out</string>
+      <string>state</string>
+    </array>
     <key>patterns</key>
     <array>
       <dict>

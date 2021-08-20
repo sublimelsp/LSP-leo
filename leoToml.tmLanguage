@@ -12,6 +12,10 @@
     <array>
       <string>toml</string>
     </array>
+    <key>extension</key>
+    <array>
+      <string>toml</string>
+    </array>
     <key>patterns</key>
     <array>
       <dict>

@@ -41,25 +41,6 @@ class LspLeoPlugin(NpmClientHandler):
         # Server doesn't require any specific response.
         response(None)
 
-
-def setListener(view):
-    uri = view_to_uri(view)
-    if uri.endswith('.leo'):
-        view.assign_syntax("Packages/LSP-leo/leo.tmLanguage")
-        view.settings().set("lsp_uri", uri)
-    if uri.endswith('.in'):
-        view.assign_syntax("Packages/LSP-leo/leoInput.tmLanguage")
-        view.settings().set("lsp_uri", uri)
-    if uri.endswith('.state'):
-        view.assign_syntax("Packages/LSP-leo/leoInput.tmLanguage")
-        view.settings().set("lsp_uri", uri)
-    if uri.endswith('.out'):
-        view.assign_syntax("Packages/LSP-leo/leoInput.tmLanguage")
-        view.settings().set("lsp_uri", uri)
-    if uri.endswith('.toml'):
-        view.assign_syntax("Packages/LSP-leo/leoToml.tmLanguage")
-        view.settings().set("lsp_uri", uri)
-
 def sendColorizeRequest(view):
     listener = windows.listener_for_view(view)
     if listener:
@@ -76,16 +57,8 @@ def sendColorizeRequest(view):
                 request = Request("ColoringService.colorize", params)
                 session.send_request_async(request, lambda res: res, lambda res: res)
 
-
 class SyntaxColoringViewListener(sublime_plugin.ViewEventListener):
-    def on_activated_async(self):
-        setListener(self.view)       
-    def on_load_async(self):
-        setListener(self.view)
-    def on_modified_async(self):
-        setListener(self.view)
     def on_selection_modified_async(self):
-        setListener(self.view)
         sendColorizeRequest(self.view)
 
 class SyntaxColoring():
