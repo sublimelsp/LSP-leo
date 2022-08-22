@@ -20,15 +20,7 @@
     <array>
       <dict>
         <key>include</key>
-        <string>#block_doc_comment</string>
-      </dict>
-      <dict>
-        <key>include</key>
         <string>#block_comment</string>
-      </dict>
-      <dict>
-        <key>include</key>
-        <string>#line_doc_comment</string>
       </dict>
       <dict>
         <key>include</key>
@@ -37,10 +29,6 @@
       <dict>
         <key>include</key>
         <string>#string_literal</string>
-      </dict>
-      <dict>
-        <key>include</key>
-        <string>#char_literal</string>
       </dict>
       <dict>
         <key>include</key>
@@ -68,15 +56,19 @@
       </dict>
       <dict>
         <key>include</key>
+        <string>#storage_type_constant</string>
+      </dict>
+      <dict>
+        <key>include</key>
+        <string>#storage_type_public</string>
+      </dict>
+      <dict>
+        <key>include</key>
+        <string>#storage_type_record</string>
+      </dict>
+      <dict>
+        <key>include</key>
         <string>#storage_type_let</string>
-      </dict>
-      <dict>
-        <key>include</key>
-        <string>#storage_modifier_mutable</string>
-      </dict>
-      <dict>
-        <key>include</key>
-        <string>#self_variable</string>
       </dict>
       <dict>
         <key>include</key>
@@ -88,10 +80,6 @@
       </dict>
       <dict>
         <key>include</key>
-        <string>#static_keyword</string>
-      </dict>
-      <dict>
-        <key>include</key>
         <string>#inside_braces</string>
       </dict>
       <dict>
@@ -99,75 +87,16 @@
         <string>#type_params</string>
       </dict>
       <dict>
-        <key>comment</key>
-        <string>Control keyword import</string>
-        <key>name</key>
-        <string>keyword.control.import.leo</string>
-        <key>match</key>
-        <string>\b(import)\b</string>
+        <key>include</key>
+        <string>#function_parameters</string>
       </dict>
       <dict>
-        <key>comment</key>
-        <string>Import keywords</string>
-        <key>begin</key>
-        <string>(?&lt;=import)\s+</string>
-        <key>end</key>
-        <string>;</string>
-        <key>patterns</key>
-        <array>
-          <dict>
-            <key>include</key>
-            <string>#block_comment</string>
-          </dict>
-          <dict>
-            <key>include</key>
-            <string>#line_comment</string>
-          </dict>
-          <dict>
-            <key>match</key>
-            <string>(?:\.\s*)(\*)</string>
-            <key>captures</key>
-            <dict>
-              <key>1</key>
-              <dict>
-                <key>name</key>
-                <string>syntax.all.import.leo</string>
-              </dict>
-            </dict>
-          </dict>
-          <dict>
-            <key>match</key>
-            <string>\W?(\*)\W?</string>
-            <key>captures</key>
-            <dict>
-              <key>1</key>
-              <dict>
-                <key>name</key>
-                <string>syntax.all.import.leo</string>
-              </dict>
-            </dict>
-          </dict>
-          <dict>
-            <key>match</key>
-            <string>(?:\w+\s+)(\bas\b)(?:\s+\w+,?)?</string>
-            <key>captures</key>
-            <dict>
-              <key>1</key>
-              <dict>
-                <key>name</key>
-                <string>keyword.operator.as.leo</string>
-              </dict>
-            </dict>
-          </dict>
-        </array>
+        <key>include</key>
+        <string>#console_methods</string>
       </dict>
       <dict>
-        <key>comment</key>
-        <string>Support variable test</string>
-        <key>match</key>
-        <string>\btest\b(?=\s*function)</string>
-        <key>name</key>
-        <string>support.variable.test.leo</string>
+        <key>include</key>
+        <string>#console_methods_call</string>
       </dict>
       <dict>
         <key>comment</key>
@@ -220,15 +149,19 @@
           </dict>
           <dict>
             <key>include</key>
+            <string>#storage_type_constant</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#storage_type_public</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#storage_type_record</string>
+          </dict>
+          <dict>
+            <key>include</key>
             <string>#storage_type_let</string>
-          </dict>
-          <dict>
-            <key>include</key>
-            <string>#storage_modifier_mutable</string>
-          </dict>
-          <dict>
-            <key>include</key>
-            <string>#self_variable</string>
           </dict>
           <dict>
             <key>include</key>
@@ -236,19 +169,7 @@
           </dict>
           <dict>
             <key>include</key>
-            <string>#char_literal</string>
-          </dict>
-          <dict>
-            <key>include</key>
-            <string>#block_doc_comment</string>
-          </dict>
-          <dict>
-            <key>include</key>
             <string>#block_comment</string>
-          </dict>
-          <dict>
-            <key>include</key>
-            <string>#line_doc_comment</string>
           </dict>
           <dict>
             <key>include</key>
@@ -257,10 +178,6 @@
           <dict>
             <key>include</key>
             <string>#function_keyword</string>
-          </dict>
-          <dict>
-            <key>include</key>
-            <string>#static_keyword</string>
           </dict>
           <dict>
             <key>include</key>
@@ -273,6 +190,18 @@
           <dict>
             <key>include</key>
             <string>#circuit_static_call</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#function_parameters</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#console_methods</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#console_methods_call</string>
           </dict>
         </array>
       </dict>
@@ -306,11 +235,71 @@
         <array>
           <dict>
             <key>include</key>
-            <string>#circuit_attribute</string>
+            <string>#inside_braces</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#block_comment</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#line_comment</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#core_types</string>
           </dict>
           <dict>
             <key>include</key>
             <string>#integer_literal</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#built-in_core_assign</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#boolean_constant</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#control_keyword</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#storage_type_const</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#storage_type_constant</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#storage_type_public</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#storage_type_record</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#storage_type_let</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#string_literal</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#invoking_attribute</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#console_methods</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#console_methods_call</string>
           </dict>
         </array>
       </dict>
@@ -319,22 +308,7 @@
         <key>comment</key>
         <string>Invoking circuit attribute</string>
         <key>match</key>
-        <string>(\w+\.|(?&lt;=\bself\b\.))(\b\w+(?!\()\b)</string>
-        <key>captures</key>
-        <dict>
-          <key>2</key>
-          <dict>
-            <key>name</key>
-            <string>entity.other.attribute-name</string>
-          </dict>
-        </dict>
-      </dict>
-      <key>circuit_attribute</key>
-      <dict>
-        <key>comment</key>
-        <string>Circuit Attribute </string>
-        <key>match</key>
-        <string>\b(\w*)\b\s*:(?!\s*.*[=\)])</string>
+        <string>(?&lt;=\.)(?&lt;!\.\.)(\w+(?=\.)|\b\w+\b(?!\())</string>
         <key>captures</key>
         <dict>
           <key>1</key>
@@ -344,27 +318,79 @@
           </dict>
         </dict>
       </dict>
-      <key>block_doc_comment</key>
+      <key>function_parameters</key>
       <dict>
         <key>comment</key>
-        <string>Block documentation comment</string>
-        <key>name</key>
-        <string>comment.block.documentation.leo</string>
+        <string>Function parameters</string>
         <key>begin</key>
-        <string>/\*[\*!](?![\*/])</string>
+        <string>(?&lt;=\bfunction\b)\s+\w+\s*\(</string>
         <key>end</key>
-        <string>\*/</string>
+        <string>\)</string>
         <key>patterns</key>
         <array>
           <dict>
             <key>include</key>
-            <string>#block_doc_comment</string>
+            <string>#function_attribute</string>
           </dict>
           <dict>
             <key>include</key>
-            <string>#block_comment</string>
+            <string>#integer_literal</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#boolean_constant</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#core_types</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#storage_type_const</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#storage_type_constant</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#storage_type_public</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#storage_type_record</string>
           </dict>
         </array>
+      </dict>
+      <key>function_attribute</key>
+      <dict>
+        <key>comment</key>
+        <string>Function Attribute</string>
+        <key>match</key>
+        <string>\b(\w*)\b\s*:</string>
+        <key>captures</key>
+        <dict>
+          <key>1</key>
+          <dict>
+            <key>name</key>
+            <string>entity.other.function-attribute-name</string>
+          </dict>
+        </dict>
+      </dict>
+      <key>circuit_attribute</key>
+      <dict>
+        <key>comment</key>
+        <string>Circuit Attribute </string>
+        <key>match</key>
+        <string>\b(\w*)\b\s*:</string>
+        <key>captures</key>
+        <dict>
+          <key>1</key>
+          <dict>
+            <key>name</key>
+            <string>entity.other.attribute-name</string>
+          </dict>
+        </dict>
       </dict>
       <key>block_comment</key>
       <dict>
@@ -376,28 +402,6 @@
         <string>/\*</string>
         <key>end</key>
         <string>\*/</string>
-        <key>patterns</key>
-        <array>
-          <dict>
-            <key>include</key>
-            <string>#block_doc_comment</string>
-          </dict>
-          <dict>
-            <key>include</key>
-            <string>#block_comment</string>
-          </dict>
-        </array>
-      </dict>
-      <key>line_doc_comment</key>
-      <dict>
-        <key>comment</key>
-        <string>Single-line documentation comment</string>
-        <key>name</key>
-        <string>comment.line.documentation.leo</string>
-        <key>begin</key>
-        <string>//[!/](?=[^/])</string>
-        <key>end</key>
-        <string>$</string>
       </dict>
       <key>line_comment</key>
       <dict>
@@ -417,7 +421,7 @@
         <key>name</key>
         <string>constant.numeric.integer.decimal.leo</string>
         <key>match</key>
-        <string>\b((0|[1-9][0-9]*))([ui](8|16|32|64|128))?\b</string>
+        <string>\b(([0-9][0-9]*))([ui](8|16|32|64|128))?\b</string>
       </dict>
       <key>built-in_core_assign</key>
       <dict>
@@ -426,7 +430,7 @@
         <key>name</key>
         <string>storage.type.assign.leo</string>
         <key>match</key>
-        <string>\b((([0-9]*)(group|field)))</string>
+        <string>\b((([0-9]*)(group|field|scalar)))</string>
       </dict>
       <key>boolean_constant</key>
       <dict>
@@ -464,30 +468,32 @@
         <key>match</key>
         <string>\b(const)\b</string>
       </dict>
-      <key>storage_modifier_mutable</key>
+      <key>storage_type_constant</key>
       <dict>
         <key>comment</key>
-        <string>Storage modifier mutable</string>
+        <string>Storage type constant</string>
         <key>name</key>
-        <string>storage.modifier.mut.leo</string>
+        <string>storage.type.constant.leo</string>
         <key>match</key>
-        <string>\bmut\b</string>
+        <string>\b(constant)\b</string>
       </dict>
-      <key>self_variable</key>
+      <key>storage_type_public</key>
       <dict>
         <key>comment</key>
-        <string>Self variable</string>
+        <string>Storage type public</string>
         <key>name</key>
-        <string>variable.language.leo</string>
+        <string>storage.type.public.leo</string>
         <key>match</key>
-        <string>\b(self|Self)\b</string>
+        <string>\b(public)\b</string>
       </dict>
-      <key>escaped_character</key>
+      <key>storage_type_record</key>
       <dict>
+        <key>comment</key>
+        <string>Storage type record</string>
         <key>name</key>
-        <string>constant.character.escape.leo</string>
+        <string>storage.type.record.leo</string>
         <key>match</key>
-        <string>\\(x[0-9A-Fa-f]{2}|[0-2][0-7]{0,2}|3[0-6][0-7]?|37[0-7]?|[4-7][0-7]?|.)</string>
+        <string>\b(record)\b</string>
       </dict>
       <key>string_literal</key>
       <dict>
@@ -495,31 +501,10 @@
         <string>Double-quote string literal</string>
         <key>name</key>
         <string>string.quoted.double.leo</string>
-        <key>match</key>
-        <string>"[^"]*"?</string>
-        <key>patterns</key>
-        <array>
-          <dict>
-            <key>include</key>
-            <string>#escaped_character</string>
-          </dict>
-        </array>
-      </dict>
-      <key>char_literal</key>
-      <dict>
-        <key>comment</key>
-        <string>Single-quote char literal</string>
-        <key>name</key>
-        <string>string.quoted.single.leo</string>
-        <key>match</key>
-        <string>'[^']*'?</string>
-        <key>patterns</key>
-        <array>
-          <dict>
-            <key>include</key>
-            <string>#escaped_character</string>
-          </dict>
-        </array>
+        <key>begin</key>
+        <string>"</string>
+        <key>end</key>
+        <string>"</string>
       </dict>
       <key>function_keyword</key>
       <dict>
@@ -530,15 +515,6 @@
         <key>match</key>
         <string>\b(function)\b</string>
       </dict>
-      <key>static_keyword</key>
-      <dict>
-        <key>comment</key>
-        <string>Static storage modifier</string>
-        <key>name</key>
-        <string>storage.modifier.static.leo</string>
-        <key>match</key>
-        <string>\bstatic\b</string>
-      </dict>
       <key>core_types</key>
       <dict>
         <key>comment</key>
@@ -546,7 +522,7 @@
         <key>name</key>
         <string>storage.type.core.leo</string>
         <key>match</key>
-        <string>\b(bool|field|u8|u16|u32|u64|u128|i8|i16|i32|i64|i128|string|char|address|group|any|integer)\b</string>
+        <string>\b(bool|field|scalar|u8|u16|u32|u64|u128|i8|i16|i32|i64|i128|string|address|group|integer)\b</string>
       </dict>
       <key>circuit_keyword</key>
       <dict>
@@ -562,7 +538,7 @@
         <key>comment</key>
         <string>Console methods</string>
         <key>match</key>
-        <string>console\.\b(assert|log|debug|error)\b</string>
+        <string>console\.\b(assert|assert_eq|assert_neq)\b</string>
         <key>captures</key>
         <dict>
           <key>1</key>
@@ -572,12 +548,27 @@
           </dict>
         </dict>
       </dict>
+      <key>console_methods_call</key>
+      <dict>
+        <key>comment</key>
+        <string>Console methods call</string>
+        <key>match</key>
+        <string>console\.\b(\w*)\b</string>
+        <key>captures</key>
+        <dict>
+          <key>1</key>
+          <dict>
+            <key>name</key>
+            <string>entity.name.method.call.console.leo</string>
+          </dict>
+        </dict>
+      </dict>
       <key>method_name_call</key>
       <dict>
         <key>comment</key>
         <string>Method name call</string>
         <key>match</key>
-        <string>\w+\s*\.\s*(\w+)\s*</string>
+        <string>\w+\s*\.\s*([a-zA-Z][a-zA-Z0-9_]*)\s*</string>
         <key>captures</key>
         <dict>
           <key>1</key>
@@ -630,6 +621,14 @@
             <key>include</key>
             <string>#in_core_assign</string>
           </dict>
+          <dict>
+            <key>include</key>
+            <string>#string_literal</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#built-in_core_assign</string>
+          </dict>
         </array>
       </dict>
       <key>inside_braces</key>
@@ -650,15 +649,7 @@
           </dict>
           <dict>
             <key>include</key>
-            <string>#block_doc_comment</string>
-          </dict>
-          <dict>
-            <key>include</key>
             <string>#block_comment</string>
-          </dict>
-          <dict>
-            <key>include</key>
-            <string>#line_doc_comment</string>
           </dict>
           <dict>
             <key>include</key>
@@ -690,15 +681,19 @@
           </dict>
           <dict>
             <key>include</key>
+            <string>#storage_type_constant</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#storage_type_public</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#storage_type_record</string>
+          </dict>
+          <dict>
+            <key>include</key>
             <string>#storage_type_let</string>
-          </dict>
-          <dict>
-            <key>include</key>
-            <string>#storage_modifier_mutable</string>
-          </dict>
-          <dict>
-            <key>include</key>
-            <string>#self_variable</string>
           </dict>
           <dict>
             <key>include</key>
@@ -706,23 +701,19 @@
           </dict>
           <dict>
             <key>include</key>
-            <string>#char_literal</string>
-          </dict>
-          <dict>
-            <key>include</key>
             <string>#invoking_attribute</string>
           </dict>
           <dict>
             <key>include</key>
-            <string>#circuit_attribute</string>
+            <string>#console_methods</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#console_methods_call</string>
           </dict>
           <dict>
             <key>include</key>
             <string>#circuit_call</string>
-          </dict>
-          <dict>
-            <key>include</key>
-            <string>#console_methods</string>
           </dict>
           <dict>
             <key>include</key>
@@ -735,6 +726,10 @@
           <dict>
             <key>include</key>
             <string>#method_name_call</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#console_methods</string>
           </dict>
           <dict>
             <key>include</key>

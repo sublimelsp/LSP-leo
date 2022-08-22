@@ -98,6 +98,14 @@
           </dict>
           <dict>
             <key>include</key>
+            <string>#storage_type_const</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#storage_modifier_mutable</string>
+          </dict>
+          <dict>
+            <key>include</key>
             <string>#built-in_core_assign</string>
           </dict>
           <dict>
@@ -194,6 +202,59 @@
           </dict>
           <dict>
             <key>include</key>
+            <string>#storage_type_const</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#storage_modifier_mutable</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#built-in_core_assign</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#boolean_constant</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#circuit_name</string>
+          </dict>
+        </array>
+      </dict>
+      <dict>
+        <key>comment</key>
+        <string>Documented parameter</string>
+        <key>name</key>
+        <string>documented_parameter</string>
+        <key>begin</key>
+        <string>(\b\w+\b(?=:))</string>
+        <key>end</key>
+        <string>$</string>
+        <key>patterns</key>
+        <array>
+          <dict>
+            <key>include</key>
+            <string>#param_name</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#core_types</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#integer_literal</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#storage_type_const</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#storage_modifier_mutable</string>
+          </dict>
+          <dict>
+            <key>include</key>
             <string>#built-in_core_assign</string>
           </dict>
           <dict>
@@ -240,6 +301,14 @@
           </dict>
           <dict>
             <key>include</key>
+            <string>#storage_type_const</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#storage_modifier_mutable</string>
+          </dict>
+          <dict>
+            <key>include</key>
             <string>#built-in_core_assign</string>
           </dict>
           <dict>
@@ -249,6 +318,40 @@
           <dict>
             <key>include</key>
             <string>#circuit_name</string>
+          </dict>
+        </array>
+      </dict>
+      <dict>
+        <key>comment</key>
+        <string>Built in method</string>
+        <key>name</key>
+        <string>built_in_method</string>
+        <key>begin</key>
+        <string>\(method\) (\b\w+\b)\.(\b\w+\b)\(\)</string>
+        <key>end</key>
+        <string>$</string>
+        <key>captures</key>
+        <dict>
+          <key>1</key>
+          <dict>
+            <key>name</key>
+            <string>storage.type.built-in.method.leo.hover</string>
+          </dict>
+          <key>2</key>
+          <dict>
+            <key>name</key>
+            <string>storage.name.built-in.method.leo.hover</string>
+          </dict>
+        </dict>
+        <key>patterns</key>
+        <array>
+          <dict>
+            <key>include</key>
+            <string>#core_types</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#storage_type_const</string>
           </dict>
         </array>
       </dict>
@@ -267,6 +370,14 @@
       <dict>
         <key>include</key>
         <string>#integer_literal</string>
+      </dict>
+      <dict>
+        <key>include</key>
+        <string>#storage_type_const</string>
+      </dict>
+      <dict>
+        <key>include</key>
+        <string>#storage_modifier_mutable</string>
       </dict>
       <dict>
         <key>include</key>
@@ -314,6 +425,24 @@
         <string>constant.numeric.integer.decimal.leo.hover</string>
         <key>match</key>
         <string>\b((0|[1-9][0-9]*))([ui](8|16|32|64|128))?\b</string>
+      </dict>
+      <key>storage_modifier_mutable</key>
+      <dict>
+        <key>comment</key>
+        <string>Storage modifier mutable</string>
+        <key>name</key>
+        <string>storage.modifier.mut.leo.hover</string>
+        <key>match</key>
+        <string>\bmut\b</string>
+      </dict>
+      <key>storage_type_const</key>
+      <dict>
+        <key>comment</key>
+        <string>Storage type const</string>
+        <key>name</key>
+        <string>storage.type.const.leo.hover</string>
+        <key>match</key>
+        <string>\b(const)\b</string>
       </dict>
       <key>built-in_core_assign</key>
       <dict>

@@ -89,7 +89,7 @@
             <key>comment</key>
             <string>Section header</string>
             <key>match</key>
-            <string>\[\b(\w+)\b\]</string>
+            <string>^\s*\[\b(\w+)\b\]</string>
             <key>captures</key>
             <dict>
               <key>1</key>
@@ -125,21 +125,11 @@
           </dict>
           <dict>
             <key>comment</key>
-            <string>Section definition expression character</string>
-            <key>name</key>
-            <string>section.definition.expression.char.leo.leoInput</string>
-            <key>begin</key>
-            <string>'</string>
-            <key>end</key>
-            <string>'</string>
-          </dict>
-          <dict>
-            <key>comment</key>
             <string>Section definition expression value</string>
             <key>name</key>
             <string>section.definition.expression.value.leo.leoInput</string>
             <key>match</key>
-            <string>\b([0-9]+(field|group|u8|u16|u32|u64|u128|i8|i16|i32|i64|i128)?|true|false)\b</string>
+            <string>\b([0-9]+(field|group|scalar|u8|u16|u32|u64|u128|i8|i16|i32|i64|i128)?|true|false)\b</string>
           </dict>
           <dict>
             <key>comment</key>
@@ -159,7 +149,7 @@
             <key>comment</key>
             <string>Section definition expression tuple group value</string>
             <key>match</key>
-            <string>\b((([0-9]*)(group|field)))</string>
+            <string>\b((([0-9]*)(group|field|scalar)))</string>
             <key>captures</key>
             <dict>
               <key>1</key>
@@ -175,7 +165,7 @@
             <key>name</key>
             <string>section.definition.type.leo.leoInput</string>
             <key>match</key>
-            <string>\b(char|field|group|bool|address|u8|u16|u32|u64|u128|i8|i16|i32|i64|i128)\b</string>
+            <string>\b(field|group|bool|address|u8|u16|u32|u64|u128|i8|i16|i32|i64|i128)\b</string>
           </dict>
           <dict>
             <key>comment</key>
@@ -184,6 +174,30 @@
             <string>section.definition.type.array.dimension.leo.leoInput</string>
             <key>match</key>
             <string>\b[0-9]+\b</string>
+          </dict>
+          <dict>
+            <key>comment</key>
+            <string>Storage type const</string>
+            <key>name</key>
+            <string>storage.type.const.leo.leoInput</string>
+            <key>match</key>
+            <string>\b(const)\b</string>
+          </dict>
+          <dict>
+            <key>comment</key>
+            <string>Storage type constant</string>
+            <key>name</key>
+            <string>storage.type.constant.leo.leoInput</string>
+            <key>match</key>
+            <string>\b(constant)\b</string>
+          </dict>
+          <dict>
+            <key>comment</key>
+            <string>Storage type public</string>
+            <key>name</key>
+            <string>storage.type.public.leo.leoInput</string>
+            <key>match</key>
+            <string>\b(public)\b</string>
           </dict>
         </array>
       </dict>
