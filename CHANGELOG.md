@@ -4,6 +4,28 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog][keep a changelog] and this project adheres to [Semantic Versioning][semantic versioning].
 
+## [0.8.9] - 2022-09-01
+
+### Added
+
+### Changed
+
+### Deprecated
+
+### Removed
+
+### Fixed
+- Incorrect diagnostic for records in input files
+- Incorrect diagnostic for record property type
+- Incorrect diagnostic for record inline definition
+- Incorrect diagnostics for duplication variables definitions
+- Incorrect diagnostics for missing declaration
+- Diagnostic error if assert_eq and assert_neq functions have more than two arguments
+- Diagnostic error when the mode of 'main' function parameter is different from the mode declared in the 'main' section of the input file
+- The type of the loop conditional expressions must match the type of the iterator
+
+### Security
+
 ## [0.8.8] - 2022-09-01
 
 ### Fixed
