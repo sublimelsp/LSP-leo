@@ -4,15 +4,13 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog][keep a changelog] and this project adheres to [Semantic Versioning][semantic versioning].
 
+## [0.8.10] - 2022-09-02
+
+### Fixed
+- The loop iterator data type must have a declared type (and not just u32)
+- Fix diagnostic error 'unknown variable' if variable is defined out of block
+
 ## [0.8.9] - 2022-09-01
-
-### Added
-
-### Changed
-
-### Deprecated
-
-### Removed
 
 ### Fixed
 - Incorrect diagnostic for records in input files
