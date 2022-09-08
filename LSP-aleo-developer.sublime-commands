@@ -1,0 +1,10 @@
+[
+  {
+    "caption": "Preferences: LSP-aleo Settings",
+    "command": "edit_settings",
+    "args": {
+      "base_file": "${packages}/LSP-aleo-developer/LSP-aleo-developer.sublime-settings",
+      "default": "// Settings in here override those in \"LSP-aleo-developer/LSP-aleo-developer.sublime-settings\"\n\n{\n\t$0\n}\n"
+    }
+  }
+]

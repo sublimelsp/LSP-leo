@@ -1,8 +1,8 @@
 {
-  "name": "leo-language-sublime-package",
+  "name": "aleo-developer-package",
   "private": "true",
-  "version": "0.8.11",
+  "version": "0.8.12",
   "publisher": "aleohq",
   "license": "GPL-3.0",
-  "description": "A leo language features package"
+  "description": "Official Aleo Developer package"
 }

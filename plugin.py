@@ -20,7 +20,7 @@ def setup_leohover_settings() -> None:
     preferences_filename = 'Preferences.sublime-settings'
     preferences = sublime.load_settings(preferences_filename)
     value = preferences.get("mdpopups.sublime_user_lang_map")
-    value["leohover"] = (('leohover',), ('LSP-leo/leoHover',))
+    value["leohover"] = (('leohover',), ('LSP-aleo-developer/leoHover',))
     preferences.set("mdpopups.sublime_user_lang_map", value)
     sublime.save_settings(preferences_filename)
 
@@ -66,7 +66,7 @@ class SyntaxColoring():
     def colorize(self, request) -> None:
         settings = self.view.settings()
         color_scheme = settings.get("color_scheme")
-        if color_scheme != "Packages/LSP-leo/leo.sublime-color-scheme":
+        if color_scheme != "Packages/LSP-aleo-developer/aleo-developer.sublime-color-scheme":
             return None
         highlight_line = settings.get("highlight_line")
         for key, values in request["scopes"].items():

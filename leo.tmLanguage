@@ -360,6 +360,10 @@
             <key>include</key>
             <string>#storage_type_record</string>
           </dict>
+          <dict>
+            <key>include</key>
+            <string>#line_comment</string>
+          </dict>
         </array>
       </dict>
       <key>function_attribute</key>

@@ -4,6 +4,15 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog][keep a changelog] and this project adheres to [Semantic Versioning][semantic versioning].
 
+## [0.8.12] - 2022-09-08
+
+### Added
+- Syntax highlighting to files with .aleo extension
+
+### Fixed
+- Comments are not highlighted correctly if they are located in area of function arguments
+- Implement error diagnostics when the input file provides additional inputs that is not expected in the 'main' function
+
 ## [0.8.11] - 2022-09-06
 
 ### Fixed
