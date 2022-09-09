@@ -1,7 +1,7 @@
 {
   "name": "aleo-developer-package",
   "private": "true",
-  "version": "0.8.12",
+  "version": "0.8.13",
   "publisher": "aleohq",
   "license": "GPL-3.0",
   "description": "Official Aleo Developer package"

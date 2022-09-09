@@ -4,6 +4,16 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog][keep a changelog] and this project adheres to [Semantic Versioning][semantic versioning].
 
+## [0.8.13] - 2022-09-09
+
+### Added
+- Implement type comparison diagnostics
+- Add diagnostics of bit operations
+- Added built-in circuits BHP, Pedersen and Poseidon
+
+### Removed
+- Remove redundant user settings
+
 ## [0.8.12] - 2022-09-08
 
 ### Added
