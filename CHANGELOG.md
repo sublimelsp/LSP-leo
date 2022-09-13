@@ -4,6 +4,20 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog][keep a changelog] and this project adheres to [Semantic Versioning][semantic versioning].
 
+## [0.8.14] - 2022-09-13
+
+### Added
+- Added built-in primitive types as circuits with methods as entities: Address, Boolean, Field, Group, Integer, Scalar, String
+
+### Fixed
+-[intellij] Multiline comments are not highlighted correctly if they are located in area of function arguments
+-[sublime] Multiline comments are not highlighted correctly if they are located in area of function arguments
+-[vscode] Multiline comments are not highlighted correctly if they are located in area of function arguments
+-[intellij] Syntax highlighting disappear after plugin load
+-[intellij] Fix types and registers highlight in aleo files
+-[sublime] Fix types and registers highlight in aleo files
+-[vscode] Fix types and registers highlight in aleo files
+
 ## [0.8.13] - 2022-09-09
 
 ### Added

@@ -52,6 +52,14 @@
       </dict>
       <dict>
         <key>include</key>
+        <string>#base_register</string>
+      </dict>
+      <dict>
+        <key>include</key>
+        <string>#arithmetic_type</string>
+      </dict>
+      <dict>
+        <key>include</key>
         <string>#strings</string>
       </dict>
     </array>
@@ -91,6 +99,20 @@
         <string>instruction.aleo</string>
         <key>match</key>
         <string>\b(abs\.w|abs|add\.w|add|and|assert\.eq|assert\.neq|call|cast|commit\.bhp256|commit\.bhp512|commit\.bhp768|commit\.bhp1024|commit\.ped64|commit\.ped128|div\.w|div|double|gt|gte|hash\.bhp256|hash\.bhp512|hash\.bhp768|hash\.bhp1024|hash\.ped64|hash\.ped128|hash\.psd2|hash\.psd4|hash\.psd8|inv|input|is\.eq|is\.neq|lt|lte|key|mod|mul\.w|mul|nand|neg|nor|not|or|output|pow\.w|pow|rem\.w|rem|shl\.w|shl|shr\.w|srh|sqrt|sub\.w|sub|square|ternary|value|xor)\b</string>
+      </dict>
+      <key>base_register</key>
+      <dict>
+        <key>name</key>
+        <string>constant.base.register.aleo</string>
+        <key>match</key>
+        <string>r[0-9]+</string>
+      </dict>
+      <key>arithmetic_type</key>
+      <dict>
+        <key>name</key>
+        <string>constant.arithmetic.type.aleo</string>
+        <key>match</key>
+        <string>\b(field|group|scalar|u8|u16|u32|u64|u128|i8|i16|i32|i64|i128)</string>
       </dict>
       <key>numbers</key>
       <dict>
