@@ -115,3 +115,14 @@ class SyntaxColoring():
                 "character": sever_range["end"]["column"]
             }
         }
+
+class LanguageColorSchemeEventListener(sublime_plugin.ViewEventListener):
+    def on_activated_async(self):
+        lang_color_scheme = 'aleo-developer.sublime-color-scheme'
+        default_color_scheme = self.view.settings().get('color_scheme')
+        self.view.settings().set('color_scheme', default_color_scheme)
+        syntax = self.view.settings().get('syntax').lower()
+        for lang in ['leo.tmlanguage', 'aleo.tmlanguage', 'leoinput.tmlanguage'] :
+            if lang in syntax :
+                self.view.settings().set('color_scheme', lang_color_scheme)
+                break
