@@ -4,6 +4,15 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog][keep a changelog] and this project adheres to [Semantic Versioning][semantic versioning].
 
+## [0.8.17] - 2022-09-16
+
+### Changed
+
+### Fixed
+- Fixed diagnostic of type mismatch in the expression for defining a variable by a literal value
+- Fixed diagnostic of type mismatch in the expression of defining a variable by the value of the result of a function call
+- Fixed type mismatch diagnostic in an expression that contains a function call
+
 ## [0.8.16] - 2022-09-15
 
 ### Changed
