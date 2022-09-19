@@ -586,21 +586,6 @@
           </dict>
         </dict>
       </dict>
-      <key>function_name_call</key>
-      <dict>
-        <key>comment</key>
-        <string>Function name call</string>
-        <key>match</key>
-        <string>\b(\w+)\b\s*\(</string>
-        <key>captures</key>
-        <dict>
-          <key>1</key>
-          <dict>
-            <key>name</key>
-            <string>function.name.call</string>
-          </dict>
-        </dict>
-      </dict>
       <key>type_params</key>
       <dict>
         <key>comment</key>
@@ -738,10 +723,6 @@
           <dict>
             <key>include</key>
             <string>#console_methods</string>
-          </dict>
-          <dict>
-            <key>include</key>
-            <string>#function_name_call</string>
           </dict>
         </array>
       </dict>

@@ -3,30 +3,30 @@
     "settings": [
       {
         "schema": {
-          "$id": "sublime://settings/LSP-aleo-developer",
+          "$id": "sublime://settings/LSP-leo",
           "definitions": {
             "PluginConfig": {
               "properties": {
                 "settings": {
                   "additionalProperties": false,
                   "properties": {
-                    "aleo-developer.validate": {
+                    "leo.validate": {
                       "type": "boolean",
                       "default": true,
                       "description": "Enable/disable validation feature"
                     },
-                    "aleo-developer.completion": {
+                    "leo.completion": {
                       "type": "boolean",
                       "default": true,
                       "description": "Enable/disable completion feature"
                     },
-                    "aleo-developer.maxNumberOfProblems": {
+                    "leo.maxNumberOfProblems": {
                       "scope": "resource",
                       "type": "number",
                       "default": 100,
                       "description": "Controls the maximum number of problems produced by the server."
                     },
-                    "aleo-developer.trace.server": {
+                    "leo.trace.server": {
                       "scope": "window",
                       "type": "string",
                       "enum": ["off", "messages", "verbose"],
@@ -43,11 +43,11 @@
               "$ref": "sublime://settings/LSP-plugin-base"
             },
             {
-              "$ref": "sublime://settings/LSP-aleo-developer#/definitions/PluginConfig"
+              "$ref": "sublime://settings/LSP-leo#/definitions/PluginConfig"
             }
           ]
         },
-        "file_patterns": ["/LSP-aleo-developer.sublime-settings"]
+        "file_patterns": ["/LSP-leo.sublime-settings"]
       },
       {
         "schema": {
@@ -56,8 +56,8 @@
               "properties": {
                 "LSP": {
                   "properties": {
-                    "LSP-aleo-developer": {
-                      "$ref": "sublime://settings/LSP-aleo-developer#/definitions/PluginConfig"
+                    "LSP-leo": {
+                      "$ref": "sublime://settings/LSP-leo#/definitions/PluginConfig"
                     }
                   }
                 }

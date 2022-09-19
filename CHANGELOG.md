@@ -4,6 +4,15 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog][keep a changelog] and this project adheres to [Semantic Versioning][semantic versioning].
 
+## [0.8.18] - 2022-09-19
+
+### Changed
+- Changed register token color from purple to uncolored
+
+### Fixed
+- Diagnostic error when a variable is called the deprecated protected names 'as' or 'mut'
+- Incorrect color for aleo token with number
+
 ## [0.8.17] - 2022-09-16
 
 ### Changed
