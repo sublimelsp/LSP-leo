@@ -4,6 +4,11 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog][keep a changelog] and this project adheres to [Semantic Versioning][semantic versioning].
 
+## [0.8.19] - 2022-09-19
+
+### Changed
+- Changed package name
+
 ## [0.8.18] - 2022-09-19
 
 ### Changed
