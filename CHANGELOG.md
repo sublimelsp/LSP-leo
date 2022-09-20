@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog][keep a changelog] and this project adheres to [Semantic Versioning][semantic versioning].
 
+## [0.8.20] - 2022-09-20
+
+### Fixed
+- Error on unknown data type of a call chain or function call should not sound like an unknown variable
+- Diagnostic error if a global variable self.caller is used
+
 ## [0.8.19] - 2022-09-19
 
 ### Changed
@@ -17,6 +23,7 @@ The format is based on [Keep a Changelog][keep a changelog] and this project adh
 ### Fixed
 - Diagnostic error when a variable is called the deprecated protected names 'as' or 'mut'
 - Incorrect color for aleo token with number
+
 
 ## [0.8.17] - 2022-09-16
 

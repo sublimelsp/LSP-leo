@@ -80,6 +80,10 @@
       </dict>
       <dict>
         <key>include</key>
+        <string>#finalize_keyword</string>
+      </dict>
+      <dict>
+        <key>include</key>
         <string>#inside_braces</string>
       </dict>
       <dict>
@@ -178,6 +182,10 @@
           <dict>
             <key>include</key>
             <string>#function_keyword</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#finalize_keyword</string>
           </dict>
           <dict>
             <key>include</key>
@@ -522,6 +530,15 @@
         <string>storage.type.function.leo</string>
         <key>match</key>
         <string>\b(function)\b</string>
+      </dict>
+      <key>finalize_keyword</key>
+      <dict>
+        <key>comment</key>
+        <string>Storage type finalize</string>
+        <key>name</key>
+        <string>storage.type.finalize.leo</string>
+        <key>match</key>
+        <string>\b(finalize)\b</string>
       </dict>
       <key>core_types</key>
       <dict>
