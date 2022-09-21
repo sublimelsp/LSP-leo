@@ -72,6 +72,10 @@
       </dict>
       <dict>
         <key>include</key>
+        <string>#storage_type_mapping</string>
+      </dict>
+      <dict>
+        <key>include</key>
         <string>#circuit_keyword</string>
       </dict>
       <dict>
@@ -483,6 +487,15 @@
         <string>storage.type.const.leo</string>
         <key>match</key>
         <string>\b(const)\b</string>
+      </dict>
+      <key>storage_type_mapping</key>
+      <dict>
+        <key>comment</key>
+        <string>Storage type mapping</string>
+        <key>name</key>
+        <string>storage.type.mapping.leo</string>
+        <key>match</key>
+        <string>\b(mapping)\b</string>
       </dict>
       <key>storage_type_constant</key>
       <dict>

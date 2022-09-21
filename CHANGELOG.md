@@ -4,11 +4,26 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog][keep a changelog] and this project adheres to [Semantic Versioning][semantic versioning].
 
+## [0.8.21] - 2022-09-20
+
+### Added
+- Implement diagnostics of the finalize function
+- 
+### Changed
+- Changed theme name from Aleo to Leo
+
+### Fixed
+- Incorrect diagnostics of address value
+- Unknown variable data type error should only be displayed for the variable, not for the expression
+- For unsigned integers, the subtraction operation is diagnosed as an error
+- Diagnostic error not found .in file when the program name does not match the folder name
+
 ## [0.8.20] - 2022-09-20
 
 ### Fixed
 - Error on unknown data type of a call chain or function call should not sound like an unknown variable
 - Diagnostic error if a global variable self.caller is used
+- Diagnostic error when a function does not return any value
 
 ## [0.8.19] - 2022-09-19
 
