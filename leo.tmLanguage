@@ -48,6 +48,10 @@
       </dict>
       <dict>
         <key>include</key>
+        <string>#import_keyword</string>
+      </dict>
+      <dict>
+        <key>include</key>
         <string>#control_keyword</string>
       </dict>
       <dict>
@@ -113,6 +117,109 @@
         <string>test.context.annotation.leo</string>
         <key>match</key>
         <string>@[a-zA-Z][a-zA-Z0-9_]*</string>
+      </dict>
+      <dict>
+        <key>comment</key>
+        <string>Record definition</string>
+        <key>begin</key>
+        <string>(?&lt;=\brecord\b)\s+\b\w+\s*\{</string>
+        <key>end</key>
+        <string>\}</string>
+        <key>patterns</key>
+        <array>
+          <dict>
+            <key>include</key>
+            <string>#circuit_attribute</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#inside_braces</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#core_types</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#integer_literal</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#built-in_core_assign</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#boolean_constant</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#control_keyword</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#storage_type_const</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#storage_type_constant</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#storage_type_public</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#storage_type_record</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#storage_type_let</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#string_literal</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#block_comment</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#line_comment</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#function_keyword</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#finalize_keyword</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#invoking_attribute</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#type_params</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#circuit_static_call</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#function_parameters</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#console_methods</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#console_methods_call</string>
+          </dict>
+        </array>
       </dict>
       <dict>
         <key>comment</key>
@@ -267,6 +374,10 @@
           </dict>
           <dict>
             <key>include</key>
+            <string>#address_literal</string>
+          </dict>
+          <dict>
+            <key>include</key>
             <string>#built-in_core_assign</string>
           </dict>
           <dict>
@@ -314,6 +425,15 @@
             <string>#console_methods_call</string>
           </dict>
         </array>
+      </dict>
+      <key>address_literal</key>
+      <dict>
+        <key>comment</key>
+        <string>Address</string>
+        <key>name</key>
+        <string>address.literal.value.leo</string>
+        <key>match</key>
+        <string>\baleo1[a-z0-9]*</string>
       </dict>
       <key>invoking_attribute</key>
       <dict>
@@ -460,6 +580,15 @@
         <string>constant.language.boolean.leo</string>
         <key>match</key>
         <string>\b(true|false)\b</string>
+      </dict>
+      <key>import_keyword</key>
+      <dict>
+        <key>comment</key>
+        <string>Import keyword</string>
+        <key>name</key>
+        <string>keyword.control.import.leo</string>
+        <key>match</key>
+        <string>\b(import)\b</string>
       </dict>
       <key>control_keyword</key>
       <dict>
@@ -685,6 +814,10 @@
           <dict>
             <key>include</key>
             <string>#integer_literal</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#address_literal</string>
           </dict>
           <dict>
             <key>include</key>

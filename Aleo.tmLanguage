@@ -112,7 +112,7 @@
         <key>name</key>
         <string>constant.arithmetic.type.aleo</string>
         <key>match</key>
-        <string>\b(field|group|scalar|u8|u16|u32|u64|u128|i8|i16|i32|i64|i128)</string>
+        <string>\b(field|group|address|scalar|u8|u16|u32|u64|u128|i8|i16|i32|i64|i128)</string>
       </dict>
       <key>integer_literal</key>
       <dict>

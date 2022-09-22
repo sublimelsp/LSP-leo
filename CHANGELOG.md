@@ -4,6 +4,16 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog][keep a changelog] and this project adheres to [Semantic Versioning][semantic versioning].
 
+## [0.8.22] - 2022-09-22
+
+### Added
+- The async keyword should be highlighted in red.- 
+- The address keyword is not highlighted in .aleo files
+
+### Fixed
+- Address type values should be highlighted in blue in .leo and .in files
+- The import keyword should be highlighted in red
+
 ## [0.8.21] - 2022-09-20
 
 ### Added
