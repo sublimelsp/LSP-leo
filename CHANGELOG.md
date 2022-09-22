@@ -4,6 +4,11 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog][keep a changelog] and this project adheres to [Semantic Versioning][semantic versioning].
 
+## [0.8.23] - 2022-09-22
+
+### Changed
+- The async keyword should be highlighted in red
+
 ## [0.8.22] - 2022-09-22
 
 ### Added
