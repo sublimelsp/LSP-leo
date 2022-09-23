@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog][keep a changelog] and this project adheres to [Semantic Versioning][semantic versioning].
 
+## [0.8.25] - 2022-09-23
+
+### Changed
+
+### Fixed
+- Address type values should be highlighted in blue in .leo and .in files
+
 ## [0.8.24] - 2022-09-22
 
 ### Fixed

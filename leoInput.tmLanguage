@@ -133,6 +133,14 @@
           </dict>
           <dict>
             <key>comment</key>
+            <string>Section definition expression address</string>
+            <key>name</key>
+            <string>section.definition.expression.address.leo.leoInput</string>
+            <key>match</key>
+            <string>\baleo1[a-z0-9]*</string>
+          </dict>
+          <dict>
+            <key>comment</key>
             <string>Section definition expression typed address value</string>
             <key>match</key>
             <string>(address)\(\w*\)</string>

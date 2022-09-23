@@ -52,6 +52,10 @@
       </dict>
       <dict>
         <key>include</key>
+        <string>#address</string>
+      </dict>
+      <dict>
+        <key>include</key>
         <string>#arithmetic_type</string>
       </dict>
       <dict>
@@ -106,6 +110,13 @@
         <string>constant.base.register.aleo</string>
         <key>match</key>
         <string>r[0-9]+</string>
+      </dict>
+      <key>address</key>
+      <dict>
+        <key>name</key>
+        <string>address.literal.value.aleo</string>
+        <key>match</key>
+        <string>\baleo1[a-z0-9]*</string>
       </dict>
       <key>arithmetic_type</key>
       <dict>
