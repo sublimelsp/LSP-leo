@@ -4,6 +4,15 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog][keep a changelog] and this project adheres to [Semantic Versioning][semantic versioning].
 
+## [0.8.26] - 2022-09-26
+
+### Added
+- Added support for address and string types for binary operations Neq and Eq
+
+### Fixed
+- Fixed diagnostics for called unary and binary operations
+- The record type should be red
+
 ## [0.8.25] - 2022-09-23
 
 ### Changed
