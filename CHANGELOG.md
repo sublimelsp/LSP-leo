@@ -4,6 +4,18 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog][keep a changelog] and this project adheres to [Semantic Versioning][semantic versioning].
 
+## [0.8.27] - 2022-09-27
+
+### Added
+- Remake import parser for new leo syntax
+- Record and circuit names are not highlighted in red if they are defined in the input file
+
+### Fixed
+- Fixed diagnostic checking for duplicates in functions
+- Incorrect diagnostic for programs without input section
+- Fixed incorrect diagnosis of valid arguments of finalize functions
+- Fixed diagnostic when loop iterator is visible outside of loop
+
 ## [0.8.26] - 2022-09-26
 
 ### Added
