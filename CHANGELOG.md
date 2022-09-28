@@ -4,6 +4,20 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog][keep a changelog] and this project adheres to [Semantic Versioning][semantic versioning].
 
+## [0.8.28] - 2022-09-28
+
+### Added
+- Diagnostics when a deprecated test function is used
+- Added yellow color highlight to leo program inside leo files
+
+### Changed
+- Unary operation .sqrt renamed to .square_root
+
+### Fixed
+- Diagnostic error if the type is not specified after the colon when defining the variable type
+- Diagnostics is incorrect if the code contains an address that does not meet the rules of the Leo grammar
+- Add error diagnostics when an invalid character is entered after the operator sign
+
 ## [0.8.27] - 2022-09-27
 
 ### Added

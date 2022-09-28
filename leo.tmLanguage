@@ -20,6 +20,10 @@
     <array>
       <dict>
         <key>include</key>
+        <string>#external_file</string>
+      </dict>
+      <dict>
+        <key>include</key>
         <string>#block_comment</string>
       </dict>
       <dict>
@@ -327,6 +331,15 @@
     </array>
     <key>repository</key>
     <dict>
+      <key>external_file</key>
+      <dict>
+        <key>name</key>
+        <string>external.file.leo</string>
+        <key>comment</key>
+        <string>Circuit staitc call</string>
+        <key>match</key>
+        <string>\b\w+\.leo</string>
+      </dict>
       <key>circuit_static_call</key>
       <dict>
         <key>comment</key>
@@ -795,6 +808,10 @@
         <string>\}</string>
         <key>patterns</key>
         <array>
+          <dict>
+            <key>include</key>
+            <string>#external_file</string>
+          </dict>
           <dict>
             <key>include</key>
             <string>#inside_braces</string>
