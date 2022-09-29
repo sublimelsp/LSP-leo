@@ -4,6 +4,15 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog][keep a changelog] and this project adheres to [Semantic Versioning][semantic versioning].
 
+## [0.8.29] - 2022-09-29
+
+### Added
+- Diagnostics for required record attributes
+- Hover for record attributes
+
+### Fixed
+- Fix diagnostics of negative values of unsigned integer type
+
 ## [0.8.28] - 2022-09-28
 
 ### Added
