@@ -4,6 +4,15 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog][keep a changelog] and this project adheres to [Semantic Versioning][semantic versioning].
 
+## [0.8.30] - 2022-09-30
+
+### Fixed
+- During diagnostics for called unary and binary operations fixed problematic callee node highlighting
+- Fix diagnostics for address comparison operations
+- Diagnostic error when the 'if' condition is Self
+- Fix error message when type of integer value in ternary expression does not match expected
+
+
 ## [0.8.29] - 2022-09-29
 
 ### Added
