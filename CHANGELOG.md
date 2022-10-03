@@ -4,6 +4,14 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog][keep a changelog] and this project adheres to [Semantic Versioning][semantic versioning].
 
+## [0.8.31] - 2022-09-30
+
+### Removed
+
+### Fixed
+- Highlighting of problematic nodes in the method call chain diagnostics
+- Fix the error message when an integer type is not explicitly defined
+
 ## [0.8.30] - 2022-09-30
 
 ### Fixed
