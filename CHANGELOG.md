@@ -4,6 +4,31 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog][keep a changelog] and this project adheres to [Semantic Versioning][semantic versioning].
 
+## [0.8.32] - 2022-10-07
+
+### Added
+- Diagnostic when there are two records with same names
+- Diagnostic when the specified function type is not found circuit/record
+- An error is not diagnosed when a variable of one type is assigned the value of a variable of another type
+- Fix diagnostics when the intermediate or final result of an expression is out of range
+
+### Changed
+- Update colors for new tokens in leo files according to https://github.com/AleoHQ/ARCs/discussions/17
+
+### Removed
+- Diagnostic "failed to create const variable"
+
+### Fixed
+- The mismatch between the names of the function parameter and the variable in the input section is not an error
+- Diagnostic error when adding scalars
+- The color of a variable is displayed incorrectly if the variable name matches the function name
+- Diagnostic error when the number of record members does not match the number of record members in the record initialization expression
+- Diagnostic error when a circuit member is missing in the circuit initialization expression
+- Diagnostic when there are two circuits with same names
+- Diagnostic error of scalar type values
+- Fix an error diagnostics when the function type is not specified
+- Diagnostic error when the number of record members does not match the number of record members in the record initialization expression
+
 ## [0.8.31] - 2022-09-30
 
 ### Removed

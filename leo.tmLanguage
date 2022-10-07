@@ -24,6 +24,10 @@
       </dict>
       <dict>
         <key>include</key>
+        <string>#program_keyword</string>
+      </dict>
+      <dict>
+        <key>include</key>
         <string>#block_comment</string>
       </dict>
       <dict>
@@ -122,212 +126,6 @@
         <key>match</key>
         <string>@[a-zA-Z][a-zA-Z0-9_]*</string>
       </dict>
-      <dict>
-        <key>comment</key>
-        <string>Record definition</string>
-        <key>begin</key>
-        <string>(?&lt;=\brecord\b)\s+\b\w+\s*\{</string>
-        <key>end</key>
-        <string>\}</string>
-        <key>patterns</key>
-        <array>
-          <dict>
-            <key>include</key>
-            <string>#circuit_attribute</string>
-          </dict>
-          <dict>
-            <key>include</key>
-            <string>#inside_braces</string>
-          </dict>
-          <dict>
-            <key>include</key>
-            <string>#core_types</string>
-          </dict>
-          <dict>
-            <key>include</key>
-            <string>#integer_literal</string>
-          </dict>
-          <dict>
-            <key>include</key>
-            <string>#built-in_core_assign</string>
-          </dict>
-          <dict>
-            <key>include</key>
-            <string>#boolean_constant</string>
-          </dict>
-          <dict>
-            <key>include</key>
-            <string>#control_keyword</string>
-          </dict>
-          <dict>
-            <key>include</key>
-            <string>#storage_type_const</string>
-          </dict>
-          <dict>
-            <key>include</key>
-            <string>#storage_type_constant</string>
-          </dict>
-          <dict>
-            <key>include</key>
-            <string>#storage_type_public</string>
-          </dict>
-          <dict>
-            <key>include</key>
-            <string>#storage_type_record</string>
-          </dict>
-          <dict>
-            <key>include</key>
-            <string>#storage_type_let</string>
-          </dict>
-          <dict>
-            <key>include</key>
-            <string>#string_literal</string>
-          </dict>
-          <dict>
-            <key>include</key>
-            <string>#block_comment</string>
-          </dict>
-          <dict>
-            <key>include</key>
-            <string>#line_comment</string>
-          </dict>
-          <dict>
-            <key>include</key>
-            <string>#function_keyword</string>
-          </dict>
-          <dict>
-            <key>include</key>
-            <string>#finalize_keyword</string>
-          </dict>
-          <dict>
-            <key>include</key>
-            <string>#invoking_attribute</string>
-          </dict>
-          <dict>
-            <key>include</key>
-            <string>#type_params</string>
-          </dict>
-          <dict>
-            <key>include</key>
-            <string>#circuit_static_call</string>
-          </dict>
-          <dict>
-            <key>include</key>
-            <string>#function_parameters</string>
-          </dict>
-          <dict>
-            <key>include</key>
-            <string>#console_methods</string>
-          </dict>
-          <dict>
-            <key>include</key>
-            <string>#console_methods_call</string>
-          </dict>
-        </array>
-      </dict>
-      <dict>
-        <key>comment</key>
-        <string>Circuit definition</string>
-        <key>begin</key>
-        <string>(?&lt;=\bcircuit\b)\s+\b\w+\s*\{</string>
-        <key>end</key>
-        <string>\}</string>
-        <key>patterns</key>
-        <array>
-          <dict>
-            <key>include</key>
-            <string>#circuit_attribute</string>
-          </dict>
-          <dict>
-            <key>include</key>
-            <string>#inside_braces</string>
-          </dict>
-          <dict>
-            <key>include</key>
-            <string>#core_types</string>
-          </dict>
-          <dict>
-            <key>include</key>
-            <string>#integer_literal</string>
-          </dict>
-          <dict>
-            <key>include</key>
-            <string>#built-in_core_assign</string>
-          </dict>
-          <dict>
-            <key>include</key>
-            <string>#boolean_constant</string>
-          </dict>
-          <dict>
-            <key>include</key>
-            <string>#control_keyword</string>
-          </dict>
-          <dict>
-            <key>include</key>
-            <string>#storage_type_const</string>
-          </dict>
-          <dict>
-            <key>include</key>
-            <string>#storage_type_constant</string>
-          </dict>
-          <dict>
-            <key>include</key>
-            <string>#storage_type_public</string>
-          </dict>
-          <dict>
-            <key>include</key>
-            <string>#storage_type_record</string>
-          </dict>
-          <dict>
-            <key>include</key>
-            <string>#storage_type_let</string>
-          </dict>
-          <dict>
-            <key>include</key>
-            <string>#string_literal</string>
-          </dict>
-          <dict>
-            <key>include</key>
-            <string>#block_comment</string>
-          </dict>
-          <dict>
-            <key>include</key>
-            <string>#line_comment</string>
-          </dict>
-          <dict>
-            <key>include</key>
-            <string>#function_keyword</string>
-          </dict>
-          <dict>
-            <key>include</key>
-            <string>#finalize_keyword</string>
-          </dict>
-          <dict>
-            <key>include</key>
-            <string>#invoking_attribute</string>
-          </dict>
-          <dict>
-            <key>include</key>
-            <string>#type_params</string>
-          </dict>
-          <dict>
-            <key>include</key>
-            <string>#circuit_static_call</string>
-          </dict>
-          <dict>
-            <key>include</key>
-            <string>#function_parameters</string>
-          </dict>
-          <dict>
-            <key>include</key>
-            <string>#console_methods</string>
-          </dict>
-          <dict>
-            <key>include</key>
-            <string>#console_methods_call</string>
-          </dict>
-        </array>
-      </dict>
     </array>
     <key>repository</key>
     <dict>
@@ -338,7 +136,7 @@
         <key>comment</key>
         <string>Circuit staitc call</string>
         <key>match</key>
-        <string>\b\w+\.leo</string>
+        <string>\b\w+\.a?leo</string>
       </dict>
       <key>circuit_static_call</key>
       <dict>
@@ -428,6 +226,110 @@
           <dict>
             <key>include</key>
             <string>#invoking_attribute</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#console_methods</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#console_methods_call</string>
+          </dict>
+        </array>
+      </dict>
+      <key>record_strucut_definition</key>
+      <dict>
+        <key>comment</key>
+        <string>Record definition</string>
+        <key>begin</key>
+        <string>(?&lt;=\b(record|struct)\b)\s+\b\w+\s*\{</string>
+        <key>end</key>
+        <string>\}</string>
+        <key>patterns</key>
+        <array>
+          <dict>
+            <key>include</key>
+            <string>#circuit_attribute</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#inside_braces</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#core_types</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#integer_literal</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#built-in_core_assign</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#boolean_constant</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#control_keyword</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#storage_type_const</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#storage_type_constant</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#storage_type_public</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#storage_type_record</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#storage_type_let</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#string_literal</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#block_comment</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#line_comment</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#function_keyword</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#finalize_keyword</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#invoking_attribute</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#type_params</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#circuit_static_call</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#function_parameters</string>
           </dict>
           <dict>
             <key>include</key>
@@ -695,6 +597,53 @@
         <key>match</key>
         <string>\b(finalize)\b</string>
       </dict>
+      <key>struct_keyword</key>
+      <dict>
+        <key>comment</key>
+        <string>Storage type struct</string>
+        <key>name</key>
+        <string>storage.type.struct.leo</string>
+        <key>match</key>
+        <string>\b(struct)\b</string>
+      </dict>
+      <key>program_keyword</key>
+      <dict>
+        <key>comment</key>
+        <string>Storage type program</string>
+        <key>name</key>
+        <string>storage.type.program.leo</string>
+        <key>match</key>
+        <string>\b(program)\b</string>
+      </dict>
+      <key>async_keyword</key>
+      <dict>
+        <key>comment</key>
+        <string>Storage type async</string>
+        <key>match</key>
+        <string>\b(async)\s+(finalize)\b\s*\(</string>
+        <key>captures</key>
+        <dict>
+          <key>1</key>
+          <dict>
+            <key>name</key>
+            <string>storage.type.async.leo</string>
+          </dict>
+          <key>2</key>
+          <dict>
+            <key>name</key>
+            <string>storage.type.finalize.call.leo</string>
+          </dict>
+        </dict>
+      </dict>
+      <key>transition_keyword</key>
+      <dict>
+        <key>comment</key>
+        <string>Storage type transition</string>
+        <key>name</key>
+        <string>storage.type.transition.leo</string>
+        <key>match</key>
+        <string>\b(transition)\b</string>
+      </dict>
       <key>core_types</key>
       <dict>
         <key>comment</key>
@@ -810,6 +759,38 @@
         <array>
           <dict>
             <key>include</key>
+            <string>#async_keyword</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#function_keyword</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#finalize_keyword</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#struct_keyword</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#program_keyword</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#transition_keyword</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#record_strucut_definition</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#storage_type_mapping</string>
+          </dict>
+          <dict>
+            <key>include</key>
             <string>#external_file</string>
           </dict>
           <dict>
@@ -883,10 +864,6 @@
           <dict>
             <key>include</key>
             <string>#console_methods_call</string>
-          </dict>
-          <dict>
-            <key>include</key>
-            <string>#circuit_call</string>
           </dict>
           <dict>
             <key>include</key>
