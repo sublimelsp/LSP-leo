@@ -2,7 +2,7 @@ import os
 import sublime, sublime_plugin
 from lsp_utils import NpmClientHandler
 from LSP.plugin.core.registry import windows
-from LSP.plugin.core.protocol import Request, Range
+from LSP.plugin.core.protocol import Request
 from LSP.plugin.core.views import range_to_region, region_to_range
 from LSP.plugin.core.typing import Any, Dict
 from LSP.plugin.core.url import view_to_uri
@@ -80,8 +80,7 @@ class SyntaxColoring():
                 highlightedRegions = []
                 for item in values:
                     lsp_range = self.server_range_to_lsp(item)
-                    sublime_range = Range.from_lsp(lsp_range)
-                    region = range_to_region(sublime_range, self.view)
+                    region = range_to_region(lsp_range, self.view)
                     selected_row = self.view.sel()
                     cursorRegion = selected_row[0]
                     scope = regularScope
