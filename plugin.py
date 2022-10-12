@@ -91,7 +91,7 @@ class SyntaxColoring():
 
                     if is_point and highlight_line:
                         cursorRange = region_to_range(self.view, cursorRegion)
-                        if sublime_range.start.row == cursorRange.start.row:
+                        if lsp_range.start.row == cursorRange.start.row:
                             scope = highlightedScope
 
                     if scope == regularScope:
