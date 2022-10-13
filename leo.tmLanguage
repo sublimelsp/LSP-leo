@@ -20,6 +20,14 @@
     <array>
       <dict>
         <key>include</key>
+        <string>#function_declaration</string>
+      </dict>
+      <dict>
+        <key>include</key>
+        <string>#special_functions_call</string>
+      </dict>
+      <dict>
+        <key>include</key>
         <string>#external_file</string>
       </dict>
       <dict>
@@ -364,6 +372,24 @@
             <string>entity.other.attribute-name</string>
           </dict>
         </dict>
+      </dict>
+      <key>function_declaration</key>
+      <dict>
+        <key>comment</key>
+        <string>Function declaration</string>
+        <key>name</key>
+        <string>function.declaration.name.leo</string>
+        <key>match</key>
+        <string>(?&lt;=\b(finalize|transition|function)\b)\s+(\w+)\s*\(</string>
+      </dict>
+      <key>special_functions_call</key>
+      <dict>
+        <key>comment</key>
+        <string>Special function call</string>
+        <key>name</key>
+        <string>special.functions.call.leo</string>
+        <key>match</key>
+        <string>\b(finalize|increment|decrement)\b\s*\(</string>
       </dict>
       <key>function_parameters</key>
       <dict>
@@ -757,6 +783,14 @@
         <string>\}</string>
         <key>patterns</key>
         <array>
+          <dict>
+            <key>include</key>
+            <string>#function_declaration</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#special_functions_call</string>
+          </dict>
           <dict>
             <key>include</key>
             <string>#async_keyword</string>

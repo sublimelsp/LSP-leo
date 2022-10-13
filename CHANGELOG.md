@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog][keep a changelog] and this project adheres to [Semantic Versioning][semantic versioning].
 
+## [0.8.35] - 2022-10-13
+
+### Added
+- Coloring to function name in declaration
+- Coloring to finalize, increment, decrement function call
+
 ## [0.8.34] - 2022-10-12
 
 ### Fixed
