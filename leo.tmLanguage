@@ -380,7 +380,7 @@
         <key>name</key>
         <string>function.declaration.name.leo</string>
         <key>match</key>
-        <string>(?&lt;=\b(finalize|transition|function)\b)\s+(\w+)\s*\(</string>
+        <string>(?&lt;=\b(finalize|transition|function)\b)\s+(\w+)\s**(?=\()</string>
       </dict>
       <key>special_functions_call</key>
       <dict>

@@ -4,6 +4,14 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog][keep a changelog] and this project adheres to [Semantic Versioning][semantic versioning].
 
+## [0.8.36] - 2022-10-14
+
+### Added
+- Implement a parse of transition function
+
+### Fixed
+- Incorrect definition of data types of parameters in transition
+
 ## [0.8.35] - 2022-10-13
 
 ### Added
