@@ -4,12 +4,22 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog][keep a changelog] and this project adheres to [Semantic Versioning][semantic versioning].
 
+## [0.8.37] - 2022-10-17
+
+### Fixed
+- Diagnostic error of field and group type values
+- Fix diagnostics of parameters passed to the function
+- The parenthesis after the increment() and decrement() function names are purple but should be white
+- Diagnostic error when calculating the integer expression
+- Diagnostics error when defining the finalize() function
+
 ## [0.8.36] - 2022-10-14
 
 ### Added
 - Implement a parse of transition function
 
 ### Fixed
+- The parenthesis after the function name is purple and should be white
 - Incorrect definition of data types of parameters in transition
 
 ## [0.8.35] - 2022-10-13
