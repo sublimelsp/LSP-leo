@@ -4,6 +4,16 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog][keep a changelog] and this project adheres to [Semantic Versioning][semantic versioning].
 
+## [0.8.38] - 2022-10-20
+
+### Added
+- Add diagnostic for incorrect program scope name
+- Add diagnostics for the deprecated keyword 'circuit'
+
+### Fixed
+- Fix diagnostic of if-else ternary statement
+- Diagnostic error of the decrement() function
+
 ## [0.8.37] - 2022-10-17
 
 ### Fixed
@@ -12,6 +22,7 @@ The format is based on [Keep a Changelog][keep a changelog] and this project adh
 - The parenthesis after the increment() and decrement() function names are purple but should be white
 - Diagnostic error when calculating the integer expression
 - Diagnostics error when defining the finalize() function
+- A valid 'not equal' statement for integers is diagnosed as an error
 
 ## [0.8.36] - 2022-10-14
 
