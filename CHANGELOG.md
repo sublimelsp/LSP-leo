@@ -4,6 +4,18 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog][keep a changelog] and this project adheres to [Semantic Versioning][semantic versioning].
 
+## [0.8.39] - 2022-10-21
+
+### Added
+- Add diagnostics when the network identifier is not `aleo`
+- Add diagnostics when there are no curly braces after the network identifier in the application scope definition
+- Add diagnostics when a standard function calls another function 
+
+### Fixed
+- Add diagnostics for the deprecated keyword 'circuit' after transition function
+- Fix diagnostics when there are no 'program' or 'import' keywords at the beginning of Leo program
+- Fix incorrect error code when there is an implicit integer value
+
 ## [0.8.38] - 2022-10-20
 
 ### Added

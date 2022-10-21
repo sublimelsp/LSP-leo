@@ -378,9 +378,22 @@
         <key>comment</key>
         <string>Function declaration</string>
         <key>name</key>
-        <string>function.declaration.name.leo</string>
+        <string>function.declaration.leo</string>
         <key>match</key>
-        <string>(?&lt;=\b(finalize|transition|function)\b)\s+(\w+)\s*(?=\()</string>
+        <string>\b(finalize|transition|function)\b\s+(\w+)\s*\(</string>
+        <key>captures</key>
+        <dict>
+          <key>1</key>
+          <dict>
+            <key>name</key>
+            <string>function.declaration.token.leo</string>
+          </dict>
+          <key>2</key>
+          <dict>
+            <key>name</key>
+            <string>function.declaration.name.leo</string>
+          </dict>
+        </dict>
       </dict>
       <key>special_functions_call</key>
       <dict>
