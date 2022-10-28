@@ -4,6 +4,18 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog][keep a changelog] and this project adheres to [Semantic Versioning][semantic versioning].
 
+## [0.8.40] - 2022-10-28
+
+### Added
+- Diagnostics on editor open event
+- Diagnostics on change active editor event
+- The error is not diagnosed if a variable is used before it is defined
+- An implicit type integer is not diagnosed as an error if it is contained in a function's return expression
+- An error is not diagnosed if the values type in the condition of the if-else statement are not specified explicitly
+
+### Fixed
+- Fix diagnostics when a variable is defined outside a transition function.
+
 ## [0.8.39] - 2022-10-21
 
 ### Added

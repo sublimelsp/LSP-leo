@@ -8,6 +8,7 @@ from LSP.plugin.core.typing import Any, Dict
 from LSP.plugin.core.url import view_to_uri
 from lsp_utils import request_handler
 from LSP.plugin import uri_to_filename
+from LSP.plugin.documents import DocumentSyncListener
 
 def plugin_loaded() -> None:
     LspLeoPlugin.setup()
@@ -126,5 +127,11 @@ class LanguageColorSchemeEventListener(sublime_plugin.ViewEventListener):
                 if lang in syntax :
                     self.view.settings().set('color_scheme', lang_color_scheme)
                     break
+
+            view_id = self.view.id()
+            listeners = list(sublime_plugin.view_event_listeners[view_id])
+            for listener in listeners:
+                if isinstance(listener, DocumentSyncListener):
+                    listener.on_post_save_async()
         except:
             print("Leo on_activated_async")

@@ -1,7 +1,7 @@
 {
   // Open "Preferences: LSP Utils Settings" from the Command Palette to customize the Node runtime.
   "command": ["${node_bin}", "${server_path}", "--stdio"],
-  "selector": "source.aleo | source.leo | source.in | source.out | source.state | source.toml",
+  "selector": "source.aleo | source.leo | source.in | source.out | source.state | source.json",
   "languages": [
     {
       "languageId": "leo",
@@ -14,11 +14,6 @@
       "syntaxes": ["Packages/LSP-leo/leoInput.tmLanguage"]
     },
     {
-      "languageId": "leoToml",
-      "scopes": ["source.toml"],
-      "syntaxes": ["Packages/LSP-leo/leoToml.tmLanguage"]
-    },
-    {
       "languageId": "aleo",
       "scopes": ["source.aleo"],
       "syntaxes": ["Packages/LSP-leo/Aleo.tmLanguage"]
@@ -27,7 +22,7 @@
   "initializationOptions": {},
   "settings": {},
   "file_watcher": {
-    "pattern": "{**/*.aleo,**/*.leo,**/*.in,**/*.state,**/*.out,**/*.toml}",
+    "pattern": "{**/*.aleo,**/*.leo,**/*.in,**/*.state,**/*.out,**/*.json}",
     "events": ["create", "change", "delete"],
     "ignores": []
   }
