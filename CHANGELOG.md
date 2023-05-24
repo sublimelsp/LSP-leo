@@ -4,6 +4,429 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog][keep a changelog] and this project adheres to [Semantic Versioning][semantic versioning].
 
+## [0.17.0] - 2023-05-24
+
+### Added
+- Implement diagnostics when an identifier is missing from the finalize function
+- Implement diagnostics when a standard function definition is missing its identifier
+- Implement diagnostics when there is an impossible negative type
+- Add missing diagnostic for [ETYC0372060] error
+- An error is not diagnosed if there are no semicolons at the end of the expressions
+- Implement diagnostics when an unknown variable is a function input
+- Implement diagnostics when both commas and semicolons are used to declare record member variables
+- Add diagnostics if there is a colon instead the struct member type
+- Add missing diagnostic for `"` before `}`
+
+### Fixed
+- Fix incorrect underlining of error [ETYC0372003]
+- Fix error message [ETYC0372012]
+- Fix diagnostic message when there is an unsigned negative value with spaces
+- Fix incorrect shift expression diagnostic
+- Remove a duplicate of error message for duplicate variables
+- Remove incorrect diagnostic for maximum number of mappings
+- Remove diagnostic with required gates in record
+- Fix an error underline and an error message if a key type is missing in the mapping statement
+- Fix diagnostics if a value type is missing in the mapping statement
+- Fix diagnostics if the struct type is not found but the struct member is called
+- Fix diagnostics when inputs types of BHP and Pedersen functions are unexpected
+- Fix diagnostics when a struct has 'owner' or/and 'gates' variables
+- Fix diagnostics if there is an unexpected symbol or keyword instead of a struct or record identifier 
+- Fix diagnostics when both commas and semicolons are used to declare structure member variables
+- Fix diagnostics if there is an unexpected symbol or keyword instead of a struct or record identifier
+- Fix diagnostics if there is an unexpected symbol or keyword instead of a mapping identifier
+- Remove duplicate error message if a keyword is a structure member identifier
+- Fix underline of [ETYC0372031] error if a function has an empty `finalize` block
+- Remove duplicate of [EPAR0370009] error message if a keyword is a structure identifier
+
+## [0.16.0] - 2023-04-28
+
+### Added
+- Implement diagnostics when function and argument of other function have the same name 
+- Implement diagnostics when a finalize name does not match a function name
+- Implement diagnostics when a helper or inline functions have a finalize function
+- Implement diagnostics when a function doesn't contain a 'finalize' statement
+- Implement diagnostics when transition number exceeds the maximum
+- Implement diagnostics if there is an unexpected string in the for statement
+- Implement diagnostics when the tuple index is negative value
+- Implement diagnostics when the tuple definition statement does not contain tuple members
+- Implement diagnostics if a type of the increment/decrement parameters is not an expected
+- Implement diagnostics when a finalize block parameter is a constant or private
+- Implement diagnostics if there are unicode bidi override code points in the comments of Leo program
+- Implement diagnostics when a finalize block takes a tuple as input
+- Implement diagnostics when an output from a finalize block is private
+- Implement diagnostics when in a for statement there are literals of scalar, group, field, address, or boolean types
+- Implement diagnostics when arguments of BHP, Pedersen, and Poseidon static methods are unknown variables
+- Implement diagnostics if a colon is missing after the struct member identifier
+- Implement diagnostics when a keyword is used as an identifier of mapping, function, struct, transition
+- Implement diagnostics if a deprecated increment/decrement function is used
+- Implement diagnostics when a function returns a tuple, whose members have a constant mode
+- Add diagnostics when there is an invalid core function call in tuple element access syntax
+- Implement diagnostics if a colon is missing after the struct member identifier
+- Add diagnostic for division not supported for scalar types.
+- Add diagnostic for cyclic dependency between structs
+- Add diagnostic for `const` word in input files.
+- Add diagnostic for redundant modes in input files
+- Add diagnostic for multiple modes in input files
+- Add diagnostic for incorrect section definition in input files
+- Add diagnostic for `?` symbol in annotations arguments
+- Add diagnostics for checking types between values in boolean operations
+- Add missing diagnostic for incorrect syntax of access mapping value with `[]`
+- Implement diagnostics when a record is a mapping's key or value
+- Implement diagnostics when inline functions have modes associated with their inputs.
+- Implement diagnostics when a member of a structure has a value of type "string"
+- Fix diagnostics when the transition parameter type is defined as 'string'
+- Implement diagnostics if function type is "string"
+- Implement diagnostics if the value mapping type is 'string'
+- Add diagnostics when an invalid static methods of the Mapping class are called
+- Add diagnostic for hex numbers
+- Add diagnostic for `'}` symbol combination
+- Implement diagnostics if an inputs type of the Mapping functions is not as expected
+
+### Fixed
+- Fix error message when a `function` keyword is used as an identifier of mapping, function, struct, inline, or transition
+- Implement diagnostics if there are increment/decrement statements inside a transition, function, or inline
+- Fix diagnostics when a transition parameter has a private mode
+- Fix error message [ETYC0372027]
+- Remove redundant diagnostics error when there is an annotation @program in a program scope
+- Remove the sub() method from autocomplete dropdown for scalar type
+- Add diagnostics for all structs from cyclic dependency
+- Fix quotes in error message [ETYC0372003]
+- Fix diagnostics when there is a subtraction operator in the comparison operator
+- Fix diagnostics when a scalar is multiplied by a group in a comparison operator
+- Fix quotes in error message [ETYC0372047] and [ETYC0372066]
+- Fix diagnostics when a function is called that is defined multiple times with the same name
+- Fix quotes in error message [ETYC0372013]
+- Fix diagnostics error when a identifier of the transition or function parameter is "const"
+- Fix diagnostics if there is a whitespace between the `@` symbol and the annotation identifier
+- Diagnostics error when a tuple index out of range
+- Fix quotes and bool to boolean in the error message [ETYC0372003]
+- The Leo Language Server crashes when trying to parse a broken struct/record
+- Fix diagnostics if in the program there are symbols that are not used or prohibited in the Leo language
+- Missing diagnostics Could not determine the type of
+- Remove incorrect diagnostic for arithmetic operations with boolean comparison
+- Fix incorrect diagnostic message and underline for incorrect syntax with mut keyword.
+- Fix diagnostics if there is no semicolon before or after the return statement
+- Fix diagnostics when there are structs/records with the same name
+- Remove redundant diagnostics errors when a semicolon is missed after the expression
+- Fix diagnostics when a tuple member is called from a variable of another type
+- Fix incorrect underline of the error when a struct member type is defined as `string`
+- Fix diagnostics when a tuple expression contains another tuple expression that is typed implicitly
+- Fix incorrect underline of the error [ETYC0372054]
+- Fix diagnostics when a structure/record member's type is undefined or incorrect
+- Fix diagnostics when a struct member is called from a non-struct
+- Remove redundant diagnostic errors when a program contains structures with the same name and different parameters
+- Fix a diagnostics of error [ETYC0372042] when a finalize function arguments are undefined
+- Fix incorrect the error underlining when a struct initialization expression is missing a member
+- Add diagnostics if a nested tuple has several members whose types don`t match the defined
+- Diagnostics error when there are white spaces between terms 'minus' and 'field' or 'group'
+- Fix diagnostics when the deprecated `async finalize` construct is used in a transition function
+- Fix diagnostics when arguments of transitions/functions/inlines are unknown variables
+- Fix bool to boolean in all error messages [ETYC0372003]
+- Fix incorrect underline of the error when a finalize block is empty
+- Fix incorrect diagnostic underline for function empty return with record return statement
+- Fix incorrect underlining of error when there is an unexpected space between a number and the terms `field` or `group`
+- Fix diagnostics when a record variable type does not match the defined one
+- Remove duplicate errors [ETYC0372005] when passing an unknown variable to a functions
+- Fix diagnostics when a function returns a tuple, whose members have a private mode
+- Fix diagnostics when there is an exponentiation expression in the comparison operator
+- Fix diagnostics when a function returns a tuple, whose members have a constant mode
+- Update diagnostic messages for Pedersen `hash` function
+- Fix diagnostics if the number of function inputs does not exceed sixteen
+- Update diagnostic message when the number of transitions exceeds the maximum
+- Fix diagnostic of type of required record field "gate"
+- Fix incorrect diagnostic message for `'` symbol
+- Diagnostics errors when static methods of the Mapping class are used
+- Fix diagnostics for mapping type associated methods
+- Fix an error code in a statement declaration when the right-hand side is an expression with associated functions
+
+## [0.15.0] - 2023-03-22
+
+### Added
+- Implement diagnostics if an invalid type is specified when defining a variable or any structure
+- Implement diagnostics if the gates keyword is a struct identifier
+- Implement diagnostics when a standard function has a finalize block
+- Implement diagnostics when cyclic dependency of helper and inline functions
+- Implement diagnostics if a helper function outputs a record
+- Add diagnostics for mapping arguments in increment function
+- Add diagnostic for use `finalize` after `function`
+- Add diagnostics for struct or record inside record
+- Add diagnostic for `self.` with unknown property
+- Add diagnostic for shadow mapping name by function name
+
+### Fixed
+- Diagnostics error if there are several functions with the same name
+- Fix quotes and underline coordinates in error message [ETYC0372003]
+- Fix incorrect underline in diagnostic of undefined function
+- Fix diagnostics when a function parameter type is undefined
+- An error is incorrectly highlighted when the structure member type is not found in the current scope
+- Fix quotes and bool to boolean in the error message ETYC0372003
+- Diagnostic error when the function returns a unit expression
+- Fix diagnostics when a tuple expression or tuple type has one element
+- Fix quotes in error message ETYC0372013
+- Fix incorrect diagnostic underline for expected `,` in arguments
+- Fix incorrect underline in diagnostic where function must return value
+- Fix incorrect underline in diagnostics when type not found in current scope
+- Fix incorrect underline in diagnostic for `finalize` expression without finalize block
+- Fix incorrect underline in diagnostic for `finalize` expression arguments check
+- Fix incorrect underline in diagnostic when function argument type not found
+- Fix incorrect underline in diagnostic when group tuple expression forbidden has white space
+- Incorrect underline in diagnostic for unreachable statement
+- Add diagnostics for strings in if statement and fix underline for error in definition
+- Fix incorrect underline on diagnostic for not found type in statement declaration
+- Fix diagnostics when defining a variable of type record if the record variables are defined with mode
+- Fix diagnostics when struct members have `private`, `public`, or `constant` mode
+- Fix diagnostics of variable types in inline function
+- Extra spaces in error messages [ETYC0372003], [ETYC0372006] and [ETYC0372007]
+- Fix diagnostics when a comparison operator contains another comparison operator with a negative variable
+- Fix error message [ETYC0372021]
+- Fix diagnostics when Pedersen methods contain unsupported types
+- Implement diagnostics when cyclic dependency of helper and inline functions
+- Fix diagnostics when an application scope contains an unexpected character instead of the keywords "inline", "function", "transition" and so on
+- Fixed incorrect parsing structs with an error
+- Fixed incorrect autocomplete dropdown if the cursor is positioned to the left of the semicolon
+- Fix Leo Language Server errors caused by the rem operator
+- Diagnostic errors, if in the process of calculating expressions after the division operation, the intermediate result is less than one
+- The autocomplete list should not freeze with the title "Loading..." 
+- Fix diagnostics if an output from a finalize block is defined as constant
+- Fix diagnostics if inputs to a finalize block are defined as constant
+- Implement diagnostics if a `finalize` name does not match a transition name
+- Implement diagnostics if a transition function does not contain a `finalize` statement
+
+## [0.14.0] - 2023-03-08
+
+### Added
+- Implement diagnostics when the type of the exponent is not field when exponentiating a variable of type field
+- Implement diagnostics when a variable type is not specified after the colon in the condition of the for statement
+- Implement diagnostics when a struct has members with 'constant', 'private', or 'public' modes
+- Implement diagnostics when tuple type or tuple expression contain another tuple
+- Implement diagnostics when cyclic dependency of struct
+- Implement diagnostics when a struct member type is a record
+- Implement diagnostics when a transition function calls other transition functions
+- Implement diagnostics if a colon is missing after the struct member identifier
+- Implement diagnostics when integer values ​​are out of range in comparison operations
+
+### Fixed
+- Fix diagnostics of conditional OR operator
+- Implement diagnostics when the type of the second member of the pow operator does not match the expected types
+- Fix the error code when the record is defined with more than one variable with the same name
+- Fix the error message when the struct is defined with more than one member with the same name
+- Fix diagnostics when a helper function calls itself
+- Fix diagnostics of conditional AND operator
+- Fix diagnostics when a transition, function, structure, or record does not have an identifier
+- Fix autocomplete of Core Unary and Binary methods
+
+## [0.13.0] - 2023-02-28
+
+### Added
+- Implement diagnostics when the type of the exponent is not field when exponentiation a variable of type field
+- Implement diagnostics when a variable type is not specified after the colon in the condition of the for statement
+
+### Fixed
+- Fix autocomplete dropdown in the transition scope so that variables, parameters, assert operators, helper functions, inline functions, etc. are present
+
+## [0.12.0] - 2023-02-24
+
+### Added
+- The error is not diagnosed when the variable defined in the condition of the for statement is defined again
+- The error is not diagnosed if the types of integer in the functions arguments are not defined explicitly
+- Implement diagnostics when transition returns an unknown variable
+- Implement diagnostics when there is  an unknown variable in the if-else statement condition
+- Implement diagnostics when a comment block is not closed
+- Implement diagnostics when struct contains a tuple
+- Implement diagnostics when a variable name starts with a number
+- Implement diagnostics when standard function and variable have the same name
+- Implement diagnostics when inputs number does not match number of transition parameters
+- Implement diagnostics when instead of a struct parameter we have a keyword
+- Implement diagnostics if there is an implicit integer value in the arithmetic expression
+- Add diagnostics when the type of inputs does not match type of arguments of transition function
+- Implement diagnostics when a standard function has no inputs
+- Implement diagnostics when "mapping" contains a types that are not defined in the current scope
+- Implement diagnostics when a type of input does not match a type of transition argument, regardless of the input's name
+- Implement diagnostics when a struct member is an assignment target
+- Implement diagnostics if a mapping key is a tuple
+- Implement diagnostics when a function and its argument have the same name
+- Implement diagnostics if there is an expression instead of an identifier when defining a variable
+- Implement diagnostics when a tuple member is an assignment target  
+- Implement diagnostics when a function takes a tuple as input
+- Implement diagnostics when the type of a number power is not as expected
+- Implement diagnostics when integer values ​​are out of range in Leo methods
+- Implement diagnostics when a transition return a tuple
+- Implement diagnostics when the variable type is defined as a tuple with one member
+- Implement diagnostics when there is an expression with data of different types and a variable with a minus sign
+- Implement diagnostics if an expression result that contains a Shift statement is out of range
+- Implement diagnostics when the tuple member type is not as expected
+- Implement types diagnostics for shift left and shift right operators
+
+### Changed
+- Change the word circuit to the word struct in all error messages
+- Changed the Record and Struct data type details in the data type autocomplete dropdown
+
+### Removed
+- Remove redundant diagnostic errors when the program ends with an unexpected eof
+- Remove redundant diagnostic errors when the program contains non-Latin letters or emoji
+- Remove a redundant diagnostic error when at least one member of an expression is out of range
+
+### Fixed
+- Add error diagnostics and fix error highlighting when variable type is defined as string, which is not yet supported
+- Fix diagnostics when trying to assign a new value to a constant
+- Fix diagnostics error code when there is constant parameter in the standard function
+- Remove redundant diagnostic error when an unknown variable is used to create a record
+- Fix diagnostics when a transition whose type is not defined returns a value
+- Diagnostic error when functions return empty braces ()
+- Fix diagnostics when the type of the function parameter and the type of the value passed to the function do not match
+- Fix diagnostics when transition parameters have a same names
+- Fix error code when deprecated data type circuit is defined
+- Fix and implement diagnostics when instead of a variable identifier we have a keyword
+- Diagnostics error when a transition returns a value in parentheses and also has a type in parentheses
+- Fix error code when called function doesn't associate with variable type
+- Remove a 'SnarkVM' string from the diagnostics error messages
+- Remove duplicates of error messages
+- Handling the case of no transition/struct in the cache when diagnosing a transition_declaration/struct_declaration node
+- Diagnostic error when the first argument of the BHP commit function is a struct
+- Fix diagnostics when the program contains non-Latin letters or emoji
+- The Leo Language server crashes if an input type is undefined
+- Fix diagnostics when the type of an integer value is defined incorrectly
+- Diagnostic error when self.caller is used in a finalize function comparison statement
+- Diagnostics error when comparing struct
+- Diagnostics error when accessing a variable, if the identifier of this variable is enclosed in quotation marks when defining it
+- Fixed: Implement diagnostics when a tuple member is an assignment target
+- Fixed diagnostics related to unexpected EOF
+- Diagnostic errors when the expression contains a power of a number
+- Fix highlighting of the error [ETYC0372003] for unary operators
+- Diagnostic errors when variable names match type names
+- Fix diagnostics when the transition type is a tuple with a public member but the type of that tuple member is not specified.
+- The unary and binary operators should be fully highlighted when error [ETYC0372007] occurs
+- Implement diagnostics when an integer value in the Shift statement is out of range
+- Diagnostic error when in the Shift Statement a type of a right-hand side does not match a type of a left-hand side
+- Fix autocomplete dropdown in the program area for the new Leo syntax
+- Fix and add diagnostics when unit expressions are used in expressions of the Leo program
+- Fix autocomplete dropdown menu of the data types
+- Added finalize definition to autocomplete dropdown in the program area
+- Fix diagnostics error when a tuple is assigned to a variable that is not defined as a tuple
+- Diagnostics error when you call an inline function
+- Fix diagnostics when assignment statement has no expression at the right-hand side
+- Fix diagnostics when the type of the first member of the pow statement is a field
+- - [lsp] Fix diagnostics when a record has members with 'constant', 'private', or 'public' modes
+
+## [0.11.0] - 2022-12-26
+
+### Added
+- Implement diagnostics when a variable type in for statement condition is a tuple, struct, field, group or scalar
+- An error is not diagnosed if the values type in the condition of the for statement are not specified explicitly
+- Diagnostics does not define the tuple member type
+- Add diagnostics when instead of the program identifier we have a keyword
+- Change the word circuit to the word struct in all error messages
+
+### Fixed
+- Remove redundant diagnostic error when an extra member is used for initialization of struct
+- Fix diagnostic error message when expected tuple length does not match tuple length in tuple definition expression
+- Remove redundant diagnostic error when a transition returns a ternary if else statement with types that do not match the transition type
+- Diagnostics is not correctly if the left operand in the bitwise shift operator has an unexpected type
+- Diagnostics error when the spaces number between the minus sign and an unsigned integer is greater than one
+
+## [0.10.2] - 2022-12-13
+
+### Changed
+
+## [0.10.1] - 2022-12-13
+
+### Added
+- Diagnostics for console keyword.
+
+### Changed
+- Color for assert, assert_eq, assert_neq functions.
+
+## [0.10.0] - 2022-12-13
+
+### Added
+- Implement diagnostics when a loop bound is a variable
+- Implement diagnostics when there is an unknown variable in the condition of the for statement
+- Implement diagnostics when a variable type in the condition of the for statement is not defined
+- Implement diagnostics when there is an unknown annotation
+- Implement autocomplete for Leo language
+- Implement diagnostics when there are spaces between a minus sign and unsigned integer
+
+### Fixed
+- Fix a diagnostics when a struct and function have the same name
+- Fix error message when a tuple member type does not match with expected in the definition statement
+- Fix diagnostic errors when the identifier of struct parameter is preceded by a special symbol or number
+
+## [0.9.0] - 2022-12-07
+
+### Added
+- Implement parser and cache for aleo files
+- Added feature to execute certain Leo transition function on the playground
+- Implement go to definition for aleo
+- Added diagnostics when a return statement is missing from the finalize function
+- Implement diagnostics when the finalize block is empty
+- Implement diagnostics of unsupported strings
+- Implement diagnostics when transition function has a constant inputs
+- Implement diagnostics when the finalize statement is not preceded by the async keyword
+- Implement diagnostics when the number of finalize arguments is not as expected
+- Error is not diagnosed if there are several programs with the same name in a Leo file
+- Implement diagnostics of duplicated structs and records
+- Implement a diagnostic if there is no colon after the identifier of the variable being defined
+- Implement diagnostics when a record member type is a tuple
+- Diagnostics for deprecated async finalize.
+- Implement hover for aleo.
+- Implement diagnostics when a struct or record contains another record
+- Implement diagnostics when two record variables with the same names are defined
+- Implement diagnostics when a variable name starts with a number
+- Implement diagnostics when the type of the transition function parameter is undefined
+- Implement diagnostics when the struct parameters values are implicit and undefined
+- Implement diagnostics when a struct member has an unknown type 
+- Implement diagnostics when a struct and a variable inside of transition function have the same name
+- Implement diagnostics when there is unknown type in definition
+
+### Changed
+
+### Fixed
+- Diagnostic error if the return statement has no value or invalid string
+- The problem with different colors of syntax highlighting
+- An error is not diagnosed when the function returns unsupported comparisons ">", "<", ">=", "<=" for address types
+- Error message and target node when a function has no return statement
+- An errors are not diagnosed when the function returns unsupported comparisons ">", "<", ">=", "<=" for group types
+- Diagnostic error when instead of a variable identifier we have a keyword
+- Remove invalid diagnostic error "Identifier can not be protected name"
+- Fix error message when a standard function has a public argument
+- Fix diagnostics message when the number of transition function arguments is not as expected
+- Diagnostic error when there is not allowed access to 'self'
+- Fix diagnostics if curly bracket of the program scope is missing
+- Diagnostic error if string "input" is a variable name
+- Fix diagnostics if a transition/finalize/helper functions type is defined as a constant
+- Diagnostic error when adding variables of 'group' type
+- Diagnostic error when multiplying group and scalar variables
+- Fix diagnostics if a transition/finalize/helper functions type is defined as a reserved keyword
+- Diagnostic error when logic operation between scalar types
+- Diagnostic error when transition/finalize/helper functions return a public value
+- Shadowed by diagnostic coordinates and message code
+- Diagnostics for invalid assignment target
+- Diagnostic error if transition/helper functions have an invalid type
+- Fix an error message if the type of record members is not as expected
+- Fix diagnostics when transition/helper functions have the same name
+- Fix an error message when record initialization is missing member owner or gates
+- Fix diagnostic when function argument type is not defined
+- Fix diagnostic when there is a space instead of a struct/record field
+- Remove the redundant error message when transition/helper functions type is declared as public but the type itself does not exist
+- Diagnostic error when defining the tuple type of a transition function/helper function/variable if there is no closing parenthesis
+- Fix diagnostic error message when called function not found
+- Fix diagnostic when transition/helper functions type is declared as public but the type itself does
+- Fix diagnostic when the type of the second transition/helper function argument is not defined
+- Fix the error code when the next statement cannot be reached
+- Fix the error code when a loop body contains a return statement
+- Diagnostic error if the right-hand side of the logical statement is an arithmetic expression or a value with a minus sign
+- Diagnostics error when a transition function returns a ternary if-else statement
+- Diagnostics error when there is any invalid string with a semicolon at the end
+- Diagnostics error when instead of a transition type there is a string with numbers at the beginning or with special characters anywhere
+- Fix the error code when there are two program scopes in a Leo file
+- Diagnostics error when checking the statement_assign, it is not possible to find transition/helper function that contains it
+- Fix error message when an instance of a non-existent struct is defined
+- Fix error message when a non-existent struct member is called
+- Fix error code when a struct contains a record
+- Fix error code when a struct defined with more than one member with the same name
+- Fix an issue with determining the type of a tuple member
+- Diagnostic error when the transition function does not contain a return statement but returns an empty tuple
+
 ## [0.8.40] - 2022-10-28
 
 ### Added
@@ -591,7 +1014,7 @@ The format is based on [Keep a Changelog][keep a changelog] and this project adh
 ### Changed
 
 - Bugs url in market.
-- Aleo Studio theme.
+- Aleo theme.
 
 ---
 

@@ -7,7 +7,6 @@ Aleo programs are files with a .aleo extension. Aleo programs contain Aleo instr
 https://developer.aleo.org/overview/
 
 Leo support for Sublime's LSP plugin provided through language-server.
-Full-featured IDE with the compiler, package manager, and other helpful tools is here [Aleo Studio](https://aleo.studio/).
 
 ### Installation
 

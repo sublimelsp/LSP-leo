@@ -24,10 +24,6 @@
     <array>
       <dict>
         <key>include</key>
-        <string>#table</string>
-      </dict>
-      <dict>
-        <key>include</key>
         <string>#section</string>
       </dict>
       <dict>
@@ -173,7 +169,7 @@
             <key>name</key>
             <string>section.definition.type.leo.leoInput</string>
             <key>match</key>
-            <string>\b(field|group|bool|address|u8|u16|u32|u64|u128|i8|i16|i32|i64|i128)\b</string>
+            <string>\b(string|field|group|bool|address|u8|u16|u32|u64|u128|i8|i16|i32|i64|i128)\b</string>
           </dict>
           <dict>
             <key>comment</key>
@@ -208,46 +204,6 @@
             <string>\b(public)\b</string>
           </dict>
         </array>
-      </dict>
-      <key>table</key>
-      <dict>
-        <key>comment</key>
-        <string>Table</string>
-        <key>name</key>
-        <string>table.leo.leoInput</string>
-        <key>patterns</key>
-        <array>
-          <dict>
-            <key>include</key>
-            <string>#visibility</string>
-          </dict>
-          <dict>
-            <key>include</key>
-            <string>#section</string>
-          </dict>
-          <dict>
-            <key>include</key>
-            <string>#comments</string>
-          </dict>
-        </array>
-        <key>repository</key>
-        <dict>
-          <key>visibility</key>
-          <dict>
-            <key>comment</key>
-            <string>Table visibility</string>
-            <key>match</key>
-            <string>\[\[\b(\w+)\b\]\]</string>
-            <key>captures</key>
-            <dict>
-              <key>1</key>
-              <dict>
-                <key>name</key>
-                <string>table.visibility.leo.leoInput</string>
-              </dict>
-            </dict>
-          </dict>
-        </dict>
       </dict>
     </dict>
   </dict>

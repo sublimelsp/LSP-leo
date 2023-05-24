@@ -48,10 +48,6 @@
       </dict>
       <dict>
         <key>include</key>
-        <string>#core_types</string>
-      </dict>
-      <dict>
-        <key>include</key>
         <string>#integer_literal</string>
       </dict>
       <dict>
@@ -84,6 +80,10 @@
       </dict>
       <dict>
         <key>include</key>
+        <string>#storage_type_private</string>
+      </dict>
+      <dict>
+        <key>include</key>
         <string>#storage_type_record</string>
       </dict>
       <dict>
@@ -93,18 +93,6 @@
       <dict>
         <key>include</key>
         <string>#storage_type_mapping</string>
-      </dict>
-      <dict>
-        <key>include</key>
-        <string>#circuit_keyword</string>
-      </dict>
-      <dict>
-        <key>include</key>
-        <string>#function_keyword</string>
-      </dict>
-      <dict>
-        <key>include</key>
-        <string>#finalize_keyword</string>
       </dict>
       <dict>
         <key>include</key>
@@ -121,18 +109,6 @@
       <dict>
         <key>include</key>
         <string>#console_methods</string>
-      </dict>
-      <dict>
-        <key>include</key>
-        <string>#console_methods_call</string>
-      </dict>
-      <dict>
-        <key>comment</key>
-        <string>Test Context Annotation</string>
-        <key>name</key>
-        <string>test.context.annotation.leo</string>
-        <key>match</key>
-        <string>@[a-zA-Z][a-zA-Z0-9_]*</string>
       </dict>
     </array>
     <key>repository</key>
@@ -221,6 +197,10 @@
           </dict>
           <dict>
             <key>include</key>
+            <string>#storage_type_private</string>
+          </dict>
+          <dict>
+            <key>include</key>
             <string>#storage_type_record</string>
           </dict>
           <dict>
@@ -239,10 +219,6 @@
             <key>include</key>
             <string>#console_methods</string>
           </dict>
-          <dict>
-            <key>include</key>
-            <string>#console_methods_call</string>
-          </dict>
         </array>
       </dict>
       <key>record_strucut_definition</key>
@@ -250,7 +226,7 @@
         <key>comment</key>
         <string>Record definition</string>
         <key>begin</key>
-        <string>(?&lt;=\b(record|struct)\b)\s+\b\w+\s*\{</string>
+        <string>(?:(?&lt;=\brecord\b)|(?&lt;=\bstruct\b))\s+\b\w+\b\s*\{</string>
         <key>end</key>
         <string>\}</string>
         <key>patterns</key>
@@ -297,7 +273,7 @@
           </dict>
           <dict>
             <key>include</key>
-            <string>#storage_type_record</string>
+            <string>#storage_type_private</string>
           </dict>
           <dict>
             <key>include</key>
@@ -314,14 +290,6 @@
           <dict>
             <key>include</key>
             <string>#line_comment</string>
-          </dict>
-          <dict>
-            <key>include</key>
-            <string>#function_keyword</string>
-          </dict>
-          <dict>
-            <key>include</key>
-            <string>#finalize_keyword</string>
           </dict>
           <dict>
             <key>include</key>
@@ -342,10 +310,6 @@
           <dict>
             <key>include</key>
             <string>#console_methods</string>
-          </dict>
-          <dict>
-            <key>include</key>
-            <string>#console_methods_call</string>
           </dict>
         </array>
       </dict>
@@ -369,7 +333,7 @@
           <key>1</key>
           <dict>
             <key>name</key>
-            <string>entity.other.attribute-name</string>
+            <string>entity.other.attribute.name</string>
           </dict>
         </dict>
       </dict>
@@ -380,7 +344,7 @@
         <key>name</key>
         <string>function.declaration.leo</string>
         <key>match</key>
-        <string>\b(finalize|transition|function)\b\s+(\w+)\s*\(</string>
+        <string>(?:(?&lt;=\bfinalize\b)|(?&lt;=\btransition\b)|(?&lt;=\bfunction\b)|(?&lt;=\binline\b))\s+(\w+)\s*\(</string>
         <key>captures</key>
         <dict>
           <key>1</key>
@@ -402,14 +366,14 @@
         <key>name</key>
         <string>special.functions.call.leo</string>
         <key>match</key>
-        <string>\b(finalize|increment|decrement)\b\s*(?=\()</string>
+        <string>\b(finalize|increment|decrement)\b\s*\(.*\)(?!\s*{)</string>
       </dict>
       <key>function_parameters</key>
       <dict>
         <key>comment</key>
         <string>Function parameters</string>
         <key>begin</key>
-        <string>(?&lt;=\bfunction\b)\s+\w+\s*\(</string>
+        <string>(?:(?&lt;=function)|(?&lt;=finalize)|(?&lt;=transition)|(?&lt;=inline))\s+\w+\s*\(</string>
         <key>end</key>
         <string>\)</string>
         <key>patterns</key>
@@ -441,6 +405,10 @@
           <dict>
             <key>include</key>
             <string>#storage_type_public</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#storage_type_private</string>
           </dict>
           <dict>
             <key>include</key>
@@ -482,7 +450,7 @@
           <key>1</key>
           <dict>
             <key>name</key>
-            <string>entity.other.attribute-name</string>
+            <string>entity.other.attribute.name</string>
           </dict>
         </dict>
       </dict>
@@ -524,7 +492,7 @@
         <key>name</key>
         <string>storage.type.assign.leo</string>
         <key>match</key>
-        <string>\b((([0-9]*)(group|field|scalar)))</string>
+        <string>\b((([0-9]+)(group|field|scalar)))</string>
       </dict>
       <key>boolean_constant</key>
       <dict>
@@ -597,6 +565,15 @@
         <string>storage.type.public.leo</string>
         <key>match</key>
         <string>\b(public)\b</string>
+      </dict>
+      <key>storage_type_private</key>
+      <dict>
+        <key>comment</key>
+        <string>Storage type private</string>
+        <key>name</key>
+        <string>storage.type.private.leo</string>
+        <key>match</key>
+        <string>\b(private)\b</string>
       </dict>
       <key>storage_type_record</key>
       <dict>
@@ -683,6 +660,15 @@
         <key>match</key>
         <string>\b(transition)\b</string>
       </dict>
+      <key>inline_keyword</key>
+      <dict>
+        <key>comment</key>
+        <string>Storage type inline</string>
+        <key>name</key>
+        <string>storage.type.inline.leo</string>
+        <key>match</key>
+        <string>\b(inline)\b</string>
+      </dict>
       <key>core_types</key>
       <dict>
         <key>comment</key>
@@ -692,42 +678,82 @@
         <key>match</key>
         <string>\b(bool|field|scalar|u8|u16|u32|u64|u128|i8|i16|i32|i64|i128|string|address|group|integer)\b</string>
       </dict>
-      <key>circuit_keyword</key>
+      <key>variable_declaration</key>
       <dict>
         <key>comment</key>
-        <string>Storage type circuit</string>
-        <key>name</key>
-        <string>storage.type.circuit.leo</string>
-        <key>match</key>
-        <string>\b(circuit)\b</string>
+        <string>Variable declaration</string>
+        <key>begin</key>
+        <string>(?:(?&lt;=\blet\b)|(?&lt;=\bconst\b))\s*\w+\s*\:s*</string>
+        <key>end</key>
+        <string>\=</string>
+        <key>patterns</key>
+        <array>
+          <dict>
+            <key>include</key>
+            <string>#core_types</string>
+          </dict>
+        </array>
+      </dict>
+      <key>mapping_declaration</key>
+      <dict>
+        <key>comment</key>
+        <string>Mapping declaration</string>
+        <key>begin</key>
+        <string>(?&lt;=\bmapping\b)\s+\w+\:s*</string>
+        <key>end</key>
+        <string>$</string>
+        <key>patterns</key>
+        <array>
+          <dict>
+            <key>include</key>
+            <string>#core_types</string>
+          </dict>
+        </array>
+      </dict>
+      <key>return_type</key>
+      <dict>
+        <key>comment</key>
+        <string>Return type</string>
+        <key>begin</key>
+        <string>(?&lt;=-&gt;)</string>
+        <key>end</key>
+        <string>(?={)</string>
+        <key>patterns</key>
+        <array>
+          <dict>
+            <key>include</key>
+            <string>#core_types</string>
+          </dict>
+        </array>
+      </dict>
+      <key>statement_for_iterator_type</key>
+      <dict>
+        <key>comment</key>
+        <string>Statement for iterator type</string>
+        <key>begin</key>
+        <string>(?&lt;=for)\s*\w+:\s*</string>
+        <key>end</key>
+        <string>(?=in)</string>
+        <key>patterns</key>
+        <array>
+          <dict>
+            <key>include</key>
+            <string>#core_types</string>
+          </dict>
+        </array>
       </dict>
       <key>console_methods</key>
       <dict>
         <key>comment</key>
         <string>Console methods</string>
         <key>match</key>
-        <string>console\.\b(assert|assert_eq|assert_neq)\b</string>
+        <string>\b(assert|assert_eq|assert_neq)\b</string>
         <key>captures</key>
         <dict>
           <key>1</key>
           <dict>
             <key>name</key>
             <string>entity.name.method.console.leo</string>
-          </dict>
-        </dict>
-      </dict>
-      <key>console_methods_call</key>
-      <dict>
-        <key>comment</key>
-        <string>Console methods call</string>
-        <key>match</key>
-        <string>console\.\b(\w*)\b</string>
-        <key>captures</key>
-        <dict>
-          <key>1</key>
-          <dict>
-            <key>name</key>
-            <string>entity.name.method.call.console.leo</string>
           </dict>
         </dict>
       </dict>
@@ -746,44 +772,6 @@
           </dict>
         </dict>
       </dict>
-      <key>type_params</key>
-      <dict>
-        <key>comment</key>
-        <string>Type parameters</string>
-        <key>name</key>
-        <string>meta.type_params.leo</string>
-        <key>begin</key>
-        <string>\[</string>
-        <key>end</key>
-        <string>\]</string>
-        <key>patterns</key>
-        <array>
-          <dict>
-            <key>include</key>
-            <string>#core_types</string>
-          </dict>
-          <dict>
-            <key>include</key>
-            <string>#boolean_constant</string>
-          </dict>
-          <dict>
-            <key>include</key>
-            <string>#integer_literal</string>
-          </dict>
-          <dict>
-            <key>include</key>
-            <string>#in_core_assign</string>
-          </dict>
-          <dict>
-            <key>include</key>
-            <string>#string_literal</string>
-          </dict>
-          <dict>
-            <key>include</key>
-            <string>#built-in_core_assign</string>
-          </dict>
-        </array>
-      </dict>
       <key>inside_braces</key>
       <dict>
         <key>comment</key>
@@ -796,6 +784,26 @@
         <string>\}</string>
         <key>patterns</key>
         <array>
+          <dict>
+            <key>include</key>
+            <string>#variable_declaration</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#statement_for_iterator_type</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#return_type</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#mapping_declaration</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#function_parameters</string>
+          </dict>
           <dict>
             <key>include</key>
             <string>#function_declaration</string>
@@ -830,6 +838,10 @@
           </dict>
           <dict>
             <key>include</key>
+            <string>#inline_keyword</string>
+          </dict>
+          <dict>
+            <key>include</key>
             <string>#record_strucut_definition</string>
           </dict>
           <dict>
@@ -851,10 +863,6 @@
           <dict>
             <key>include</key>
             <string>#line_comment</string>
-          </dict>
-          <dict>
-            <key>include</key>
-            <string>#core_types</string>
           </dict>
           <dict>
             <key>include</key>
@@ -890,6 +898,10 @@
           </dict>
           <dict>
             <key>include</key>
+            <string>#storage_type_private</string>
+          </dict>
+          <dict>
+            <key>include</key>
             <string>#storage_type_record</string>
           </dict>
           <dict>
@@ -910,10 +922,6 @@
           </dict>
           <dict>
             <key>include</key>
-            <string>#console_methods_call</string>
-          </dict>
-          <dict>
-            <key>include</key>
             <string>#type_params</string>
           </dict>
           <dict>
@@ -927,6 +935,14 @@
           <dict>
             <key>include</key>
             <string>#console_methods</string>
+          </dict>
+          <dict>
+            <key>comment</key>
+            <string>Context Annotation</string>
+            <key>name</key>
+            <string>context.annotation.leo</string>
+            <key>match</key>
+            <string>@[a-zA-Z][a-zA-Z0-9_]*</string>
           </dict>
         </array>
       </dict>
