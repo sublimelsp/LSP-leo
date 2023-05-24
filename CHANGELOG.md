@@ -4,6 +4,11 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog][keep a changelog] and this project adheres to [Semantic Versioning][semantic versioning].
 
+## [0.17.1] - 2023-05-24
+
+### Fixed
+- Fixed files watcher settings [issue](https://github.com/sublimelsp/LSP-leo/issues/3)
+
 ## [0.17.0] - 2023-05-24
 
 ### Added

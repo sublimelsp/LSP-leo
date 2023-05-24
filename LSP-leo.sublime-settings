@@ -22,7 +22,14 @@
   "initializationOptions": {},
   "settings": {},
   "file_watcher": {
-    "pattern": "{**/*.aleo,**/*.leo,**/*.in,**/*.state,**/*.out,**/*.json}",
+    "patterns": [
+      "**/*.aleo",
+      "**/*.leo",
+      "**/*.in",
+      "**/*.state",
+      "**/*.out",
+      "**/*.json"
+    ],
     "events": ["create", "change", "delete"],
     "ignores": []
   }
