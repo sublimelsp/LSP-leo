@@ -4,6 +4,55 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog][keep a changelog] and this project adheres to [Semantic Versioning][semantic versioning].
 
+## [0.18.0] - 2023-06-15
+
+### Added
+- Implement diagnostics when there is an unexpected space between a number and a type
+- Add diagnostics when a tuple expression contains multiple other tuples
+- Add diagnostics when a tuple member type is not found in the current scope
+- Implement diagnostics if there is no "=>" sign in the mapping statement
+- Add diagnostics if a finalize function contains a return statement and returns a value but an output from a finalize function is not defined
+- Add diagnostics if the assert() function argument is an unknown variable
+- Implement diagnostics when the mapping value is defined as a record and the mapping functions set the mapping value to a not record
+- Add diagnostics for group constant
+- Implement diagnostics if Mapping functions are not inside a finalize block
+- Implement diagnostics when a "string" type is the type of the first argument of BHP, Pedersen, and Poseidon functions
+- Implement diagnostics when comparing string values
+- Implement diagnostics when a function returns an unknown struct
+
+### Fixed
+- Fix underline of [ETYC0372015] and [ETYC0372016] errors when `struct` and/or `record` are defined with more than one member with the same name
+- Fix an underlining error when calling a variable of nested non-existent structure
+- Fix diagnostics if a comparison statement contains an unknown variable
+- Fix diagnostics if a condition type in the `if` statement is not `boolean`
+- Remove a duplicate of the error message when a tuple expression contains an unknown variable
+- Fix diagnostics when a `finalize` block returns a value
+- Fix an underline of the [ETYC0372003] error when assert_eq() and assert_neq() functions contain arguments of different types
+- Fix error message [EPAR0370009] when the assert() function has no argument
+- Fix diagnostics if a function argument is a tuple instead of a value
+- Fix incorrect diagnostics for group:GEN
+- Remove redundant diagnostics when the struct member type is a tuple with nested tuples
+- Fix diagnostics when a nested tuple is typed implicitly
+- Remove a duplicate of the error message when there are unexpected spaces between a number and the `group` or `field` type
+- Fix diagnostics when the variable type does not match the return type of the Mapping methods
+- Fix diagnostics if an assert function argument type is not boolean
+- Implement diagnostics if the negative zero is an unsigned integer
+- Fix an underline of the [ETYC0372048] error when a transition function calls another transition function
+- Fix missing core functions incorrect diagnostics BHP256::commit_to_group, BHP256::hash_to_group, BHP512::commit_to_group, BHP512::hash_to_group, BHP768::commit_to_group, BHP768::hash_to_group, BHP1024::commit_to_group, BHP1024::hash_to_group, Pedersen64::commit_to_group, Pedersen64::hash_to_group, Pedersen128::commit_to_group, Pedersen128::hash_to_group, Poseidon2::hash_to_group, Poseidon2::hash_to_scalar, Poseidon4::hash_to_group, Poseidon4::hash_to_scalar, Poseidon8::hash_to_group, Poseidon8::hash_to_scalar
+- Fix diagnostics if a function type is public or private and enclosed in parentheses
+- Fix diagnostics if a return statement in the if-else operator is enclosed in curly braces
+- Fix a diagnostic of the error [EPAR0370005] when a program name is entered incorrectly
+- Fix a diagnostic of the error [EPAR0370009] when we have a keyword instead of a program identifier
+- Fix diagnostics when calling a member of the unknown variable 'group'
+- Fix a diagnostics error [EPAR0370005] when there is no dot after the program identifier
+- Fix diagnostics when calling an unknown member of the variable type not struct
+- Fix diagnostics if an invalid core constant is called
+- Fix an underline of the [ETYC0372071] error when a finalize block returns a value
+- Fix an underline of error [ETYC0372025] when an unreachable operator is enclosed in curly braces
+- Add diagnostics when a "string" type is the type of the second argument of commit(), and commit_to_group() functions for BHP and Pedersen
+- Fix diagnostics if the program definition has an unexpected string instead of a curly brace
+
+
 ## [0.17.1] - 2023-05-24
 
 ### Fixed
