@@ -68,14 +68,6 @@
       </dict>
       <dict>
         <key>include</key>
-        <string>#storage_type_const</string>
-      </dict>
-      <dict>
-        <key>include</key>
-        <string>#storage_type_constant</string>
-      </dict>
-      <dict>
-        <key>include</key>
         <string>#storage_type_public</string>
       </dict>
       <dict>
@@ -185,14 +177,6 @@
           </dict>
           <dict>
             <key>include</key>
-            <string>#storage_type_const</string>
-          </dict>
-          <dict>
-            <key>include</key>
-            <string>#storage_type_constant</string>
-          </dict>
-          <dict>
-            <key>include</key>
             <string>#storage_type_public</string>
           </dict>
           <dict>
@@ -258,14 +242,6 @@
           <dict>
             <key>include</key>
             <string>#control_keyword</string>
-          </dict>
-          <dict>
-            <key>include</key>
-            <string>#storage_type_const</string>
-          </dict>
-          <dict>
-            <key>include</key>
-            <string>#storage_type_constant</string>
           </dict>
           <dict>
             <key>include</key>
@@ -396,14 +372,6 @@
           </dict>
           <dict>
             <key>include</key>
-            <string>#storage_type_const</string>
-          </dict>
-          <dict>
-            <key>include</key>
-            <string>#storage_type_constant</string>
-          </dict>
-          <dict>
-            <key>include</key>
             <string>#storage_type_public</string>
           </dict>
           <dict>
@@ -530,15 +498,6 @@
         <key>match</key>
         <string>\b(let)\b</string>
       </dict>
-      <key>storage_type_const</key>
-      <dict>
-        <key>comment</key>
-        <string>Storage type const</string>
-        <key>name</key>
-        <string>storage.type.const.leo</string>
-        <key>match</key>
-        <string>\b(const)\b</string>
-      </dict>
       <key>storage_type_mapping</key>
       <dict>
         <key>comment</key>
@@ -547,15 +506,6 @@
         <string>storage.type.mapping.leo</string>
         <key>match</key>
         <string>\b(mapping)\b</string>
-      </dict>
-      <key>storage_type_constant</key>
-      <dict>
-        <key>comment</key>
-        <string>Storage type constant</string>
-        <key>name</key>
-        <string>storage.type.constant.leo</string>
-        <key>match</key>
-        <string>\b(constant)\b</string>
       </dict>
       <key>storage_type_public</key>
       <dict>
@@ -683,7 +633,7 @@
         <key>comment</key>
         <string>Variable declaration</string>
         <key>begin</key>
-        <string>(?:(?&lt;=\blet\b)|(?&lt;=\bconst\b))\s*\w+\s*\:s*</string>
+        <string>(?:(?&lt;=\blet\b))\s*\w+\s*\:\s*</string>
         <key>end</key>
         <string>\=</string>
         <key>patterns</key>
@@ -723,6 +673,14 @@
           <dict>
             <key>include</key>
             <string>#core_types</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#storage_type_public</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#storage_type_private</string>
           </dict>
         </array>
       </dict>
@@ -883,14 +841,6 @@
           <dict>
             <key>include</key>
             <string>#control_keyword</string>
-          </dict>
-          <dict>
-            <key>include</key>
-            <string>#storage_type_const</string>
-          </dict>
-          <dict>
-            <key>include</key>
-            <string>#storage_type_constant</string>
           </dict>
           <dict>
             <key>include</key>

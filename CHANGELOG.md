@@ -4,6 +4,28 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog][keep a changelog] and this project adheres to [Semantic Versioning][semantic versioning].
 
+## [0.19.0] - 2023-06-23
+
+### Added
+- Implement diagnostics if a Leo program does not have transition functions
+- Implement diagnostics for BHP, Pedersen, and Poseidon core functions of Leo compiler v.1.8.0
+- Implement diagnostics when a finalize function contains a self.caller operand
+- Implement diagnostics when a finalize block contains a finalize statement
+- Implement diagnostics when "mapping" contains a tuple or any special character as type
+- Implement diagnostics when mapping and transition have the same name
+- Add diagnostics if Mapping core functions contain a variable defined as self.caller
+- Implement diagnostics of the block.height command
+
+### Fixed
+- Fix diagnostics if there is no curly bracket after the function type
+- Fix diagnostics when several functions that are not associated with a given type are called consecutively
+- Add diagnostics when a function parameter has an identifier `scalar`
+- Fix diagnostics message for incorrect type of binary methods argument
+- Fix diagnostics when hash_to_integer core functions of BHP, Pedersen, and Poseidon contain mapping or unit expression
+- Fix diagnostics of commit_to_... core functions of BHP, and Pedersen
+- Fix diagnostics if self.caller operand is in a finalize context
+
+
 ## [0.18.0] - 2023-06-15
 
 ### Added
