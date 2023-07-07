@@ -4,6 +4,34 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog][keep a changelog] and this project adheres to [Semantic Versioning][semantic versioning].
 
+## [0.20.0] - 2023-07-07
+
+### Added
+- Implement diagnostics when  a `finalize` statement is used without a `finalize` block
+- Implement diagnostics when a double colon `::` syntax is used for access to a struct member
+- Implement structure initialization expression diagnostics if the structure is defined multiple times
+- Implement diagnostics when transition inputs are not defined in the input file
+- Add diagnostics when Mapping core functions are used outside of the finalize block
+- Implement diagnostics of the ChaCha::rand core functions
+- Add diagnostics when ChaCha:rand core functions are passed an unexpected args number
+- Add diagnostics when ChaCha::rand core functions are used outside of the finalize block
+- Implement diagnostics of Mapping::contains and Mapping.remove core functions
+- Implement diagnostics of to_x_coordinate() and to_y_coordinate() group core functions
+- Implement diagnostics of remove() and contains() operators
+- Implement diagnostics of to_x_coordinate() and to_y_coordinate() group core functions when the function's argument is not a group
+- Implement diagnostics of the types casting 
+- Add diagnostics when trying to cast a field to a group or address
+- Add diagnostics when trying to cast an address, group, or field to a boolean type
+- Add diagnostics if more than sixteen inputs are added to function
+- Show hover over for record and record variables
+
+### Fixed
+- Fix diagnostics when BHP, Pedersen, and Poseidon core functions contain a mapping or tuple argument
+- Fix diagnostics when a scalar or integer literal is cast to another type
+- Fix a diagnostics error when a struct member is cast to a different type
+- Fix tooltip when hovering over a record variable or struct member
+
+
 ## [0.19.0] - 2023-06-23
 
 ### Added

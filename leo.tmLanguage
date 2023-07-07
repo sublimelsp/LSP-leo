@@ -84,6 +84,10 @@
       </dict>
       <dict>
         <key>include</key>
+        <string>#storage_type_then</string>
+      </dict>
+      <dict>
+        <key>include</key>
         <string>#storage_type_mapping</string>
       </dict>
       <dict>
@@ -193,6 +197,10 @@
           </dict>
           <dict>
             <key>include</key>
+            <string>#storage_type_then</string>
+          </dict>
+          <dict>
+            <key>include</key>
             <string>#string_literal</string>
           </dict>
           <dict>
@@ -254,6 +262,10 @@
           <dict>
             <key>include</key>
             <string>#storage_type_let</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#storage_type_then</string>
           </dict>
           <dict>
             <key>include</key>
@@ -342,7 +354,7 @@
         <key>name</key>
         <string>special.functions.call.leo</string>
         <key>match</key>
-        <string>\b(finalize|increment|decrement)\b\s*\(.*\)(?!\s*{)</string>
+        <string>\b(finalize|increment|decrement)\b(?=\s*\(.*\)(?!\s*{))</string>
       </dict>
       <key>function_parameters</key>
       <dict>
@@ -497,6 +509,15 @@
         <string>storage.type.let.leo</string>
         <key>match</key>
         <string>\b(let)\b</string>
+      </dict>
+      <key>storage_type_then</key>
+      <dict>
+        <key>comment</key>
+        <string>Storage type then</string>
+        <key>name</key>
+        <string>storage.type.then.leo</string>
+        <key>match</key>
+        <string>\b(then)\b</string>
       </dict>
       <key>storage_type_mapping</key>
       <dict>
@@ -857,6 +878,10 @@
           <dict>
             <key>include</key>
             <string>#storage_type_let</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#storage_type_then</string>
           </dict>
           <dict>
             <key>include</key>
