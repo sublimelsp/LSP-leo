@@ -32,33 +32,16 @@
         </dict>
       </dict>
       <dict>
-        <key>comment</key>
-        <string>Import circuit</string>
-        <key>name</key>
-        <string>import_circuit</string>
-        <key>begin</key>
-        <string>\b(circuit)\b \b\w+\b\n</string>
-        <key>end</key>
-        <string>\b\w+\b$</string>
-        <key>captures</key>
-        <dict>
-          <key>1</key>
-          <dict>
-            <key>name</key>
-            <string>storage.type.circuit.leo.hover</string>
-          </dict>
-        </dict>
-        <key>patterns</key>
-        <array>
-          <dict>
-            <key>include</key>
-            <string>#import_keyword</string>
-          </dict>
-        </array>
+        <key>include</key>
+        <string>#circuit_keyword</string>
       </dict>
       <dict>
         <key>include</key>
-        <string>#circuit_keyword</string>
+        <string>#mapping_keyword</string>
+      </dict>
+      <dict>
+        <key>include</key>
+        <string>#chacha_keyword</string>
       </dict>
       <dict>
         <key>comment</key>
@@ -281,22 +264,17 @@
         <key>name</key>
         <string>circuit_documented_chain</string>
         <key>begin</key>
-        <string>(\w+)(\.|::)((\b\w+\b(?=\())|(\b\w+\b(?=:)))</string>
+        <string>(?&lt;=\w)(\.|\:\:)((\b\w+\b\s(?=\())|(\b\w+\b\s*(?=:)))</string>
         <key>end</key>
         <string>$</string>
         <key>captures</key>
         <dict>
-          <key>1</key>
-          <dict>
-            <key>name</key>
-            <string>access.name.circuit.leo.hover</string>
-          </dict>
-          <key>4</key>
+          <key>3</key>
           <dict>
             <key>name</key>
             <string>call.name.method.leo.hover</string>
           </dict>
-          <key>5</key>
+          <key>4</key>
           <dict>
             <key>name</key>
             <string>access.name.attribute.leo.hover</string>
@@ -304,6 +282,14 @@
         </dict>
         <key>patterns</key>
         <array>
+          <dict>
+            <key>include</key>
+            <string>#mapping_keyword</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#chacha_keyword</string>
+          </dict>
           <dict>
             <key>include</key>
             <string>#param_name</string>
@@ -439,40 +425,6 @@
       </dict>
       <dict>
         <key>comment</key>
-        <string>Built in method</string>
-        <key>name</key>
-        <string>built_in_method</string>
-        <key>begin</key>
-        <string>\(method\) (\b\w+\b)\.(\b\w+\b)\(\)</string>
-        <key>end</key>
-        <string>$</string>
-        <key>captures</key>
-        <dict>
-          <key>1</key>
-          <dict>
-            <key>name</key>
-            <string>storage.type.built-in.method.leo.hover</string>
-          </dict>
-          <key>2</key>
-          <dict>
-            <key>name</key>
-            <string>storage.name.built-in.method.leo.hover</string>
-          </dict>
-        </dict>
-        <key>patterns</key>
-        <array>
-          <dict>
-            <key>include</key>
-            <string>#core_types</string>
-          </dict>
-          <dict>
-            <key>include</key>
-            <string>#storage_type_const</string>
-          </dict>
-        </array>
-      </dict>
-      <dict>
-        <key>comment</key>
         <string>Test Context Annotation</string>
         <key>name</key>
         <string>test.context.annotation.leo.hover</string>
@@ -531,7 +483,25 @@
         <key>name</key>
         <string>storage.type.core.leo.hover</string>
         <key>match</key>
-        <string>\b(bool|field|u8|u16|u32|u64|u128|i8|i16|i32|i64|i128|string|char|address|group|any|integer)\b</string>
+        <string>\b(bool|field|u8|u16|u32|u64|u128|i8|i16|i32|i64|i128|string|char|address|group|any|integer|scalar)\b</string>
+      </dict>
+      <key>mapping_keyword</key>
+      <dict>
+        <key>comment</key>
+        <string>Built-in/core type</string>
+        <key>name</key>
+        <string>storage.type.mapping.leo.hover</string>
+        <key>match</key>
+        <string>\b(Mapping|mapping)\b</string>
+      </dict>
+      <key>chacha_keyword</key>
+      <dict>
+        <key>comment</key>
+        <string>Built-in/core type</string>
+        <key>name</key>
+        <string>storage.type.chacha.leo.hover</string>
+        <key>match</key>
+        <string>\b(ChaCha)\b</string>
       </dict>
       <key>integer_literal</key>
       <dict>

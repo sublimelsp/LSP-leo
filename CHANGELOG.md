@@ -4,6 +4,16 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog][keep a changelog] and this project adheres to [Semantic Versioning][semantic versioning].
 
+## [0.21.0] - 2023-07-12
+
+### Added
+- Show hover over for the transition and finalize functions
+- Implement autocomplete for Mapping methods
+- Add hover for mapping
+- Implement autocomplete for BHP, Pedersen, Poseidon and ChaCha methods
+- Implement hover for ChaCha 
+
+
 ## [0.20.0] - 2023-07-07
 
 ### Added
