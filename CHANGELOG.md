@@ -4,6 +4,24 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog][keep a changelog] and this project adheres to [Semantic Versioning][semantic versioning].
 
+## [0.22.0] - 2023-07-24
+
+### Added
+- Implement diagnostics when a struct member in the input file is incorrect
+- Implement autocomplete feature for group static methods and group instance methods
+-  Show parameter modifiers when hovering over a finalize and transition functions
+- Add types diagnostic when a cast statement is an expression operand
+- Implement .env file support according to Leo 1.9.0 on the playground
+
+### Fixed
+- Fix diagnostics where there is an unexpected string after a cast statement instead of a semicolon
+- Fix diagnostics when casting a type of a statement second operand
+- Fix diagnostics when a cast operator has an unexpected string instead of a cast type
+- Fix diagnostics if a Leo program is named 'increment' or 'decrement'
+- Fix diagnostics if the first struct member declaration is followed by spaces
+- Fix autocomplete feature of static methods
+
+
 ## [0.21.0] - 2023-07-12
 
 ### Added

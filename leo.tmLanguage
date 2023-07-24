@@ -499,7 +499,7 @@
         <key>name</key>
         <string>keyword.control.leo</string>
         <key>match</key>
-        <string>\b(else|if|in|for|return)\b</string>
+        <string>\b(else|if|in|for|return|as)\b</string>
       </dict>
       <key>storage_type_let</key>
       <dict>
@@ -846,6 +846,10 @@
           <dict>
             <key>include</key>
             <string>#integer_literal</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#core_types</string>
           </dict>
           <dict>
             <key>include</key>

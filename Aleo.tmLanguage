@@ -110,7 +110,7 @@
         <key>name</key>
         <string>instruction.aleo</string>
         <key>match</key>
-        <string>\b(abs\.w|abs|add\.w|add|and|assert\.eq|assert\.neq|call|cast|commit\.bhp256|commit\.bhp512|commit\.bhp768|commit\.bhp1024|commit\.ped64|commit\.ped128|div\.w|div|double|gt|gte|hash\.bhp256|hash\.bhp512|hash\.bhp768|hash\.bhp1024|hash\.ped64|hash\.ped128|hash\.psd2|hash\.psd4|hash\.psd8|inv|input|is\.eq|is\.neq|lt|lte|key|mod|mul\.w|mul|nand|neg|nor|not|or|output|pow\.w|pow|rem\.w|rem|shl\.w|shl|shr\.w|srh|sqrt|sub\.w|sub|square|ternary|value|xor)\b</string>
+        <string>\b(abs\.w|abs|add\.w|add|and|assert\.eq|assert\.neq|block\.height|branch\.eq|branch\.neq|call|cast|cast\.loosy|commit\.bhp256|commit\.bhp512|commit\.bhp768|commit\.bhp1024|commit\.ped64|commit\.ped128|div\.w|div|double|gt|gte|hash\.bhp256|hash\.bhp512|hash\.bhp768|hash\.bhp1024|hash\.ped64|hash\.ped128|hash\.psd2|hash\.psd4|hash\.psd8|inv|input|is\.eq|is\.neq|lt|lte|key|mod|mul\.w|mul|nand|neg|nor|not|or|output|position|pow\.w|pow|rand\.chacha|rem\.w|rem|shl\.w|shl|shr\.w|srh|sqrt|sub\.w|sub|square|ternary|value|xor|get\.or_use|get|set|contains|remove)\b</string>
       </dict>
       <key>base_register</key>
       <dict>

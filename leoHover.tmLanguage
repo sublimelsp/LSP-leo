@@ -41,7 +41,7 @@
       </dict>
       <dict>
         <key>include</key>
-        <string>#chacha_keyword</string>
+        <string>#algorithm_function_keyword</string>
       </dict>
       <dict>
         <key>comment</key>
@@ -49,7 +49,7 @@
         <key>name</key>
         <string>import_function_first_line</string>
         <key>begin</key>
-        <string>\b(function)\b (\b\w+\b)</string>
+        <string>\b(function|finalize|transition)\b (\b\w+\b)</string>
         <key>end</key>
         <string>$</string>
         <key>captures</key>
@@ -219,31 +219,6 @@
       </dict>
       <dict>
         <key>comment</key>
-        <string>Import function second line</string>
-        <key>name</key>
-        <string>import_function_second_line</string>
-        <key>begin</key>
-        <string>(?&lt;=\n)</string>
-        <key>end</key>
-        <string>(\b\w+\b)$</string>
-        <key>captures</key>
-        <dict>
-          <key>1</key>
-          <dict>
-            <key>name</key>
-            <string>name.function.leo.hover</string>
-          </dict>
-        </dict>
-        <key>patterns</key>
-        <array>
-          <dict>
-            <key>include</key>
-            <string>#import_keyword</string>
-          </dict>
-        </array>
-      </dict>
-      <dict>
-        <key>comment</key>
         <string>Console documented chain</string>
         <key>name</key>
         <string>console_documented_chain</string>
@@ -264,7 +239,7 @@
         <key>name</key>
         <string>circuit_documented_chain</string>
         <key>begin</key>
-        <string>(?&lt;=\w)(\.|\:\:)((\b\w+\b\s(?=\())|(\b\w+\b\s*(?=:)))</string>
+        <string>(?&lt;=\w)(\.|\:\:)((\b\w+\b\s)|(\b\w+\b\s*(?=:)))</string>
         <key>end</key>
         <string>$</string>
         <key>captures</key>
@@ -288,7 +263,7 @@
           </dict>
           <dict>
             <key>include</key>
-            <string>#chacha_keyword</string>
+            <string>#algorithm_function_keyword</string>
           </dict>
           <dict>
             <key>include</key>
@@ -326,11 +301,19 @@
       </dict>
       <dict>
         <key>comment</key>
+        <string>Group method</string>
+        <key>match</key>
+        <string>(\bgroup\b)(?=\:\:|\.)</string>
+        <key>name</key>
+        <string>group.name.method.leo.hover</string>
+      </dict>
+      <dict>
+        <key>comment</key>
         <string>Documented parameter</string>
         <key>name</key>
         <string>documented_parameter</string>
         <key>begin</key>
-        <string>(\b\w+\b(?=:))</string>
+        <string>(\b\w+\b(?=:(?!:)))</string>
         <key>end</key>
         <string>$</string>
         <key>patterns</key>
@@ -494,14 +477,14 @@
         <key>match</key>
         <string>\b(Mapping|mapping)\b</string>
       </dict>
-      <key>chacha_keyword</key>
+      <key>algorithm_function_keyword</key>
       <dict>
         <key>comment</key>
         <string>Built-in/core type</string>
         <key>name</key>
-        <string>storage.type.chacha.leo.hover</string>
+        <string>storage.algorithm.leo.hover</string>
         <key>match</key>
-        <string>\b(ChaCha)\b</string>
+        <string>\b(ChaCha|BHP256|BHP512|BHP768|BHP1024|Pedersen64|Pedersen128|Poseidon2|Poseidon4|Poseidon8)\b</string>
       </dict>
       <key>integer_literal</key>
       <dict>
