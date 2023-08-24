@@ -4,6 +4,28 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog][keep a changelog] and this project adheres to [Semantic Versioning][semantic versioning].
 
+## [0.23.0] - 2023-08-24
+
+### Added
+- Implement records and structures coloring in input files on the playground
+- Implement diagnostics when the exponent type is u128
+- Implement record members and struct members coloring in input files
+- Add diagnostics of conditional AND and conditional OR statements
+- Implement diagnostics when the signed integer type of the base of the exponent matches the type of the exponent
+- Add diagnostics for `&` and `|` operators
+- Add missing diagnostics for the exponentiation operator
+- Implement the Deploy/Execute functionality in the Playground
+- Implement an error [EPAR0370005] diagnostics when a string that starts with numbers or special characters is found instead of a variable type
+- Implement diagnostics if function name is not identifier
+
+### Fixed
+- Fix an underlining of the error [ETYC0372007] for conditional AND and conditional OR statements
+- Fix critical issue in the implementation of hovers on circuit/struct
+- Fix critical issue in the implementation of hovers on Mapping methods
+- Fix critical issue when function name is not identifier
+- Fix diagnostics when instead of defining a struct member we have an expression starting with a keyword
+
+
 ## [0.22.0] - 2023-07-24
 
 ### Added
@@ -12,6 +34,9 @@ The format is based on [Keep a Changelog][keep a changelog] and this project adh
 -  Show parameter modifiers when hovering over a finalize and transition functions
 - Add types diagnostic when a cast statement is an expression operand
 - Implement .env file support according to Leo 1.9.0 on the playground
+- Show hover for inline functions
+- Add diagnostics if the cast statement contains an implicitly typed tuple
+- Add diagnostics of Mapping::contains and Mapping::remove methods when the type of the method's argument does not match the expected
 
 ### Fixed
 - Fix diagnostics where there is an unexpected string after a cast statement instead of a semicolon
@@ -20,6 +45,9 @@ The format is based on [Keep a Changelog][keep a changelog] and this project adh
 - Fix diagnostics if a Leo program is named 'increment' or 'decrement'
 - Fix diagnostics if the first struct member declaration is followed by spaces
 - Fix autocomplete feature of static methods
+- Fix diagnostics when an unexpected string follows an annotation
+- The 'private' modifier is not shown when hovering over functions
+- Remove redundant diagnostic error if a cast expression contains an unexpected string instead of a cast type
 
 
 ## [0.21.0] - 2023-07-12

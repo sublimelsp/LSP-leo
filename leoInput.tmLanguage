@@ -181,6 +181,65 @@
           </dict>
           <dict>
             <key>comment</key>
+            <string>Section definition type record | struct</string>
+            <key>name</key>
+            <string>section.definition.type.record.struct.leo.leoInput</string>
+            <key>match</key>
+            <string>(?:(?&lt;=\b[a-z]+\w*\b:\s*)|(?&lt;=\b[a-z]+\w*\b:\s*\b[A-Z]+\w*\b\s*=\s*))\b[A-Z]+\w*\b(?:(?=\s*{)|(?=\s*=))</string>
+          </dict>
+          <dict>
+            <key>comment</key>
+            <string>Section definition internal types of record | struct</string>
+            <key>begin</key>
+            <string>(?&lt;=\b[a-z]+\w*\b:\s*\b[A-Z]+\w*\b\s*=\s*\b[A-Z]+\w*\b\s*{\s*)</string>
+            <key>end</key>
+            <string>};</string>
+            <key>patterns</key>
+            <array>
+              <dict>
+                <key>include</key>
+                <string>#line-comment</string>
+              </dict>
+              <dict>
+                <key>include</key>
+                <string>#block-comment</string>
+              </dict>
+              <dict>
+                <key>comment</key>
+                <string>Section definition attribute of record | struct</string>
+                <key>name</key>
+                <string>section.definition.attribute.name.record.struct.leo.leoInput</string>
+                <key>match</key>
+                <string>\b(\w+)\b\s*(?=:)</string>
+              </dict>
+              <dict>
+                <key>comment</key>
+                <string>Section definition internal type record | struct</string>
+                <key>name</key>
+                <string>section.definition.internal.type.record.struct.leo.leoInput</string>
+                <key>match</key>
+                <string>(?&lt;=\b[a-z]+\w*\b:\s*)\b[A-Z]+\w*\b(?=\s*{)</string>
+              </dict>
+              <dict>
+                <key>comment</key>
+                <string>Section definition expression value</string>
+                <key>name</key>
+                <string>section.definition.expression.value.leo.leoInput</string>
+                <key>match</key>
+                <string>\b([0-9]+(field|group|scalar|u8|u16|u32|u64|u128|i8|i16|i32|i64|i128)?|true|false)\b</string>
+              </dict>
+              <dict>
+                <key>comment</key>
+                <string>Section definition expression address</string>
+                <key>name</key>
+                <string>section.definition.expression.address.leo.leoInput</string>
+                <key>match</key>
+                <string>\baleo1[a-z0-9]*</string>
+              </dict>
+            </array>
+          </dict>
+          <dict>
+            <key>comment</key>
             <string>Storage type const</string>
             <key>name</key>
             <string>storage.type.const.leo.leoInput</string>
@@ -202,6 +261,14 @@
             <string>storage.type.public.leo.leoInput</string>
             <key>match</key>
             <string>\b(public)\b</string>
+          </dict>
+          <dict>
+            <key>comment</key>
+            <string>Storage type private</string>
+            <key>name</key>
+            <string>storage.type.private.leo.leoInput</string>
+            <key>match</key>
+            <string>\b(private)\b</string>
           </dict>
         </array>
       </dict>

@@ -49,7 +49,7 @@
         <key>name</key>
         <string>import_function_first_line</string>
         <key>begin</key>
-        <string>\b(function|finalize|transition)\b (\b\w+\b)</string>
+        <string>\b(function|finalize|transition|inline)\b (\b\w+\b)</string>
         <key>end</key>
         <string>$</string>
         <key>captures</key>
