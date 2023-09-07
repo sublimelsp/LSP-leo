@@ -115,23 +115,3 @@ class SyntaxColoring():
                 "character": sever_range["end"]["column"]
             }
         }
-
-class LanguageColorSchemeEventListener(sublime_plugin.ViewEventListener):
-    def on_activated_async(self):
-        try:
-            lang_color_scheme = 'Packages/LSP-leo/leo.sublime-color-scheme'
-            default_color_scheme = self.view.settings().get('color_scheme')
-            self.view.settings().set('color_scheme', default_color_scheme)
-            syntax = self.view.settings().get('syntax').lower()
-            for lang in ['leo.tmlanguage', 'aleo.tmlanguage', 'leoinput.tmlanguage'] :
-                if lang in syntax :
-                    self.view.settings().set('color_scheme', lang_color_scheme)
-                    break
-
-            view_id = self.view.id()
-            listeners = list(sublime_plugin.view_event_listeners[view_id])
-            for listener in listeners:
-                if isinstance(listener, DocumentSyncListener):
-                    listener.on_post_save_async()
-        except:
-            print("Leo on_activated_async")

@@ -28,7 +28,11 @@
       </dict>
       <dict>
         <key>include</key>
-        <string>#external_file</string>
+        <string>#import_file</string>
+      </dict>
+      <dict>
+        <key>include</key>
+        <string>#program_file</string>
       </dict>
       <dict>
         <key>include</key>
@@ -113,14 +117,23 @@
     </array>
     <key>repository</key>
     <dict>
-      <key>external_file</key>
+      <key>import_file</key>
       <dict>
         <key>name</key>
-        <string>external.file.leo</string>
+        <string>import.file.leo</string>
         <key>comment</key>
-        <string>Circuit staitc call</string>
+        <string>Import file</string>
         <key>match</key>
-        <string>\b\w+\.a?leo</string>
+        <string>(?&lt;=\bimport\b)\s+\b\w+\b\s*\.\s*\b\w+\b\s*(?=;)</string>
+      </dict>
+      <key>program_file</key>
+      <dict>
+        <key>name</key>
+        <string>program.file.leo</string>
+        <key>comment</key>
+        <string>Program file</string>
+        <key>match</key>
+        <string>(?&lt;=\bprogram\b)\s+\b\w+\b\s*\.\s*\baleo\b\s*(?={)</string>
       </dict>
       <key>circuit_static_call</key>
       <dict>
@@ -858,7 +871,11 @@
           </dict>
           <dict>
             <key>include</key>
-            <string>#external_file</string>
+            <string>#import_file</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#program_file</string>
           </dict>
           <dict>
             <key>include</key>

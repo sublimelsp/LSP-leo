@@ -4,6 +4,49 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog][keep a changelog] and this project adheres to [Semantic Versioning][semantic versioning].
 
+## [0.23.3] - 2023-09-07
+
+### Added
+- Implement diagnostics when there is an import call from a non-leo file
+- Implement diagnostics if there is no dot after an import file name
+- The error is not diagnosed when trying to import a file that does not exist
+- Implement diagnostics if the import file identifier is missing from the import declaration
+- Implement diagnostics if there is no semicolon at the end of the import declaration
+- Implement diagnostics if there is no .env file in the leo project
+- Implement diagnostics of the 'signature' type
+- Add diagnostics if the loop range is decreasing
+
+### Changed
+- Change Leo/Aleo code toggle styles
+
+### Removed
+- On change active editor tab set the Leo color scheme
+
+### Fixed
+- Fix diagnostics if the casting operator is enclosed in double parentheses and is not followed by a semicolon
+- The unique identifier of the application disappears after Reset
+- Fix diagnostics when {},:;=?/+-[]() characters follow a dot in an import file
+- Fix file type in error message when imported file does not exist
+- Remove diagnostic errors that appear on the playground after entering any character
+- Fix the underlining of the error when a digital string follow a dot in an import file
+- The color of the file names in import declarations must be completely yellow
+- Remove a diagnostic error that appears on the playground after entering two characters
+
+
+## [0.23.2] - 2023-08-28
+
+### Changed
+- Rebrand color scheme
+
+### Fixed
+
+
+## [0.23.1] - 2023-08-25
+
+### Changed
+- Rebrand with new logos and color scheme
+
+
 ## [0.23.0] - 2023-08-24
 
 ### Added
