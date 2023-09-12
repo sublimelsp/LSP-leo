@@ -492,7 +492,7 @@
         <key>name</key>
         <string>numeric.integer.decimal.leo</string>
         <key>match</key>
-        <string>\b(([0-9][0-9]*))([ui](8|16|32|64|128))?\b</string>
+        <string>\b([0-9][0-9_]*)([ui](8|16|32|64|128))?\b</string>
       </dict>
       <key>built-in_core_assign</key>
       <dict>
@@ -501,7 +501,7 @@
         <key>name</key>
         <string>storage.type.assign.leo</string>
         <key>match</key>
-        <string>\b((([0-9]+)(group|field|scalar)))</string>
+        <string>\b(([0-9][0-9_]*)(group|field|scalar))</string>
       </dict>
       <key>boolean_constant</key>
       <dict>
@@ -685,7 +685,7 @@
         <key>name</key>
         <string>storage.type.core.leo</string>
         <key>match</key>
-        <string>\b(bool|field|scalar|u8|u16|u32|u64|u128|i8|i16|i32|i64|i128|string|address|group|integer)\b</string>
+        <string>\b(bool|field|scalar|u8|u16|u32|u64|u128|i8|i16|i32|i64|i128|string|address|signature|group|integer)\b</string>
       </dict>
       <key>variable_declaration</key>
       <dict>

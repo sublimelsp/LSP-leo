@@ -41,6 +41,10 @@
       </dict>
       <dict>
         <key>include</key>
+        <string>#signature_keyword</string>
+      </dict>
+      <dict>
+        <key>include</key>
         <string>#algorithm_function_keyword</string>
       </dict>
       <dict>
@@ -466,7 +470,7 @@
         <key>name</key>
         <string>storage.type.core.leo.hover</string>
         <key>match</key>
-        <string>\b(bool|field|u8|u16|u32|u64|u128|i8|i16|i32|i64|i128|string|char|address|group|any|integer|scalar)\b</string>
+        <string>\b(bool|field|u8|u16|u32|u64|u128|i8|i16|i32|i64|i128|string|char|address|signature|group|any|integer|scalar)\b</string>
       </dict>
       <key>mapping_keyword</key>
       <dict>
@@ -476,6 +480,15 @@
         <string>storage.type.mapping.leo.hover</string>
         <key>match</key>
         <string>\b(Mapping|mapping)\b</string>
+      </dict>
+      <key>signature_keyword</key>
+      <dict>
+        <key>comment</key>
+        <string>Built-in/core type</string>
+        <key>name</key>
+        <string>storage.type.signature.leo.hover</string>
+        <key>match</key>
+        <string>\b(signature)\b</string>
       </dict>
       <key>algorithm_function_keyword</key>
       <dict>

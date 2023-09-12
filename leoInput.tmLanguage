@@ -125,7 +125,7 @@
             <key>name</key>
             <string>section.definition.expression.value.leo.leoInput</string>
             <key>match</key>
-            <string>\b([0-9]+(field|group|scalar|u8|u16|u32|u64|u128|i8|i16|i32|i64|i128)?|true|false)\b</string>
+            <string>\b([0-9][0-9_]*([ui](8|16|32|64|128)|(field|group|scalar))?|true|false)\b</string>
           </dict>
           <dict>
             <key>comment</key>
@@ -134,6 +134,14 @@
             <string>section.definition.expression.address.leo.leoInput</string>
             <key>match</key>
             <string>\baleo1[a-z0-9]*</string>
+          </dict>
+          <dict>
+            <key>comment</key>
+            <string>Section definition expression signature</string>
+            <key>name</key>
+            <string>section.definition.expression.signature.leo.leoInput</string>
+            <key>match</key>
+            <string>\bsign1[a-z0-9]*\b</string>
           </dict>
           <dict>
             <key>comment</key>
@@ -169,7 +177,7 @@
             <key>name</key>
             <string>section.definition.type.leo.leoInput</string>
             <key>match</key>
-            <string>\b(string|field|group|bool|address|u8|u16|u32|u64|u128|i8|i16|i32|i64|i128)\b</string>
+            <string>\b(string|field|group|bool|address|signature|u8|u16|u32|u64|u128|i8|i16|i32|i64|i128)\b</string>
           </dict>
           <dict>
             <key>comment</key>
@@ -226,7 +234,7 @@
                 <key>name</key>
                 <string>section.definition.expression.value.leo.leoInput</string>
                 <key>match</key>
-                <string>\b([0-9]+(field|group|scalar|u8|u16|u32|u64|u128|i8|i16|i32|i64|i128)?|true|false)\b</string>
+                <string>\b([0-9][0-9_]*([ui](8|16|32|64|128)|(field|group|scalar))?|true|false)\b</string>
               </dict>
               <dict>
                 <key>comment</key>
@@ -235,6 +243,14 @@
                 <string>section.definition.expression.address.leo.leoInput</string>
                 <key>match</key>
                 <string>\baleo1[a-z0-9]*</string>
+              </dict>
+              <dict>
+                <key>comment</key>
+                <string>Section definition expression signature</string>
+                <key>name</key>
+                <string>section.definition.expression.signature.leo.leoInput</string>
+                <key>match</key>
+                <string>\bsign1[a-z0-9]*\b</string>
               </dict>
             </array>
           </dict>

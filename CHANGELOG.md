@@ -4,6 +4,30 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog][keep a changelog] and this project adheres to [Semantic Versioning][semantic versioning].
 
+## [0.24.0] - 2023-09-12
+
+### Added
+- Implement diagnostics if private key length is invalid 
+- Implement diagnostics if there is no private key in the .env file
+- Implement diagnostics if the account private key prefix is invalid
+- Update the Aleo Instructions grammar for structs highlighting
+- Color the signature type green 
+- Add diagnostics if the verify() method is called by a not "signature" type
+- Implement autocomplete for signature methods
+- Show hover for the verify() function and signature type parameters and variables
+- Color the literals that contain underscores
+- Color the numeric literals that contain underscores
+
+### Fixed
+- Fix diagnostic [ETYC0372078] for code containing numbers with underscores
+- Fix diagnostics if the last parameter of the verify() function is a signature
+- Fix diagnostics when the signature type parameter is defined in the input file
+- Fix diagnostics when tuple index contains underscores or leading zeros
+- Fix error messages if the assert_eq() or assert_neq() function argument is an unknown variable
+- Fix diagnostics if a numeric literal that contains underscores is a function argument
+- Fix diagnostics if there is a literal with underscores
+
+
 ## [0.23.3] - 2023-09-07
 
 ### Added
