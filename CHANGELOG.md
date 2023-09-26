@@ -4,6 +4,30 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog][keep a changelog] and this project adheres to [Semantic Versioning][semantic versioning].
 
+## [0.25.0] - 2023-09-26
+
+### Added
+- Add diagnostics if the verify() function is called by the non-signature and the destination is not defined as boolean
+- Add diagnostics when the address value is not valid in the input file
+
+### Fixed
+- The input records in the examples on the playground does not belong to the signers
+- Remove a redundant diagnostic error if a function parameter contains a duplicate function name instead of a colon
+- Fix diagnostics when there is an integer with several minus signs
+- Fix an error message if the number of inputs is not as expected
+- Fix the error underlining when the used struct is not defined in the program scope
+- Fix diagnostics if the literal in the input file is out of range
+- Add diagnostics when the structure defined in the import file is used
+- Fix diagnostics when comparison operators gt(), gte(), lt(), lte() contain an address
+- Fix diagnostics if a signature value in the input file is invalid
+- Remove duplicate error message when address value is not valid
+- Changes in the input file are diagnosed only after the playground is reloaded
+- Fix diagnostics when the underscore character in the signature value is in the inside or immediately after sign1
+- Add diagnostics if the verify() function is called by not a signature and the first argument is not an address
+- Fix the message of the Error [ETYC0372003] with mapping
+- Fix a problem with a series of transitions running without waiting for the previous call to complete on the playground
+
+
 ## [0.24.0] - 2023-09-12
 
 ### Added
@@ -26,6 +50,8 @@ The format is based on [Keep a Changelog][keep a changelog] and this project adh
 - Fix error messages if the assert_eq() or assert_neq() function argument is an unknown variable
 - Fix diagnostics if a numeric literal that contains underscores is a function argument
 - Fix diagnostics if there is a literal with underscores
+- Fix an error message if a transition expects a literal but gets a struct
+- Fix diagnostics if the value of the literal with underscores is out of range
 
 
 ## [0.23.3] - 2023-09-07

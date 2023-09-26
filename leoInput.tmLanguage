@@ -141,7 +141,7 @@
             <key>name</key>
             <string>section.definition.expression.signature.leo.leoInput</string>
             <key>match</key>
-            <string>\bsign1[a-z0-9]*\b</string>
+            <string>\bsign1[a-z0-9_]*\b</string>
           </dict>
           <dict>
             <key>comment</key>
@@ -199,7 +199,7 @@
             <key>comment</key>
             <string>Section definition internal types of record | struct</string>
             <key>begin</key>
-            <string>(?&lt;=\b[a-z]+\w*\b:\s*\b[A-Z]+\w*\b\s*=\s*\b[A-Z]+\w*\b\s*{\s*)</string>
+            <string>(?&lt;=^\b[a-z]+\w*\b:\s*\b[A-Z]+\w*\b\s*=\s*\b[A-Z]+\w*\b\s*{\s*)</string>
             <key>end</key>
             <string>};</string>
             <key>patterns</key>
@@ -250,7 +250,7 @@
                 <key>name</key>
                 <string>section.definition.expression.signature.leo.leoInput</string>
                 <key>match</key>
-                <string>\bsign1[a-z0-9]*\b</string>
+                <string>\bsign1[a-z0-9_]*\b</string>
               </dict>
             </array>
           </dict>
