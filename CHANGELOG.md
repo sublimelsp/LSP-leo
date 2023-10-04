@@ -4,6 +4,35 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog][keep a changelog] and this project adheres to [Semantic Versioning][semantic versioning].
 
+## [0.26.0] - 2023-10-04
+
+### Added
+- Improve ui for deploy and execute dialog 
+- Implement diagnostics of Keccak256, Keccak384, and Keccak512 algoritms
+- Implement diagnostics of SHA3_256, SHA3_384, and SHA3_512 algoritms
+- Add diagnostics if a mapping and a variable in the transition scope have the same name
+
+### Changed
+- Update onborading flow
+- Updated tooltips for deploy and execute dialogs
+
+### Removed
+- Remove unnecessary examples from playground
+  
+### Fixed
+- Fix the "Report an issue" link on the playground
+- Fix diagnostics when a mapping is assigned a value
+- Remove a warning about the name of the pascal case for SHA3_ methods
+- Fix diagnostics if there are mappings with the same name
+- The hover over SHA3 and Keccak should be red
+- Fix diagnostics if there are no address type operands in gt(), gte(), lt(), lte() operators, but there are operands of other unsupported types
+- Fix diagnostics when the types of the first and second arguments don`t match in the comparison operators gt(), gte(), lt(), lte()
+- Fix diagnostics if the entered destination type of operators gt(), gte(), lt(), lte() is not supported (is not boolean)
+- Fix diagnostics of the maximum number of mappings if there are mappings with the same name
+- Fix the [EPAR0370005] error message
+- Fix an issue that caused the server to run slowly by removing the previous unnecessary syntax tree that was overflowing memory
+
+
 ## [0.25.0] - 2023-09-26
 
 ### Added
