@@ -4,6 +4,49 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog][keep a changelog] and this project adheres to [Semantic Versioning][semantic versioning].
 
+## [0.27.0] - 2023-10-17
+
+### Added
+- Add diagnostic for mapping shadow
+- Add diagnostic for function shadow 
+- Implement diagnostics if the self.signer operand is used in a finalize context
+- Add diagnostic for record shadow
+- Add diagnostic for struct shadow
+- Mismatch tuple length
+- Implement the definition of the absence of a variable among constants
+- Implement diagnostics [EPAR0370009] when constants are defined using tuple
+- Implement diagnostics when reassigning constant
+- Color the async keyword purple
+- Color the const keyword red 
+- Implement diagnostic for constant shadow
+- Implement [ETYC0372062] diagnostic for constant
+- Implement [ETYC0372023] diagnostic for constant
+- Implement [ETYC0372080] diagnostic for constant
+- Add diagnostics when the value of a const declaration is not a literal
+- Implement constants diagnostics
+- Show hover for global constants
+- Implement diagnostics when the constant identifier is enclosed in parentheses when constant defining
+- Add Tic Tac Toe example back to playground
+- Color the 'self' and 'await' keywords purple
+- Add a "const" item to the autocomplete dropdown
+
+### Fixed
+- Fix the [ETYC0372043] error message when there is not allowed access to 'self'
+- Fix error code [ETYC0372078] to [ELUN0379000]
+- Remove an unnecessary diagnostic error when comparing literals of the signature type
+- Fix diagnostic of incorrect definition of function parameter mods
+- Fix diagnostics of the signature comparison
+- Fix error definition [ETYC0372049] to [ETYC0372081]
+- Remove redundant diagnostics when comparison operators gt(), gte(), lt(), lte() contain two addresses
+- Diagnostics errors when defining the type of the constant
+- The color of the shr method must be green
+- Fix an underline of the Error [ETYC0372054] when defining a constant
+- Fix diagnostics if the member of the global tuple constant is called
+- Fix error message when expected boolean type does not match input type
+- Fix diagnostics when a variable is first used and then defined
+- Fix diagnostics, hovers, and error messages if there are spaces between tuple member types when defining a tuple
+
+
 ## [0.26.0] - 2023-10-04
 
 ### Added
@@ -11,6 +54,7 @@ The format is based on [Keep a Changelog][keep a changelog] and this project adh
 - Implement diagnostics of Keccak256, Keccak384, and Keccak512 algoritms
 - Implement diagnostics of SHA3_256, SHA3_384, and SHA3_512 algoritms
 - Add diagnostics if a mapping and a variable in the transition scope have the same name
+- Tuples on the left-hand side of a `DefinitionStatement` can only contain identifiers
 
 ### Changed
 - Update onborading flow
@@ -30,7 +74,9 @@ The format is based on [Keep a Changelog][keep a changelog] and this project adh
 - Fix diagnostics if the entered destination type of operators gt(), gte(), lt(), lte() is not supported (is not boolean)
 - Fix diagnostics of the maximum number of mappings if there are mappings with the same name
 - Fix the [EPAR0370005] error message
+- Fix diagnostics if target variable type is not supported by square_root() function
 - Fix an issue that caused the server to run slowly by removing the previous unnecessary syntax tree that was overflowing memory
+- Fix diagnostics if a transition returns a method of an expression in parentheses
 
 
 ## [0.25.0] - 2023-09-26

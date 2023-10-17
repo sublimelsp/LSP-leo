@@ -84,6 +84,10 @@
       </dict>
       <dict>
         <key>include</key>
+        <string>#storage_type_const</string>
+      </dict>
+      <dict>
+        <key>include</key>
         <string>#storage_type_record</string>
       </dict>
       <dict>
@@ -584,6 +588,15 @@
         <key>match</key>
         <string>\b(constant)\b</string>
       </dict>
+      <key>storage_type_const</key>
+      <dict>
+        <key>comment</key>
+        <string>Storage type const</string>
+        <key>name</key>
+        <string>storage.type.const.leo</string>
+        <key>match</key>
+        <string>\b(const)\b</string>
+      </dict>
       <key>storage_type_record</key>
       <dict>
         <key>comment</key>
@@ -924,6 +937,10 @@
           <dict>
             <key>include</key>
             <string>#storage_type_constant</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#storage_type_const</string>
           </dict>
           <dict>
             <key>include</key>
