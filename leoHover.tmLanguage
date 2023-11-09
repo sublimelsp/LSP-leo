@@ -33,7 +33,11 @@
       </dict>
       <dict>
         <key>include</key>
-        <string>#circuit_keyword</string>
+        <string>#struct_keyword</string>
+      </dict>
+      <dict>
+        <key>include</key>
+        <string>#record_keyword</string>
       </dict>
       <dict>
         <key>include</key>
@@ -454,14 +458,23 @@
         <key>name</key>
         <string>keyword.control.import.leo.hover</string>
       </dict>
-      <key>circuit_keyword</key>
+      <key>struct_keyword</key>
       <dict>
         <key>comment</key>
         <string>Storage type circuit</string>
         <key>match</key>
-        <string>(?&lt;!\()\bcircuit\b</string>
+        <string>(?&lt;!\()\bstruct\b</string>
         <key>name</key>
         <string>storage.type.circuit.leo.hover</string>
+      </dict>
+      <key>record_keyword</key>
+      <dict>
+        <key>comment</key>
+        <string>Storage type record</string>
+        <key>match</key>
+        <string>(?&lt;!\()\brecord\b</string>
+        <key>name</key>
+        <string>storage.type.record.leo.hover</string>
       </dict>
       <key>core_types</key>
       <dict>

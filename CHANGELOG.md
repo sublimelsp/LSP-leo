@@ -4,6 +4,53 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog][keep a changelog] and this project adheres to [Semantic Versioning][semantic versioning].
 
+## [0.28.0] - 2023-11-09
+
+### Added
+- Reorganize playground windows
+- Add to the playground a CLI section that allows user to run bash commands and Leo transitions
+- Add a hover over to a variable that is defined outside the for loop but is used inside the loop
+- Implement array data type support for function inputs, return type and variables
+- Implement the clear command for clearing the terminal screen on the playground
+- Implement diagnostics for access to array elements
+- Implement a help command to be output whenever an unsupported command is entered into the terminal emulator in the playground
+- Add diagnostics when an assignment target is an array element
+- Color the literal of the array length blue
+- Show hover an array when array element accessing
+- Implement support for array expression
+- Implement comparing array items to type
+- Add diagnostics for array items passed into function parameters
+- Implement left and right cursor movement in the terminal on the playground using the left and right arrows
+- Add diagnostics if a const variable from for loop condition is reassigned
+
+### Changed
+- Update advanced examples according to terminal functionality
+
+### Removed
+- Remove support for .in files
+- Remove 'Inputs' and 'Run' ondoarding-description windows on the playground
+- Remove Run dropdown from playground and Run buttons in leo code from playground and VS Code
+
+### Fixed
+- Fix diagnostics of binary methods types
+- Fix types diagnostics of the binary method mul()
+- Fix hovering over a for loop variable
+- Fix parsing of parameters wrapped in quotation marks for leo commands on the playground
+- Fix types diagnostics of binary methods eq(), and neq()
+- Fix types diagnostics of binary method pow()
+- Fix types diagnostics of binary methods shl(), shl_wrapped(), shr(), shr_wrapped(), pow_wrapped()
+- Fix issue when multi-line command is displayed incorrectly in the playground terminal if it is pasted on the bottom line
+- The Backspace button in the terminal on the playground does not work correctly if the command is inserted using the CTRL+V
+- Fix diagnostics if the array is explicitly passed to the helper or inline function
+- Fix diagnostics if arrays are used when structures, records or mappings are defined, created and used
+- Fix diagnostics when the array is explicitly passed to the finalize function
+- Fix diagnostics if the number of array elements exceeds 33
+- The record keyword should be red when hovering over a record
+- Show hovering over a for loop constant inside of the loop
+- Fix diagnostics of array elements types
+- Fix incorrect behavior when pressing backwards/forward/backspace keys if the command length is wider than the terminal area on the playground
+
+
 ## [0.27.0] - 2023-10-17
 
 ### Added

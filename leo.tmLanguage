@@ -714,6 +714,10 @@
             <key>include</key>
             <string>#core_types</string>
           </dict>
+          <dict>
+            <key>include</key>
+            <string>#integer_literal</string>
+          </dict>
         </array>
       </dict>
       <key>mapping_declaration</key>
@@ -729,6 +733,10 @@
           <dict>
             <key>include</key>
             <string>#core_types</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#integer_literal</string>
           </dict>
         </array>
       </dict>
@@ -757,6 +765,10 @@
           <dict>
             <key>include</key>
             <string>#storage_type_constant</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#integer_literal</string>
           </dict>
         </array>
       </dict>
