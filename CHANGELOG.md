@@ -4,6 +4,50 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog][keep a changelog] and this project adheres to [Semantic Versioning][semantic versioning].
 
+## [0.29.0] - 2023-12-08
+
+### Added
+- Implement the removal of symbols in the terminal on the playground
+- Implement diagnostics of cyclic dependency of structs when struct members are struct arrays
+- Add the advanced Token example to the playground
+- Implement improved error diagnosis logic when the tree is broken
+- Add diagnostics if the variable in the for loop condition is an array
+- Add diagnostics if the tuple expression contains an unexpected string instead of a closing parenthesis
+- Implement diagnostics when the right side of a variable assignment statement has an unexpected symbol instead of an expression 
+- Implement diagnostics of cyclic dependency between functions when one function is called from the finalize of another function
+- When loading the page, show the command corresponding to the current example in the terminal
+
+### Fixed
+- Fix diagnostics when a tuple whose members are tuple variables or tuple constants are assigned to a tuple
+- Fix incorrect behavior and display in the terminal after resizing the browser window on the playground
+- Remove a duplicate of the error message when an array element is an unknown variable
+- Fix diagnostics errors when array type and array elements are defined by a unit expression
+- Fix diagnostics for binary methods chaining
+- Fix diagnostics when a constant of an outer for loop is used in a nested for loop
+- Errors are not diagnosed if the first operand of a binary operator is enclosed in parentheses
+- Fix diagnostics if a defined struct member is followed by a string of unexpected characters instead of a comma
+- The cursor constantly jumps in the .env area on the playground
+- Fix diagnostics when the syntax tree breaks and redundant errors occur if there is an unexpected non-semicolon string in the program area
+- Fix diagnostics if there are underscores or leading zeros in the length of the array when defining an array
+- Fix diagnostics when after the transition type an arbitrary string placed instead of the expected opening curly brace
+- Fix diagnostics if the array element type is not as expected type
+- Fix diagnostics if a tuple type contains an unexpected string instead of a closing parenthesis
+- Remove redundant diagnostics for binary methods chaining
+- Remove redundant diagnostic error when instead of a transition type we have a string with numbers at the beginning or with special characters anywhere
+- Remove redundant diagnostic errors when a standard function is defined as a member of a struct
+- Fix diagnostics if the program definition has unexpected symbols or numbers instead of a curly brace
+- Remove redundant diagnostics if there is an unexpected numeric string with an underscore
+- Remove redundant diagnostics if there is no semicolon at the end of the expression
+- Remove redundant diagnostics errors if there are underscores or leading zeros in the length of the array
+- Fix diagnostics in a chain of binary operators when the first operator in the chain is the operator '*' for group
+- Fix an underline of the [EPAR0370009] error when there is an unexpected characters line at the beginning of the Leo expression
+- Remove redundant diagnostics errors if an invalid expression contains a comparison sign
+- Remove redundant diagnostics errors of function parameters types
+- Fix diagnostics if the array type is placed in several lines
+- Remove redundant diagnostics when referencing a tuple element without an index
+- Critical error "TypeError: Cannot read properties of null" when hovering over a variable
+
+
 ## [0.28.0] - 2023-11-09
 
 ### Added
