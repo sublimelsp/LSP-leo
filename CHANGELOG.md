@@ -4,6 +4,49 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog][keep a changelog] and this project adheres to [Semantic Versioning][semantic versioning].
 
+## [0.30.0] - 2023-12-25
+
+### Added
+- Implement diagnostics when a transition function is declared with an redundant return type and curly bracket
+- Add diagnostics when the expression is preceded by an opening parenthesis
+- Add diagnostics of Mapping expression errors
+- Add diagnostics when a finalize function calls a transition function
+- Add diagnostics when a function is called from a finalize of function or from a finalize of inline
+- Implement diagnostics if the function's return type is declared as a tuple of unknown type
+- Implement diagnostics when an array is a struct or record member
+- Add diagnostics when 'self' calls non-existent signer() and caller() functions
+- Implement diagnostics when an array index is a type cast
+- Implement diagnostics when a member of a constant tuple is a type cast
+- Add diagnostics when an array is explicitly declared as an array of tuples
+
+### Removed
+- Remove the warning that the structure must have a Pascal case name
+  
+### Fixed
+- Fix diagnostics for chain of mul() methods with unsupported type operands
+- Remove a redundant diagnostic error if a function parameter contains public, private or constant keyword instead of a colon
+- Remove redundant diagnostics error when a struct calls an invalid core function
+- Fix diagnostics when a single-element tuple is defined as an array elements type
+- Fix diagnostics if members of a tuple are multiplications of groups and scalars
+- Remove diagnostic errors if unexpected characters follow curly brace when defining a structure
+- Fix diagnostics when there is no colon after the function parameter identifier
+- Fix diagnostics when assigning a regular variable or literal to an array
+- Fix diagnostics when assigning an array to a regular variable
+- Remove a diagnostics error if an unexpected end-of-file is found
+- Fix diagnostics if a value type is missing in the mapping statement
+- Fix diagnostics when variables or literals of one type are cast to another type
+- Add diagnostics when an unknown variable is passed to the "finalize" function
+- Add diagnostics if the keyword "then" is missing when calling the "finalize" function
+- Fix diagnostics when array members are unknown variables
+- Fix diagnostics if input is passed to the "finalize" function without parentheses
+- Remove the duplicate of the error [ETYC0372005] when a typecast of an unknown variable is operand of Leo statements
+- Fix diagnostics when array members are casting types
+- Fix diagnostics if the array length is followed by one of the reserved words
+- Add diagnostics when a constant in the nested loop condition has an unexpected type
+- Fix diagnostics if assert functions are preceded by an opening parenthesis
+- Remove redundant diagnostics errors [ETYC0372003]
+
+
 ## [0.29.0] - 2023-12-08
 
 ### Added
