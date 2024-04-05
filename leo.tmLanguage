@@ -182,6 +182,14 @@
           </dict>
           <dict>
             <key>include</key>
+            <string>#external_program_name</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#external_storage_type</string>
+          </dict>
+          <dict>
+            <key>include</key>
             <string>#integer_literal</string>
           </dict>
           <dict>
@@ -262,6 +270,14 @@
           </dict>
           <dict>
             <key>include</key>
+            <string>#external_program_name</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#external_storage_type</string>
+          </dict>
+          <dict>
+            <key>include</key>
             <string>#integer_literal</string>
           </dict>
           <dict>
@@ -337,7 +353,7 @@
         <key>name</key>
         <string>address.literal.value.leo</string>
         <key>match</key>
-        <string>\baleo1[a-z0-9]*</string>
+        <string>\baleo1[A-z0-9]*</string>
       </dict>
       <key>invoking_attribute</key>
       <dict>
@@ -410,6 +426,14 @@
           <dict>
             <key>include</key>
             <string>#core_types</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#external_program_name</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#external_storage_type</string>
           </dict>
           <dict>
             <key>include</key>
@@ -716,7 +740,23 @@
           </dict>
           <dict>
             <key>include</key>
+            <string>#external_program_name</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#external_storage_type</string>
+          </dict>
+          <dict>
+            <key>include</key>
             <string>#integer_literal</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#block_comment</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#line_comment</string>
           </dict>
         </array>
       </dict>
@@ -733,6 +773,14 @@
           <dict>
             <key>include</key>
             <string>#core_types</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#external_program_name</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#external_storage_type</string>
           </dict>
           <dict>
             <key>include</key>
@@ -756,6 +804,14 @@
           </dict>
           <dict>
             <key>include</key>
+            <string>#external_program_name</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#external_storage_type</string>
+          </dict>
+          <dict>
+            <key>include</key>
             <string>#storage_type_public</string>
           </dict>
           <dict>
@@ -769,6 +825,58 @@
           <dict>
             <key>include</key>
             <string>#integer_literal</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#block_comment</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#line_comment</string>
+          </dict>
+        </array>
+      </dict>
+      <key>statement_return</key>
+      <dict>
+        <key>comment</key>
+        <string>Statement return</string>
+        <key>begin</key>
+        <string>(?&lt;=return)</string>
+        <key>end</key>
+        <string>(?=;)</string>
+        <key>patterns</key>
+        <array>
+          <dict>
+            <key>include</key>
+            <string>#external_program_name</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#external_storage_type</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#integer_literal</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#address_literal</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#built-in_core_assign</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#boolean_constant</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#block_comment</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#line_comment</string>
           </dict>
         </array>
       </dict>
@@ -818,6 +926,54 @@
           </dict>
         </dict>
       </dict>
+      <key>external_program_name</key>
+      <dict>
+        <key>comment</key>
+        <string>External program name</string>
+        <key>begin</key>
+        <string>(?&lt;=(-&gt;)|[:=(])</string>
+        <key>end</key>
+        <string>(?=\/)</string>
+        <key>match</key>
+        <string>\w+\s*\.\s*aleo</string>
+        <key>name</key>
+        <string>external.program.name.leo</string>
+      </dict>
+      <key>external_storage_type</key>
+      <dict>
+        <key>comment</key>
+        <string>External storage type</string>
+        <key>begin</key>
+        <string>(?&lt;=aleo)</string>
+        <key>end</key>
+        <string>(?=[(){,=])</string>
+        <key>patterns</key>
+        <array>
+          <dict>
+            <key>begin</key>
+            <string>(?&lt;=\/)</string>
+            <key>end</key>
+            <string>(?=[(){,=])</string>
+            <key>patterns</key>
+            <array>
+              <dict>
+                <key>begin</key>
+                <string>(\w+(\s*\.\s*record)?)</string>
+                <key>end</key>
+                <string>(?=[(){,=])</string>
+                <key>beginCaptures</key>
+                <dict>
+                  <key>1</key>
+                  <dict>
+                    <key>name</key>
+                    <string>external.storage.type.leo</string>
+                  </dict>
+                </dict>
+              </dict>
+            </array>
+          </dict>
+        </array>
+      </dict>
       <key>inside_braces</key>
       <dict>
         <key>comment</key>
@@ -841,6 +997,10 @@
           <dict>
             <key>include</key>
             <string>#return_type</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#statement_return</string>
           </dict>
           <dict>
             <key>include</key>
@@ -921,6 +1081,14 @@
           <dict>
             <key>include</key>
             <string>#core_types</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#external_program_name</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#external_storage_type</string>
           </dict>
           <dict>
             <key>include</key>

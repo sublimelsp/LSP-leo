@@ -85,6 +85,14 @@
           </dict>
           <dict>
             <key>include</key>
+            <string>#external_program_name</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#external_storage_type</string>
+          </dict>
+          <dict>
+            <key>include</key>
             <string>#integer_literal</string>
           </dict>
           <dict>
@@ -143,6 +151,14 @@
           </dict>
           <dict>
             <key>include</key>
+            <string>#external_program_name</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#external_storage_type</string>
+          </dict>
+          <dict>
+            <key>include</key>
             <string>#integer_literal</string>
           </dict>
           <dict>
@@ -198,6 +214,14 @@
           <dict>
             <key>include</key>
             <string>#core_types</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#external_program_name</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#external_storage_type</string>
           </dict>
           <dict>
             <key>include</key>
@@ -283,6 +307,14 @@
           </dict>
           <dict>
             <key>include</key>
+            <string>#external_program_name</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#external_storage_type</string>
+          </dict>
+          <dict>
+            <key>include</key>
             <string>#integer_literal</string>
           </dict>
           <dict>
@@ -333,6 +365,14 @@
           <dict>
             <key>include</key>
             <string>#core_types</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#external_program_name</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#external_storage_type</string>
           </dict>
           <dict>
             <key>include</key>
@@ -390,6 +430,14 @@
           </dict>
           <dict>
             <key>include</key>
+            <string>#external_program_name</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#external_storage_type</string>
+          </dict>
+          <dict>
+            <key>include</key>
             <string>#integer_literal</string>
           </dict>
           <dict>
@@ -425,6 +473,14 @@
       <dict>
         <key>include</key>
         <string>#core_types</string>
+      </dict>
+      <dict>
+        <key>include</key>
+        <string>#external_program_name</string>
+      </dict>
+      <dict>
+        <key>include</key>
+        <string>#external_storage_type</string>
       </dict>
       <dict>
         <key>include</key>
@@ -574,6 +630,24 @@
         <string>meta.name_params.leo.hover</string>
         <key>match</key>
         <string>\b(\w+)\b:</string>
+      </dict>
+      <key>external_program_name</key>
+      <dict>
+        <key>comment</key>
+        <string>External program name</string>
+        <key>name</key>
+        <string>external.program.name.leo.hover</string>
+        <key>match</key>
+        <string>\w+\s*\.\s*aleo\s*(?=\/)</string>
+      </dict>
+      <key>external_storage_type</key>
+      <dict>
+        <key>comment</key>
+        <string>External storage type</string>
+        <key>name</key>
+        <string>external.storage.type.leo.hover</string>
+        <key>match</key>
+        <string>(?&lt;=\w+\s*\.\s*aleo\s*\/\s*)\b\w+\s*(\.\s*record)*\b</string>
       </dict>
     </dict>
   </dict>

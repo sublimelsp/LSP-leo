@@ -67,7 +67,7 @@ class SyntaxColoring():
     def colorize(self, request) -> None:
         settings = self.view.settings()
         color_scheme = settings.get("color_scheme")
-        if color_scheme != "Packages/LSP-leo/leo.sublime-color-scheme":
+        if color_scheme != "leo.sublime-color-scheme":
             return None
         highlight_line = settings.get("highlight_line")
         for key, values in request["scopes"].items():

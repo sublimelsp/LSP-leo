@@ -4,6 +4,147 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog][keep a changelog] and this project adheres to [Semantic Versioning][semantic versioning].
 
+## [0.31.0] - 2024-04-05
+
+### Added
+- Add types diagnostics for multidimensional arrays
+- Add diagnostics if tuple members are multiplications of groups
+- Add diagnostics if binary methods are enclosed in parentheses
+- Implement cyclic dependency of structs according to leo code
+- Show a hover for block.height, self.caller, and self.signer commands
+- Add diagnostics if the defined structure has more than 32 members
+- Add diagnostics when a variable returned by a function and a structure have the same name
+- Implement diagnostics if the network identifier is invalid in import file syntax
+- Implement diagnostics when .aleo is entered after the struct/record keyword when defining a structure
+- Implement diagnostics when an invalid external type is defined
+- Implement diagnostics if a struct and function parameter have same names
+- Implement diagnostics when a const and function parameter have the same names
+- Implement diagnostics associated with `program.json`
+- Add diagnostics if a function parameter is of tuple type with one element
+- Add diagnostics for an empty struct 
+- Implement diagnostics if program import is not found in program manifest `program.json` 
+- Add diagnostics when there is a negative variable of the unsigned type in parentheses
+- Remove diagnostics errors if function name matches the function parameter names
+- Add more information to the error message [ETYC0372017]
+- Add diagnostics when negative variables are array members
+- Implement diagnostics when a non-existent external transition is called - WIP.
+- Implement diagnostics if the value type of the fields in the program.json file is invalid
+- Add diagnostics when a mapping name matches variable names or function parameter names
+- Implement highlighting for the new syntax of external programs import
+- Add Help Info to diagnostic messages
+- Implement autocomplete for imports
+- Implement autocomplete for keywords 'program' and 'import'
+- Add diagnostics when a program scope name does not match the import program name
+- Add diagnostics if the "location" property in the program.json is missed or has an unknown value
+- Add diagnostics if there is a keyword 'as' instead of an identifier of the function input parameter
+- Add diagnostics if the for loop condition contains the keyword "as" instead of a variable identifier
+- Implement diagnostics if the identifier of a function, variable, structure, or structure member is the keyword 'aleo'
+- Add diagnostics if there is an invalid network identifier when calling an external mapping
+- Implement diagnostics when the imported transition is called
+- Add diagnostics if there is any keyword instead of a variable type when defining a variable
+- Add diagnostics when a function parameter type is defined by a non-existent external type
+- Implement diagnostics if an external structure is defined
+  
+### Changed
+
+### Deprecated
+
+### Removed
+- Remove the warning that the function must have a Snake case name
+- Remove diagnostics errors when a struct name matches function parameter names or variable names
+- Remove redundant diagnostics if operand types don't match and the destination type is boolean
+- Remove a redundant error if a "group" literal starts with an underscore
+- Remove duplicate of the error [EPAR0370018] if invalid hexadecimal number is specified
+- Remove diagnostics errors when referencing an external mapping
+
+
+### Fixed
+- Fix an autocomplete in the empty program scope
+- Fix diagnostics when the array length has leading zeros
+- The autocomplete dropdown does not appear after entering boolean or scalar values
+- Fix diagnostics for unary methods abs(), abs_wrapped(), double(), inv(), not(), square(), square_root()
+- Fix diagnostics for unary neg() method if operand type is not supported
+- Fix diagnostics for unary methods to_x_coordinate() and to_y_coordinate()
+- Fix diagnostics when a double colon `::` syntax is used for not core functions
+- Fix autocompletion when accessing struct elements
+- Fix diagnostics when one of the keywords "function", "let", "else", etc. is entered instead of a function parameter type
+- Diagnostic errors when there are numbers at the beginning of the variable identifier
+- Add diagnostics if an unknown type in the chain calls the neg() method
+- Add diagnostics if there are binary and unary operations in the chain
+- Fix errors range if the first members of the chain are enclosed in parentheses
+- Fix diagnostics when a double colon `::` syntax is used with any helper or inline function
+- Remove redundant error [ETYC0372006] when an unexpected string is passed to the core function instead of an expression
+- Fix an underline of the [ETYC0372003] error when the type of a nested tuple member is not as expected
+- Fix error code [ETYC0372085] to [ETYC0372087]
+- Fix error code [ETYC0372084] to [ETYC0372086]
+- Fix a range of the error [ETYC0372052]
+- Fix a range of the error [ETYC0372072]
+- Fix error code [ETYC0372087] to [ETYC0372089]
+- Fix diagnostics when functions have a record as input and/or output
+- Fix the diagnostics error when there are structs or records with same names
+- Add diagnostics when an expression is passed into a helper or inline function
+- Fix diagnostics when an unary method is called by the to_x/y_coordinate() method
+- Fix diagnostics when the transition parameter is an array of unknown type
+- Add diagnostics when there is an unknown operand in + or - operators
+- Fix diagnostics when a program does not have transition functions
+- Diagnostics related to `program.json` should be displayed only in the main.leo file of the root program
+- Fix diagnostics when function parameter, struct or record members are of unit type "()"
+- Add diagnostics if the 'const' keyword is entered instead the identifier of a struct or record member
+- Add diagnostics when units are array members
+- Fix diagnostics if the string 'static' is entered before the identifier of a structure member
+- Add diagnostics when a transition returns a tuple and a member of this tuple is an expression
+- Fix a range of the error [EPAR0370021]
+- Fix diagnostics of program id value in the 'program' field of the program.json file
+- Fix diagnostics if there is any keyword instead of struct member id when calling a struct member
+- Fix diagnostics when structs have the same name
+- Diagnostic error messages in Leo project files are not removed after deleting or renaming those files
+- Fix function call detection inside ERROR node
+- Autocompletion for imports does not work if a non-existent import is added to program.json
+- Fix the error of the syntax file loading when opening Sublime Text
+- Fix highlighting of comments
+- Add diagnostics when there are two matching struct definitions with the same name
+- Fix diagnostics when a program ID value in the 'program' field of the program.json file equals empty string
+- Fix diagnostics if an invalid address literal has a capital letter
+- Fix diagnostics if when defining an array, instead of the expected integer literal, there is a unit expression  or a string of letters and numbers in round or square brackets
+- Add diagnostics if a binary method has no target and the first operand of the method is an unknown variable
+- Add diagnostics if the specified parameter type of the finalize() function does not exist
+- Fix diagnostics when the length of the returned tuple is not as expected
+- Fix diagnostics for the deprecated keyword `increment`
+- Fixed the problem of unordered handling of Language Server events, which led to memory leaks and exceptions
+- Fix diagnostics when a project is missing an .env file
+- Remove diagnostic error [ECMP0376006] when importing a program, if the .leo file of this program does not exist/incorrect, but the name of this program is present in the dependencies of the manifest file
+- Fix diagnostics when an incorrect .leo file in the diagnostics refers to the main project manifest file
+- Fix diagnostics if an array is an input of BHP or Poseidon algorithms
+- Remove redundant error [ECMP0376006] when program is imported and program.json file is invalid (prop "program" is an object)
+- Remove duplicate error [EPAR0370032]
+- Add diagnostics when a function that returns nothing is assigned to a variable
+- Fix diagnostics when parsing errored syntax containing LF/CRLF newlines
+- Remove a duplicate of the error [EPAR0370005] if there is an underscore instead an integer literal when an array defining
+- Fix diagnostics if there is no PRIVATE_KEY value in the .env file
+- Fix diagnostics if a "group" literal starts with an underscore
+- Fix Leo syntax highlighting in Sublime Text
+- Remove redundant diagnostics if an invalid expression is returned or defined
+- Implement diagnostics if the identifier of a constant is a Leo language type keyword
+- Add diagnostics if the identifier of a structure, mapping, function, or function parameter is a 'signature' keyword
+- Logical errors should not be diagnosed within an expression where there are syntactic errors
+- Fix highlighting of a return variable if its name matches the type name
+- Fix error message [EPAR0370035] and error message [EUTL03710014]
+- Add diagnostics if there is no function before the finalize block
+- Add diagnostics when the finalize function type does not exist in the current scope
+- Remove a duplicate of the error [EPAR0370005]
+- Fix diagnostics when a non-existent external mapping is called
+- Fix diagnostics if a variable is called from an external program for which there is no import
+- Fix diagnostics when referencing own mapping as an external one
+- Fix diagnostics if there is an invalid network identifier when calling an external transition or function
+- Fix diagnostics if an external entry specifies a type of transition parameter
+- Fix diagnostics if an external transition is accessed without specifying an external program
+- Fix diagnostics if an external record defines a transition type
+- Fix diagnostic error message [ETYC0372017] when a variable type is defined by a non-existent external type
+- Fixed issue comparing uri with upper/lower case of drive partition (when analyzing imports)
+- Language server crashed when call not assigned external function
+
+### Security
+
 ## [0.30.0] - 2023-12-25
 
 ### Added
