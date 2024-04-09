@@ -4,6 +4,19 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog][keep a changelog] and this project adheres to [Semantic Versioning][semantic versioning].
 
+## [0.31.1] - 2024-04-09
+
+### Added
+- Add diagnostics when an expected type does not match the type that an external transition returns
+
+### Removed
+- Remove ETYC0372007 diagnostic for invalid external call when statement has integer or field type
+  
+### Fixed
+- Fix diagnostics if the record type definition in a root program does not match the definition in an external program
+- Fix diagnostics in a postfix expression that contains an external resource when there are syntax errors
+
+
 ## [0.31.0] - 2024-04-05
 
 ### Added
@@ -46,8 +59,6 @@ The format is based on [Keep a Changelog][keep a changelog] and this project adh
 - Implement diagnostics if an external structure is defined
   
 ### Changed
-
-### Deprecated
 
 ### Removed
 - Remove the warning that the function must have a Snake case name
@@ -143,7 +154,6 @@ The format is based on [Keep a Changelog][keep a changelog] and this project adh
 - Fixed issue comparing uri with upper/lower case of drive partition (when analyzing imports)
 - Language server crashed when call not assigned external function
 
-### Security
 
 ## [0.30.0] - 2023-12-25
 
