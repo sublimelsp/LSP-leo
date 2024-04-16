@@ -4,6 +4,29 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog][keep a changelog] and this project adheres to [Semantic Versioning][semantic versioning].
 
+## [0.31.2] - 2024-04-16
+
+### Added
+- Add a help message to the error [ETYC0372095] 
+- Implement diagnostics when trying to call an external .leo program
+- Add diagnostics if a variable type is not found in the current scope when defining a variable
+- Implement diagnostics when an external inline function is called
+- Add diagnostics when an input type of an external function does not match a parameter type
+- Implement diagnostics when a mapping's key/value is an external record
+- Add diagnostics if a finalize function returns a record
+- Implement diagnostics when a finalize block takes in a record as input
+- Implement diagnostics if the variable type in the for loop condition is defined as an external record  
+- Implement diagnostics when struct or record contains external record
+
+### Fixed
+- Fix error message [ETYC0372007] if there is an invalid network identifier when calling an external transition
+- Remove redundant false diagnostics if there is any keyword instead of a variable type when defining a variable
+- Fix the error message [ETYC0372028] when standard function has modes associated with their inputs
+- Fix diagnostics if the condition of the if statement is a type that is defined in an external program
+- Fix diagnostics if the condition of the if statement is a record member that is defined in an external program
+- Fix a message of the error [ETYC0372003] if an if operator condition is a record that is defined in an external program
+  
+
 ## [0.31.1] - 2024-04-09
 
 ### Added
