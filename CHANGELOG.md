@@ -4,6 +4,26 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog][keep a changelog] and this project adheres to [Semantic Versioning][semantic versioning].
 
+## [0.31.3] - 2024-04-23
+
+### Added
+- Add diagnostics when there is an unknown function or an external unknown variable in an expression
+- Add diagnostics if the condition of the if statement is an external mapping
+
+### Fixed
+- Fix the [ETYC0372003] error message if a variable type in the for statement condition is a record that is defined in an external program
+- Fix color of identifiers of external functions
+- Remove redundant diagnostics when functions defined in external programs take in records defined in external programs
+- Fix diagnostics if the finalize function returns a tuple that is not explicitly defined
+- Fix the color of a struct member if it is returned by a function
+- Fix the syntax highlight after a mapping definition if a mapping value type is is defined as an external type
+- Remove redundant diagnostics when the number of function inputs is greater than the number of parameters
+- Fix the syntax highlight
+- Diagnostics error when a record or struct definition in the current program matches the definition in an external program
+- Fix diagnostics when a function returns a struct that is defined in the current and external programs
+- Fix diagnostics if a transition of an external program calls a transition of another external program
+
+
 ## [0.31.2] - 2024-04-16
 
 ### Added

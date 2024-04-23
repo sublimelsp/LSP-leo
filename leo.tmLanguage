@@ -182,14 +182,6 @@
           </dict>
           <dict>
             <key>include</key>
-            <string>#external_program_name</string>
-          </dict>
-          <dict>
-            <key>include</key>
-            <string>#external_storage_type</string>
-          </dict>
-          <dict>
-            <key>include</key>
             <string>#integer_literal</string>
           </dict>
           <dict>
@@ -267,14 +259,6 @@
           <dict>
             <key>include</key>
             <string>#core_types</string>
-          </dict>
-          <dict>
-            <key>include</key>
-            <string>#external_program_name</string>
-          </dict>
-          <dict>
-            <key>include</key>
-            <string>#external_storage_type</string>
           </dict>
           <dict>
             <key>include</key>
@@ -426,14 +410,6 @@
           <dict>
             <key>include</key>
             <string>#core_types</string>
-          </dict>
-          <dict>
-            <key>include</key>
-            <string>#external_program_name</string>
-          </dict>
-          <dict>
-            <key>include</key>
-            <string>#external_storage_type</string>
           </dict>
           <dict>
             <key>include</key>
@@ -740,14 +716,6 @@
           </dict>
           <dict>
             <key>include</key>
-            <string>#external_program_name</string>
-          </dict>
-          <dict>
-            <key>include</key>
-            <string>#external_storage_type</string>
-          </dict>
-          <dict>
-            <key>include</key>
             <string>#integer_literal</string>
           </dict>
           <dict>
@@ -776,14 +744,6 @@
           </dict>
           <dict>
             <key>include</key>
-            <string>#external_program_name</string>
-          </dict>
-          <dict>
-            <key>include</key>
-            <string>#external_storage_type</string>
-          </dict>
-          <dict>
-            <key>include</key>
             <string>#integer_literal</string>
           </dict>
         </array>
@@ -801,14 +761,6 @@
           <dict>
             <key>include</key>
             <string>#core_types</string>
-          </dict>
-          <dict>
-            <key>include</key>
-            <string>#external_program_name</string>
-          </dict>
-          <dict>
-            <key>include</key>
-            <string>#external_storage_type</string>
           </dict>
           <dict>
             <key>include</key>
@@ -848,14 +800,6 @@
         <array>
           <dict>
             <key>include</key>
-            <string>#external_program_name</string>
-          </dict>
-          <dict>
-            <key>include</key>
-            <string>#external_storage_type</string>
-          </dict>
-          <dict>
-            <key>include</key>
             <string>#integer_literal</string>
           </dict>
           <dict>
@@ -877,6 +821,10 @@
           <dict>
             <key>include</key>
             <string>#line_comment</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#method_name_call</string>
           </dict>
         </array>
       </dict>
@@ -925,54 +873,6 @@
             <string>circuit.method.name.call</string>
           </dict>
         </dict>
-      </dict>
-      <key>external_program_name</key>
-      <dict>
-        <key>comment</key>
-        <string>External program name</string>
-        <key>begin</key>
-        <string>(?&lt;=(-&gt;)|[:=(])</string>
-        <key>end</key>
-        <string>(?=\/)</string>
-        <key>match</key>
-        <string>\w+\s*\.\s*aleo</string>
-        <key>name</key>
-        <string>external.program.name.leo</string>
-      </dict>
-      <key>external_storage_type</key>
-      <dict>
-        <key>comment</key>
-        <string>External storage type</string>
-        <key>begin</key>
-        <string>(?&lt;=aleo)</string>
-        <key>end</key>
-        <string>(?=[(){,=])</string>
-        <key>patterns</key>
-        <array>
-          <dict>
-            <key>begin</key>
-            <string>(?&lt;=\/)</string>
-            <key>end</key>
-            <string>(?=[(){,=])</string>
-            <key>patterns</key>
-            <array>
-              <dict>
-                <key>begin</key>
-                <string>(\w+(\s*\.\s*record)?)</string>
-                <key>end</key>
-                <string>(?=[(){,=])</string>
-                <key>beginCaptures</key>
-                <dict>
-                  <key>1</key>
-                  <dict>
-                    <key>name</key>
-                    <string>external.storage.type.leo</string>
-                  </dict>
-                </dict>
-              </dict>
-            </array>
-          </dict>
-        </array>
       </dict>
       <key>inside_braces</key>
       <dict>
@@ -1081,14 +981,6 @@
           <dict>
             <key>include</key>
             <string>#core_types</string>
-          </dict>
-          <dict>
-            <key>include</key>
-            <string>#external_program_name</string>
-          </dict>
-          <dict>
-            <key>include</key>
-            <string>#external_storage_type</string>
           </dict>
           <dict>
             <key>include</key>
