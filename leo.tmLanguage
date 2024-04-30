@@ -826,6 +826,14 @@
             <key>include</key>
             <string>#method_name_call</string>
           </dict>
+          <dict>
+            <key>include</key>
+            <string>#finalize_keyword</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#storage_type_then</string>
+          </dict>
         </array>
       </dict>
       <key>statement_for_iterator_type</key>

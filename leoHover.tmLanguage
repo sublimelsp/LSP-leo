@@ -60,7 +60,7 @@
         <string>\b(function|finalize|transition|inline)\b (\b\w+\b)</string>
         <key>end</key>
         <string>$</string>
-        <key>captures</key>
+        <key>beginCaptures</key>
         <dict>
           <key>1</key>
           <dict>
@@ -82,10 +82,6 @@
           <dict>
             <key>include</key>
             <string>#core_types</string>
-          </dict>
-          <dict>
-            <key>include</key>
-            <string>#external_program_name</string>
           </dict>
           <dict>
             <key>include</key>
@@ -126,7 +122,7 @@
         <string>\b(finalize)\b (\b\w+\b)</string>
         <key>end</key>
         <string>$</string>
-        <key>captures</key>
+        <key>beginCaptures</key>
         <dict>
           <key>1</key>
           <dict>
@@ -148,10 +144,6 @@
           <dict>
             <key>include</key>
             <string>#core_types</string>
-          </dict>
-          <dict>
-            <key>include</key>
-            <string>#external_program_name</string>
           </dict>
           <dict>
             <key>include</key>
@@ -192,7 +184,7 @@
         <string>\b(function)\b (\b\w+\b)</string>
         <key>end</key>
         <string>$</string>
-        <key>captures</key>
+        <key>beginCaptures</key>
         <dict>
           <key>1</key>
           <dict>
@@ -214,10 +206,6 @@
           <dict>
             <key>include</key>
             <string>#core_types</string>
-          </dict>
-          <dict>
-            <key>include</key>
-            <string>#external_program_name</string>
           </dict>
           <dict>
             <key>include</key>
@@ -274,7 +262,7 @@
         <string>(?&lt;=\w)(\.|\:\:)((\b\w+\b\s)|(\b\w+\b\s*(?=:)))</string>
         <key>end</key>
         <string>$</string>
-        <key>captures</key>
+        <key>beginCaptures</key>
         <dict>
           <key>3</key>
           <dict>
@@ -304,10 +292,6 @@
           <dict>
             <key>include</key>
             <string>#core_types</string>
-          </dict>
-          <dict>
-            <key>include</key>
-            <string>#external_program_name</string>
           </dict>
           <dict>
             <key>include</key>
@@ -368,10 +352,6 @@
           </dict>
           <dict>
             <key>include</key>
-            <string>#external_program_name</string>
-          </dict>
-          <dict>
-            <key>include</key>
             <string>#external_storage_type</string>
           </dict>
           <dict>
@@ -409,7 +389,7 @@
         <string>((let)|(const)) \b\w+\b: </string>
         <key>end</key>
         <string>$</string>
-        <key>captures</key>
+        <key>beginCaptures</key>
         <dict>
           <key>2</key>
           <dict>
@@ -427,10 +407,6 @@
           <dict>
             <key>include</key>
             <string>#core_types</string>
-          </dict>
-          <dict>
-            <key>include</key>
-            <string>#external_program_name</string>
           </dict>
           <dict>
             <key>include</key>
@@ -473,10 +449,6 @@
       <dict>
         <key>include</key>
         <string>#core_types</string>
-      </dict>
-      <dict>
-        <key>include</key>
-        <string>#external_program_name</string>
       </dict>
       <dict>
         <key>include</key>
@@ -631,23 +603,25 @@
         <key>match</key>
         <string>\b(\w+)\b:</string>
       </dict>
-      <key>external_program_name</key>
-      <dict>
-        <key>comment</key>
-        <string>External program name</string>
-        <key>name</key>
-        <string>external.program.name.leo.hover</string>
-        <key>match</key>
-        <string>\w+\s*\.\s*aleo\s*(?=\/)</string>
-      </dict>
       <key>external_storage_type</key>
       <dict>
         <key>comment</key>
         <string>External storage type</string>
-        <key>name</key>
-        <string>external.storage.type.leo.hover</string>
         <key>match</key>
-        <string>(?&lt;=\w+\s*\.\s*aleo\s*\/\s*)\b\w+\s*(\.\s*record)*\b</string>
+        <string>(\w+\s*\.\s*aleo\s*)(\/\s*)(\b\w+\s*\b)</string>
+        <key>captures</key>
+        <dict>
+          <key>1</key>
+          <dict>
+            <key>name</key>
+            <string>external.program.name.leo.hover</string>
+          </dict>
+          <key>3</key>
+          <dict>
+            <key>name</key>
+            <string>external.storage.type.leo.hover</string>
+          </dict>
+        </dict>
       </dict>
     </dict>
   </dict>

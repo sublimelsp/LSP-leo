@@ -4,6 +4,36 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog][keep a changelog] and this project adheres to [Semantic Versioning][semantic versioning].
 
+## [0.31.4] - 2024-04-30
+
+### Added
+- Add diagnostics if a struct member is an array/tuple of structures of undefined type
+- Implement diagnostics when in an external program standard functions  have modes associated with their inputs and transitions have constant inputs
+- Implement a syntax highlighting of the 'finalize' block call
+- Add diagnostics when constant inputs of functions are re-assigned
+- Implement diagnostics if an external mapping is used in the mapping methods
+- Add diagnostics when the `set` operation uses an external mapping
+- Implement diagnostics when a variable is reassigned from a conditional scope in a finalize block
+- Error is not diagnosed if the if-else statement condition is a different types comparison
+- Add diagnostics if a program scope is missing
+
+### Removed
+- Remove redundant diagnostics if an external type is a keyword when defining a constant
+- Remove redundant diagnostics if non-existent mapping calls mapping functions
+  
+### Fixed
+- Fix diagnostics if creating a struct defined in current and external programs
+- Fix diagnostics if an external type is a keyword
+- Fix diagnostics if there is a keyword instead of a valid external type
+- Fix diagnostics if a program identifier is a keyword
+- Fix the highlighting of function names in Split View mode in Sublime Text
+- Fix diagnostics if the array size does not match the expected one
+- Fix diagnostics if the array member type does not match the expected one
+- The error occurs when trying to show hover in Sublime Text
+- Fix diagnostics if struct and mapping have same names
+
+
+
 ## [0.31.3] - 2024-04-23
 
 ### Added

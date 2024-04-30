@@ -21,6 +21,8 @@ def setup_leohover_settings() -> None:
     preferences_filename = 'Preferences.sublime-settings'
     preferences = sublime.load_settings(preferences_filename)
     value = preferences.get("mdpopups.sublime_user_lang_map")
+    if not value:
+        value = {}
     value["leohover"] = (('leohover',), ('LSP-leo/leoHover',))
     preferences.set("mdpopups.sublime_user_lang_map", value)
     sublime.save_settings(preferences_filename)
@@ -37,9 +39,12 @@ class LspLeoPlugin(NpmClientHandler):
         view = sublime.active_window().find_open_file(filename)
 
         if view:
-            syntax_coloring = SyntaxColoring()
-            syntax_coloring.view = view
-            syntax_coloring.colorize(request)
+            # Get all views, including cloned ones (opened in Split View mode)
+            views = view.buffer().views()
+            for v in views:
+                syntax_coloring = SyntaxColoring()
+                syntax_coloring.view = v
+                syntax_coloring.colorize(request)
         # Server doesn't require any specific response.
         response(None)
 
@@ -62,6 +67,25 @@ def sendColorizeRequest(view):
 class SyntaxColoringViewListener(sublime_plugin.ViewEventListener):
     def on_selection_modified_async(self):
         sendColorizeRequest(self.view)
+
+class SyntaxColoringEventListener(sublime_plugin.EventListener):
+    def on_clone(self, view):
+        file_extension = os.path.splitext(view.file_name())[1][1:]
+        if file_extension:
+            settings = sublime.load_settings("LSP-leo.sublime-settings")
+            if settings:
+                languages = settings.get("languages")
+                if isinstance(languages, list):
+                    for language in languages:
+                        language_id = language.get("languageId")
+                        if isinstance(language_id, str) and language_id == file_extension:
+                            # Get all views, including cloned ones (opened in Split View mode)
+                            # This hack helps to send ColorizeRequest for non cloned views
+                            # (for cloned views there is no listener in LSP for some reason)
+                            views = view.buffer().views()
+                            for v in views:
+                                sendColorizeRequest(v)
+                            break
 
 class SyntaxColoring():
     def colorize(self, request) -> None:
