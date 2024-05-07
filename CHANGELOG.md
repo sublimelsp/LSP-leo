@@ -4,6 +4,20 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog][keep a changelog] and this project adheres to [Semantic Versioning][semantic versioning].
 
+## [0.31.5] - 2024-05-07
+
+### Added
+- Implement diagnostics if mapping operations are used on external mapping
+- Add diagnostics when there is a non-existent record member in the if statement condition
+- Add diagnostics when an external program has no transition function
+- Show hovers for external mappings
+- Show hovers for functions and external transitions
+- Implement diagnostics when a struct and a transition variable have the same name
+
+### Fixed
+- Remove duplicate error message [EPAR0370009] if there is a parenthesis instead of constant identifier
+
+
 ## [0.31.4] - 2024-04-30
 
 ### Added
@@ -31,7 +45,6 @@ The format is based on [Keep a Changelog][keep a changelog] and this project adh
 - Fix diagnostics if the array member type does not match the expected one
 - The error occurs when trying to show hover in Sublime Text
 - Fix diagnostics if struct and mapping have same names
-
 
 
 ## [0.31.3] - 2024-04-23
