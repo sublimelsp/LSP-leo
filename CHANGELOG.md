@@ -4,6 +4,21 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog][keep a changelog] and this project adheres to [Semantic Versioning][semantic versioning].
 
+## [0.31.6] - 2024-05-13
+
+### Added
+- Show hovers for external mappings
+- Show hovers for locators of the external program
+
+### Fixed
+- Fix diagnostics when the "network" has an unexpected value in the dependency
+- Fix diagnostics when a function and a function variable have the same name
+- Fix the name of the variable that is not a member of the structure in the error message [ETYC0372018]
+- Fix diagnostics when a mapping, a function parameter and a function variable have the same name
+- Fix diagnostics when a struct and a transition variable have the same name
+- Remove redundant diagnostics when there is a non-closed string
+
+
 ## [0.31.5] - 2024-05-07
 
 ### Added

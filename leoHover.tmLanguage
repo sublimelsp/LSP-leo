@@ -16,7 +16,7 @@
         <key>name</key>
         <string>import_path_construction</string>
         <key>match</key>
-        <string>\b(import)\b (".*")</string>
+        <string>\b(import)\b (.*)</string>
         <key>captures</key>
         <dict>
           <key>1</key>
