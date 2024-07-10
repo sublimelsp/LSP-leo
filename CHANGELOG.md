@@ -4,6 +4,146 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog][keep a changelog] and this project adheres to [Semantic Versioning][semantic versioning].
 
+## [0.32.0] - 2024-07-10
+
+### Added
+- Implement new codes for errors that occur when unit expressions are used in a variable or constant declaration
+- Implement new error codes if an invalid group core constant is typed
+- Implement the new error code when an array is empty
+- Implement the new error code when the program has no transition function
+- Implement the new error code when an array has more than 32 elements
+- Implement the new error code when a variable of the string type is defined
+- Implement new diagnostics when then is a variable name
+- Implement diagnostics if an async function call block is empty
+- Implement diagnostics when an async function returns a value
+- Implement diagnostics if an input to an async function has an incorrect mode
+- Implement diagnostics when mapping methods are used outside of an async function block
+- Implement diagnostics when an async transition calls a non-existent function
+- Implement diagnostics if an async transition does not call an async function
+- Highlight async and Future in red
+- Implement diagnostics for new syntax of the finalize
+- Add diagnostics for a new finalize syntax when an async function has no parameters
+- Implement diagnostics when a variable is re-assigned from a conditional scope to an outer scope in an async function
+- Add diagnostics if an identifier is the `async` keyword
+- Implement a new error code when tuple type or tuple expression contains another tuple
+- Implement a new error code when a local transition function is called from another transition function
+- Implement a new error code for cyclic dependency between structs
+- Implement new diagnostics for the multiplication operator
+- Add diagnostics when `self.signer` or `self.caller` are used in an async function call context
+- Add diagnostics and change error code if tuples on the left-hand side of a `DefinitionStatement` contain literals
+- Add diagnostics when ChaCha operation is used in a transition function
+- Implement diagnostics when an async transition calls a not async function
+- Highlight Future in red
+- External mappings should be white
+- Implement diagnostics when network.id is used as allowed accesses to `network` 
+- Add diagnostics when the number of async function parameters mismatch the number of inputs when it is called
+- Implement new diagnostics for operation `contains` on external mapping
+- Add diagnostics when a loop body inside a transition function contains an async function call
+- Implement diagnostics when the type returned by an async transition is what is expected but has extra spaces and trailing commas
+- Add diagnostics if a variable of Future type is reassigned- 
+- Add and fix diagnostics if the output of an async function is not assigned to a `Future` type
+- Highlight a Future type like when hovering
+- Add diagnostics when two local async functions are called inside an async transition
+- Add diagnostics if Futures that are never awaited are used
+- Add diagnostics when an async function's output is not assigned of type "Future"
+- Add diagnostics when an async function is called in a conditional block
+- Add diagnostics when a non-async transition returns a future
+- Add diagnostics when not all futures are consumed
+- Add diagnostics when an async call is made from a non-async transition
+- Implement diagnostics when a transition returns an async transition and the transition type is defined as Future
+- Add diagnostics when the await() function is called from an unknown variable 
+- Implement diagnostics when a valid core function Future::await is called
+- Implement new diagnostics when two args are passed to a valid core function Future::await
+- Add diagnostics if a non-boolean record member is the if statement condition
+- Add diagnostics if a literal or non-future variable is passed to an async function
+- Add diagnostics when a future is awaited twice
+- Implement diagnostics when dependencies in the program.json file equal null
+- Add diagnostics if an async function returns a Future
+- Add diagnostics when the async function type is not defined as Future
+- Implement diagnostics for new syntax self.address and nonexistent.aleo
+- Add diagnostics when a variable of type Future is reassigned
+- Add diagnostics for assignment statements
+- Add diagnostics when dividing unknown variables
+- Add diagnostics when an async transition returns an async function whose input is an unknown variable
+- Add diagnostics when an async function's input type does not match the type of its parameter
+- Implement an async function paths counter to diagnostics the error [ETYC0372092]
+- Add warning [WTYC0372000] if not all paths through the async function await all futures
+- Add the warning [WTYC0372001] when a future is awaited twice
+- Add diagnostics of the error [ETYC0372095] when an await call is not a valid
+- Add error diagnostics [ETYC0372100] if more than two local async functions are called in an async transition function
+- Add a warning if the maximum depth of conditional blocks is exceeded in an asynchronous function
+- Add diagnostics when trying to access a non-existent argument from Future
+- Implement diagnostics when output type in async transition signature is not a Future
+- Implement access diagnostics to arguments of Future
+- Add diagnostics when the future argument types in the return statement do not match the future argument types in the async transition signature
+- Implement diagnostics when structures and signatures are compared
+  
+### Changed
+- Change error code when the function return value is a constant
+- Change error code when loop bound is variable
+- Change error code when a struct or record contains another record
+- Change the help information and add it to the diagnostic message
+- Change the error code when the number of tuple elements is not as expected
+- Change the error code when the number of mappings exceeds 31
+- Change the error code and help info for operations `set` and `remove` on external mapping
+- Update to leo 2.0.0.
+
+### Deprecated
+
+### Removed
+
+### Fixed
+- Fix diagnostics of binary operators types
+- Fix the error code if a mapping's value or mapping's key is a record
+- Fix diagnostics when a number is found instead of an identifier in external resource
+- Fix diagnostics when an external mapping is enclosed in parentheses
+- Fix diagnostics when a struct member is called from a Future like from a struct
+- Fix diagnostics when .await() operation is used in an async transition
+- Fix the [ETYC0372003] error message if a variable of Future type is reassigned
+- Fix diagnostics when await() function is called from literal
+- Fix diagnostics when the await() function is called from a non-Future variable
+- Fix diagnostics if a full and universal formats of the Future type are used
+- Fix diagnostics when a non-Future variable is passed to a valid Future::await core function
+- Fix hovers for async transitions and async functions
+- Fix diagnostics when an async function returns a value
+- Fix diagnostics when there is an empty struct
+- Fix autocompletion in the program scope according to the new syntax of async calls
+- Remove diagnostics error [EPAR0370009] when an unexpected constant is called from block
+- Error [ETYC0372089] is not diagnosed if the parameter type of an async function is Future, but another data type is passed to the function
+- Fix diagnostics when external async transition type is Future and contains program name with slash
+- Remove redundant diagnostics if an invalid target is an invalid array member
+- Fix diagnostics when an assignment target is a unit expression
+- Fix diagnostics of external calls to .leo programs that are not supported
+- Fix the error code when an unexpected constant is called from block
+- Remove redundant diagnostics when the async function type is not defined as Future
+- Remove diagnostics errors [ETYC0372005] when there are keywords instead of variable identifiers
+- Remove diagnostics error [EPAR0372009] when there are `=` instead of variable identifiers in variable definitions
+- Fix a syntax highlighting in some examples
+- Highlight the return keyword in red in the Basic Bank example
+- Fix a type highlighting if it is a nested Future
+- Fix highlighting of hover for core function await()
+- Fix diagnostics when a Future is awaited in an async transition scope
+- Fix diagnostics when a variable of type Future is reassigned with the *= operator
+- Fix the highlight range of the error [ETYC0372053] 
+- Fix diagnostics when self.caller or [id].aleo are passed to assert functions
+- Fix diagnostics when identifier starts with sign1
+- Fix diagnostics when an output type in the function signature is a unit expression
+- Fix diagnostics when a struct is created inside a ternary operator
+- Fix diagnostics when there is no semicolon at the end of a tuple member call
+- Remove duplicate of the error [ETYC0372005] when await() is called from an unknown variable enclosed in parentheses
+- Fix diagnostics when output type of an async transition contains a detailed form of future 
+- Fix diagnostics when a tuple whose members are arrays is defined
+- Fix function highlight when calling a function whose name is wrapped in parentheses
+- Fix diagnostics if the function name is in parentheses when calling a function
+- Remove redundant diagnostics when a tuple index goes out of range
+- Remove diagnostics errors if async function`s parameters types are universal forms of futures
+- Fix syntax highlighting if a transition ends with "return;"
+- Fix syntax highlighting for members of a nested struct in the return operator
+- Fix diagnostics if the input of an async function is a call to an external async transition
+- Fix syntax highlighting after a comment with the word `return' at the end
+
+### Security
+
 ## [0.31.6] - 2024-05-13
 
 ### Added
@@ -17,6 +157,7 @@ The format is based on [Keep a Changelog][keep a changelog] and this project adh
 - Fix diagnostics when a mapping, a function parameter and a function variable have the same name
 - Fix diagnostics when a struct and a transition variable have the same name
 - Remove redundant diagnostics when there is a non-closed string
+- Fix server exception: TypeError: Cannot read properties of undefined (reading 'text')
 
 
 ## [0.31.5] - 2024-05-07

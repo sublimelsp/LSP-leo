@@ -49,6 +49,10 @@
       </dict>
       <dict>
         <key>include</key>
+        <string>#future_keyword</string>
+      </dict>
+      <dict>
+        <key>include</key>
         <string>#algorithm_function_keyword</string>
       </dict>
       <dict>
@@ -57,7 +61,7 @@
         <key>name</key>
         <string>import_function_first_line</string>
         <key>begin</key>
-        <string>\b(function|finalize|transition|inline)\b (\b\w+\b)</string>
+        <string>\b(function|transition|inline)\b (\b\w+\b)</string>
         <key>end</key>
         <string>$</string>
         <key>beginCaptures</key>
@@ -115,11 +119,11 @@
       </dict>
       <dict>
         <key>comment</key>
-        <string>Finalize|Import finalize first line</string>
+        <string>Async function|Import async function first line</string>
         <key>name</key>
         <string>import_finalize_first_line</string>
         <key>begin</key>
-        <string>\b(finalize)\b (\b\w+\b)</string>
+        <string>\b(async)\b \b(function|transition|inline)\b (\b\w+\b)</string>
         <key>end</key>
         <string>$</string>
         <key>beginCaptures</key>
@@ -127,12 +131,17 @@
           <key>1</key>
           <dict>
             <key>name</key>
-            <string>storage.type.finalize.leo.hover</string>
+            <string>storage.type.async.leo.hover</string>
           </dict>
           <key>2</key>
           <dict>
             <key>name</key>
-            <string>name.finalize.leo.hover</string>
+            <string>storage.type.function.leo.hover</string>
+          </dict>
+          <key>3</key>
+          <dict>
+            <key>name</key>
+            <string>name.function.leo.hover</string>
           </dict>
         </dict>
         <key>patterns</key>
@@ -622,6 +631,15 @@
             <string>external.storage.type.leo.hover</string>
           </dict>
         </dict>
+      </dict>
+      <key>future_keyword</key>
+      <dict>
+        <key>comment</key>
+        <string>Built-in/core type</string>
+        <key>name</key>
+        <string>storage.type.future.leo.hover</string>
+        <key>match</key>
+        <string>\b(Future)\b</string>
       </dict>
     </dict>
   </dict>

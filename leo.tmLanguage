@@ -96,10 +96,6 @@
       </dict>
       <dict>
         <key>include</key>
-        <string>#storage_type_then</string>
-      </dict>
-      <dict>
-        <key>include</key>
         <string>#storage_type_mapping</string>
       </dict>
       <dict>
@@ -222,10 +218,6 @@
           </dict>
           <dict>
             <key>include</key>
-            <string>#storage_type_then</string>
-          </dict>
-          <dict>
-            <key>include</key>
             <string>#string_literal</string>
           </dict>
           <dict>
@@ -235,6 +227,14 @@
           <dict>
             <key>include</key>
             <string>#console_methods</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#future_type</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#future_type_parameters</string>
           </dict>
         </array>
       </dict>
@@ -294,10 +294,6 @@
           </dict>
           <dict>
             <key>include</key>
-            <string>#storage_type_then</string>
-          </dict>
-          <dict>
-            <key>include</key>
             <string>#string_literal</string>
           </dict>
           <dict>
@@ -327,6 +323,14 @@
           <dict>
             <key>include</key>
             <string>#console_methods</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#future_type</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#future_type_parameters</string>
           </dict>
         </array>
       </dict>
@@ -435,6 +439,14 @@
             <key>include</key>
             <string>#block_comment</string>
           </dict>
+          <dict>
+            <key>include</key>
+            <string>#future_type</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#future_type_parameters</string>
+          </dict>
         </array>
       </dict>
       <key>function_attribute</key>
@@ -532,7 +544,7 @@
         <key>name</key>
         <string>keyword.control.leo</string>
         <key>match</key>
-        <string>\b(else|if|in|for|return|as)\b</string>
+        <string>\b(else|if|in|for|as)\b</string>
       </dict>
       <key>storage_type_let</key>
       <dict>
@@ -542,15 +554,6 @@
         <string>storage.type.let.leo</string>
         <key>match</key>
         <string>\b(let)\b</string>
-      </dict>
-      <key>storage_type_then</key>
-      <dict>
-        <key>comment</key>
-        <string>Storage type then</string>
-        <key>name</key>
-        <string>storage.type.then.leo</string>
-        <key>match</key>
-        <string>\b(then)\b</string>
       </dict>
       <key>storage_type_mapping</key>
       <dict>
@@ -658,7 +661,7 @@
         <key>comment</key>
         <string>Storage type async</string>
         <key>match</key>
-        <string>\b(async)\s+(finalize)\b\s*\(</string>
+        <string>\b(async)\s+((\btransition\b)|(\bfunction\b)|(\binline\b))\b\s+\w+\s*\(</string>
         <key>captures</key>
         <dict>
           <key>1</key>
@@ -666,10 +669,20 @@
             <key>name</key>
             <string>storage.type.async.leo</string>
           </dict>
-          <key>2</key>
+          <key>3</key>
           <dict>
             <key>name</key>
-            <string>storage.type.finalize.call.leo</string>
+            <string>storage.type.transition.leo</string>
+          </dict>
+          <key>4</key>
+          <dict>
+            <key>name</key>
+            <string>storage.type.function.leo</string>
+          </dict>
+          <key>5</key>
+          <dict>
+            <key>name</key>
+            <string>storage.type.inline.leo</string>
           </dict>
         </dict>
       </dict>
@@ -726,6 +739,14 @@
             <key>include</key>
             <string>#line_comment</string>
           </dict>
+          <dict>
+            <key>include</key>
+            <string>#future_type</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#future_type_parameters</string>
+          </dict>
         </array>
       </dict>
       <key>mapping_declaration</key>
@@ -746,6 +767,14 @@
             <key>include</key>
             <string>#integer_literal</string>
           </dict>
+          <dict>
+            <key>include</key>
+            <string>#future_type</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#future_type_parameters</string>
+          </dict>
         </array>
       </dict>
       <key>return_type</key>
@@ -753,7 +782,7 @@
         <key>comment</key>
         <string>Return type</string>
         <key>begin</key>
-        <string>(?&lt;=-&gt;)</string>
+        <string>-&gt;</string>
         <key>end</key>
         <string>(?={)</string>
         <key>patterns</key>
@@ -786,6 +815,14 @@
             <key>include</key>
             <string>#line_comment</string>
           </dict>
+          <dict>
+            <key>include</key>
+            <string>#future_type</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#future_type_parameters</string>
+          </dict>
         </array>
       </dict>
       <key>statement_return</key>
@@ -793,9 +830,17 @@
         <key>comment</key>
         <string>Statement return</string>
         <key>begin</key>
-        <string>(?&lt;=return)</string>
+        <string>\b(return)\b</string>
         <key>end</key>
-        <string>(?=;)</string>
+        <string>;</string>
+        <key>beginCaptures</key>
+        <dict>
+          <key>1</key>
+          <dict>
+            <key>name</key>
+            <string>keyword.control.leo</string>
+          </dict>
+        </dict>
         <key>patterns</key>
         <array>
           <dict>
@@ -832,7 +877,7 @@
           </dict>
           <dict>
             <key>include</key>
-            <string>#storage_type_then</string>
+            <string>#invoking_attribute</string>
           </dict>
         </array>
       </dict>
@@ -849,6 +894,14 @@
           <dict>
             <key>include</key>
             <string>#core_types</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#future_type</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#future_type_parameters</string>
           </dict>
         </array>
       </dict>
@@ -881,6 +934,107 @@
             <string>circuit.method.name.call</string>
           </dict>
         </dict>
+      </dict>
+      <key>future_type</key>
+      <dict>
+        <key>comment</key>
+        <string>Storage type future</string>
+        <key>match</key>
+        <string>\b(Future)\b</string>
+        <key>captures</key>
+        <dict>
+          <key>1</key>
+          <dict>
+            <key>name</key>
+            <string>storage.type.future.leo</string>
+          </dict>
+        </dict>
+      </dict>
+      <key>future_type_parameters</key>
+      <dict>
+        <key>comment</key>
+        <string>Parameters of future type</string>
+        <key>begin</key>
+        <string>(?&lt;=Future)\s*(\&lt;)</string>
+        <key>end</key>
+        <string>(\&gt;)</string>
+        <key>beginCaptures</key>
+        <dict>
+          <key>1</key>
+          <dict>
+            <key>name</key>
+            <string>storage.type.future.angle.brackets.leo</string>
+          </dict>
+        </dict>
+        <key>endCaptures</key>
+        <dict>
+          <key>1</key>
+          <dict>
+            <key>name</key>
+            <string>storage.type.future.angle.brackets.leo</string>
+          </dict>
+        </dict>
+        <key>patterns</key>
+        <array>
+          <dict>
+            <key>begin</key>
+            <string>(Fn)</string>
+            <key>end</key>
+            <string>(\))</string>
+            <key>beginCaptures</key>
+            <dict>
+              <key>1</key>
+              <dict>
+                <key>name</key>
+                <string>storage.type.future.leo</string>
+              </dict>
+            </dict>
+            <key>endCaptures</key>
+            <dict>
+              <key>1</key>
+              <dict>
+                <key>name</key>
+                <string>storage.type.future.parantesis.leo</string>
+              </dict>
+            </dict>
+            <key>patterns</key>
+            <array>
+              <dict>
+                <key>begin</key>
+                <string>(\()</string>
+                <key>end</key>
+                <string>(?=\))</string>
+                <key>beginCaptures</key>
+                <dict>
+                  <key>1</key>
+                  <dict>
+                    <key>name</key>
+                    <string>storage.type.future.parantesis.leo</string>
+                  </dict>
+                </dict>
+                <key>patterns</key>
+                <array>
+                  <dict>
+                    <key>include</key>
+                    <string>#core_types</string>
+                  </dict>
+                  <dict>
+                    <key>include</key>
+                    <string>#integer_literal</string>
+                  </dict>
+                  <dict>
+                    <key>include</key>
+                    <string>#future_type</string>
+                  </dict>
+                  <dict>
+                    <key>include</key>
+                    <string>#future_type_parameters</string>
+                  </dict>
+                </array>
+              </dict>
+            </array>
+          </dict>
+        </array>
       </dict>
       <key>inside_braces</key>
       <dict>
@@ -1032,10 +1186,6 @@
           </dict>
           <dict>
             <key>include</key>
-            <string>#storage_type_then</string>
-          </dict>
-          <dict>
-            <key>include</key>
             <string>#string_literal</string>
           </dict>
           <dict>
@@ -1061,6 +1211,14 @@
           <dict>
             <key>include</key>
             <string>#console_methods</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#future_type</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#future_type_parameters</string>
           </dict>
           <dict>
             <key>comment</key>
