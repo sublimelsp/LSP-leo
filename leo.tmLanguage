@@ -24,10 +24,6 @@
       </dict>
       <dict>
         <key>include</key>
-        <string>#special_functions_call</string>
-      </dict>
-      <dict>
-        <key>include</key>
         <string>#import_file</string>
       </dict>
       <dict>
@@ -120,7 +116,7 @@
       <key>import_file</key>
       <dict>
         <key>name</key>
-        <string>import.file.leo</string>
+        <string>entity.name.type.import.leo</string>
         <key>comment</key>
         <string>Import file</string>
         <key>match</key>
@@ -129,7 +125,7 @@
       <key>program_file</key>
       <dict>
         <key>name</key>
-        <string>program.file.leo</string>
+        <string>entity.name.type.program.leo</string>
         <key>comment</key>
         <string>Program file</string>
         <key>match</key>
@@ -146,7 +142,7 @@
           <key>1</key>
           <dict>
             <key>name</key>
-            <string>circuit.name.static.call</string>
+            <string>entity.name.struct.call.leo</string>
           </dict>
         </dict>
       </dict>
@@ -160,6 +156,10 @@
         <string>\}</string>
         <key>patterns</key>
         <array>
+          <dict>
+            <key>include</key>
+            <string>#circuit_attribute</string>
+          </dict>
           <dict>
             <key>include</key>
             <string>#inside_braces</string>
@@ -339,7 +339,7 @@
         <key>comment</key>
         <string>Address</string>
         <key>name</key>
-        <string>address.literal.value.leo</string>
+        <string>constant.other.address.leo</string>
         <key>match</key>
         <string>\baleo1[A-z0-9]*</string>
       </dict>
@@ -365,38 +365,57 @@
         <key>name</key>
         <string>function.declaration.leo</string>
         <key>match</key>
-        <string>(?:(?&lt;=\bfinalize\b)|(?&lt;=\btransition\b)|(?&lt;=\bfunction\b)|(?&lt;=\binline\b))\s+(\w+)\s*\(</string>
+        <string>(?:(?&lt;=\btransition\b)|(?&lt;=\bfunction\b)|(?&lt;=\binline\b))\s+(\w+)\s*\(</string>
         <key>captures</key>
         <dict>
           <key>1</key>
           <dict>
             <key>name</key>
-            <string>function.declaration.token.leo</string>
+            <string>entity.name.function.leo</string>
           </dict>
           <key>2</key>
           <dict>
             <key>name</key>
-            <string>function.declaration.name.leo</string>
+            <string>entity.name.function.leo</string>
           </dict>
         </dict>
-      </dict>
-      <key>special_functions_call</key>
-      <dict>
-        <key>comment</key>
-        <string>Special function call</string>
-        <key>name</key>
-        <string>special.functions.call.leo</string>
-        <key>match</key>
-        <string>\b(finalize|increment|decrement)\b(?=\s*\(.*\)(?!\s*{))</string>
       </dict>
       <key>function_parameters</key>
       <dict>
         <key>comment</key>
         <string>Function parameters</string>
         <key>begin</key>
-        <string>(?:(?&lt;=function)|(?&lt;=finalize)|(?&lt;=transition)|(?&lt;=inline))\s+\w+\s*\(</string>
+        <string>(?:(async)\s*(function|transition|inline))\s+(\w+)\s*\(|(?:(function|transition|inline))\s+(\w+)\s*\(</string>
         <key>end</key>
         <string>\)</string>
+        <key>beginCaptures</key>
+        <dict>
+          <key>1</key>
+          <dict>
+            <key>name</key>
+            <string>storage.type.async.leo</string>
+          </dict>
+          <key>2</key>
+          <dict>
+            <key>name</key>
+            <string>storage.type.function.leo</string>
+          </dict>
+          <key>3</key>
+          <dict>
+            <key>name</key>
+            <string>entity.name.function.leo</string>
+          </dict>
+          <key>4</key>
+          <dict>
+            <key>name</key>
+            <string>storage.type.function.leo</string>
+          </dict>
+          <key>5</key>
+          <dict>
+            <key>name</key>
+            <string>entity.name.function.leo</string>
+          </dict>
+        </dict>
         <key>patterns</key>
         <array>
           <dict>
@@ -460,7 +479,7 @@
           <key>1</key>
           <dict>
             <key>name</key>
-            <string>entity.other.function-attribute-name</string>
+            <string>variable.parameter.leo</string>
           </dict>
         </dict>
       </dict>
@@ -506,7 +525,7 @@
         <key>comment</key>
         <string>Integer literal (decimal)</string>
         <key>name</key>
-        <string>numeric.integer.decimal.leo</string>
+        <string>constant.numeric.decimal.leo</string>
         <key>match</key>
         <string>\b([0-9][0-9_]*)([ui](8|16|32|64|128))?\b</string>
       </dict>
@@ -628,15 +647,6 @@
         <string>storage.type.function.leo</string>
         <key>match</key>
         <string>\b(function)\b</string>
-      </dict>
-      <key>finalize_keyword</key>
-      <dict>
-        <key>comment</key>
-        <string>Storage type finalize</string>
-        <key>name</key>
-        <string>storage.type.finalize.leo</string>
-        <key>match</key>
-        <string>\b(finalize)\b</string>
       </dict>
       <key>struct_keyword</key>
       <dict>
@@ -845,6 +855,10 @@
         <array>
           <dict>
             <key>include</key>
+            <string>#circuit_attribute</string>
+          </dict>
+          <dict>
+            <key>include</key>
             <string>#integer_literal</string>
           </dict>
           <dict>
@@ -870,10 +884,6 @@
           <dict>
             <key>include</key>
             <string>#method_name_call</string>
-          </dict>
-          <dict>
-            <key>include</key>
-            <string>#finalize_keyword</string>
           </dict>
           <dict>
             <key>include</key>
@@ -916,7 +926,7 @@
           <key>1</key>
           <dict>
             <key>name</key>
-            <string>entity.name.method.console.leo</string>
+            <string>support.function.console.leo</string>
           </dict>
         </dict>
       </dict>
@@ -931,7 +941,7 @@
           <key>1</key>
           <dict>
             <key>name</key>
-            <string>circuit.method.name.call</string>
+            <string>entity.name.struct.attribute.leo</string>
           </dict>
         </dict>
       </dict>
@@ -1050,6 +1060,10 @@
         <array>
           <dict>
             <key>include</key>
+            <string>#circuit_attribute</string>
+          </dict>
+          <dict>
+            <key>include</key>
             <string>#variable_declaration</string>
           </dict>
           <dict>
@@ -1078,19 +1092,11 @@
           </dict>
           <dict>
             <key>include</key>
-            <string>#special_functions_call</string>
-          </dict>
-          <dict>
-            <key>include</key>
             <string>#async_keyword</string>
           </dict>
           <dict>
             <key>include</key>
             <string>#function_keyword</string>
-          </dict>
-          <dict>
-            <key>include</key>
-            <string>#finalize_keyword</string>
           </dict>
           <dict>
             <key>include</key>
@@ -1224,7 +1230,7 @@
             <key>comment</key>
             <string>Context Annotation</string>
             <key>name</key>
-            <string>context.annotation.leo</string>
+            <string>support.other.annotation.leo</string>
             <key>match</key>
             <string>@[a-zA-Z][a-zA-Z0-9_]*</string>
           </dict>

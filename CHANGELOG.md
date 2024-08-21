@@ -4,6 +4,36 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog][keep a changelog] and this project adheres to [Semantic Versioning][semantic versioning].
 
+## [0.32.1] - 2024-07-10
+
+### Added
+- Implement diagnostics when the structure has no members
+- Add diagnostics of tuples with unknown variables
+- Implement diagnostics if the .env file is missing the ENDPOINT variable
+- Add diagnostics if variables defined as tuple members have the same names
+- Implement syntax highlighting for all languages
+    
+### Changed
+
+### Deprecated
+
+### Removed
+
+### Fixed
+- Fix diagnostics when the return statement contains the mul() method but outputs are not defined in the function signature
+- Fix diagnostics when the return statement contains a binary method but outputs are not defined in the function signature
+- Fix the error message [ETYC0370005]
+- Fix diagnostics when a tuple contains arrays with members of different types
+- Fix highlighting of the error [ETYC0372019] when there is no the variable "owner" in the record
+- Fix diagnostics when there is no equals sign after the variable name in the .env file
+- Implement diagnostics if  network name in the .env file is invalid 
+- Fix error message [EPAR0370005] when trying to cast a primitive type to an unexpected type
+- Remove the diagnostics message duplicate of the error [EPAR0370017]
+- Remove redundant and incorrect diagnostics when an async transition and the async function have the same names
+- Fix diagnostics when an identifier starts with aleo1
+
+### Security
+
 ## [0.32.0] - 2024-07-10
 
 ### Added
