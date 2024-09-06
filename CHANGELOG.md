@@ -4,7 +4,29 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog][keep a changelog] and this project adheres to [Semantic Versioning][semantic versioning].
 
-## [0.32.1] - 2024-07-10
+## [0.33.0] - 2024-09-06
+
+### Added
+- Implement diagnostics of an unknown variable if it is a member of a struct that is a tuple member
+- Add diagnostics if the NETWORK variable has a new valid value of canary
+
+### Changed
+- Change links on the packagecontrol page
+
+### Fixed
+- Fix the message of the Error [ETYC0372018]
+- Fix a diagnostics of errors [EAST0372006] if there are standard and transition functions with the same names
+- Fix diagnostics if an unknown variable is assigned to a struct member when a struct defining
+- Fix diagnostics if tuple is not explicitly typed
+- Remove Error [EPAK0375038] when a file in the src folder in a nested project has a non-leo extension
+- Remove Error [EPAK0375020] when a file in the src folder in a nested project has a non-leo extension
+- Fix diagnostics when there is no the program.json file in the project
+- Fix diagnostics if there is a syntax error in program.json
+- Fix diagnostics if there is an invalid type of a variable in the program.json file
+- Fix diagnostics if external transition returns a tuple whose member is a record
+
+
+## [0.32.1] - 2024-08-21
 
 ### Added
 - Implement diagnostics when the structure has no members
@@ -14,10 +36,6 @@ The format is based on [Keep a Changelog][keep a changelog] and this project adh
 - Implement syntax highlighting for all languages
     
 ### Changed
-
-### Deprecated
-
-### Removed
 
 ### Fixed
 - Fix diagnostics when the return statement contains the mul() method but outputs are not defined in the function signature
@@ -32,7 +50,6 @@ The format is based on [Keep a Changelog][keep a changelog] and this project adh
 - Remove redundant and incorrect diagnostics when an async transition and the async function have the same names
 - Fix diagnostics when an identifier starts with aleo1
 
-### Security
 
 ## [0.32.0] - 2024-07-10
 
