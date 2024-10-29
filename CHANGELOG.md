@@ -4,6 +4,30 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog][keep a changelog] and this project adheres to [Semantic Versioning][semantic versioning].
 
+## [0.34.0] - 2024-10-29
+
+### Added
+- Implement error diagnostics [ETYC0372036] if return statements are in the inside of conditional if-else statements
+
+### Changed
+
+### Fixed
+- Errors [ETYC0372023] are not diagnosed if tuple members are defined as members of non-explicitly typed tuples
+- Fix diagnostics when the function signature is a unit expression and the return statements are inside an if-else conditional statement
+- Fix diagnostics when a struct is created inside a ternary operator 
+- Fix a help message of the [ECLI0377033] error when there is no ENDPOINT variable in the .env file
+- Errors [ETYC0372023] are not diagnosed when non-array type variables are defined as arrays with tuples not explicitly entered
+- Remove redundant diagnostics if the tuple is implicitly typed and the tuple index is out of the tuple range
+- Fix explicit return type fail
+- Fix diagnostics when the first operand of a comparison operator is an unknown variable
+- Remove false and redundant diagnostics if there is an unexpected string instead of the struct keyword when defining a structure
+- Fix diagnostics if the mapping identifier is enclosed in parentheses when calling mapping functions
+- Fix diagnostics when a tuple member type is defined as a tuple
+- Fix diagnostics when tuples are defined by implicitly typed tuples
+- Remove redundant diagnostics when you try to call a non-existent member of an implicitly typed tuple
+
+### Security
+
 ## [0.33.0] - 2024-09-06
 
 ### Added
