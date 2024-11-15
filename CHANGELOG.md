@@ -4,6 +4,40 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog][keep a changelog] and this project adheres to [Semantic Versioning][semantic versioning].
 
+## [0.35.0] - 2024-11-15
+
+### Added
+- Implement diagnostics when there is no comma after the member declaration in a structure or record (except the last)
+- Implement highlighting of binary, octal, and hexadecimal literals
+- Add diagnostics when hex, octal, or binary literals use for not integer types
+- Implement new diagnostics when a function with no parameters is defined
+- Add diagnostics when negative index in tuple member access expression
+- Add diagnostics when binary, octal or hexadecimal numbers are used when accessing tuple members
+- Add diagnostics when an integer contains a digit that is not valid for the corresponding radix
+- Add diagnostics for negative values of unsigned integers in radix 2/8/16
+- The Init&Create button should not be disabled when the project name matches the name of an already existing repository
+
+### Removed
+- Remove deprecated diagnostics when defining integers in radix 2, 8, and 16
+- Remove a duplicate of the error [ETYC0372003]
+- Remove duplicate error [ETYC0372005] when array index is unknown variable
+- Remove redundant diagnostics when declaration of 'owner' member in a record is followed by a colon
+- Remove deprecated diagnostics for empty async functions
+- Remove a duplicate of the error [EPAR0370005]
+
+### Fixed
+- Fix the [ETYC0372007] error message when a subtraction operator uses types not supported by that operator
+- Fix diagnostics when nested tuple type is not as expected
+- Fix diagnostics when the variable name is self
+- Fix range of the error [EPAR0370017] if a sign and digits of a negative implicit value are on different lines
+- Fix diagnostics when binary, octal or hexadecimal numbers are used in for loop as upper bound
+- Fix a message of the error [ETYC0372007] if it has a mapping
+- Fix the error code when a transition function has a constant input
+- Fix diagnostics when accessing elements of unknown arrays
+- Fix a highlighting of the Error [ETYC0372106]
+- Fix diagnostics when the variable or constant name is the same as the function name
+
+
 ## [0.34.0] - 2024-10-29
 
 ### Added
