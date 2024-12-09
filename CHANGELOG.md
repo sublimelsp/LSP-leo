@@ -4,6 +4,25 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog][keep a changelog] and this project adheres to [Semantic Versioning][semantic versioning].
 
+## [0.36.0] - 2024-12-09
+
+### Added
+
+### Changed
+
+### Fixed
+- Fix diagnostics when a member of a non-existent tuple is called
+- Fix diagnostics when the variable identifier is a number in the assignment operator
+
+## [0.35.1] - 2024-11-21
+
+### Added
+- Add diagnostics if identifier name is longer than 31 bytes
+
+### Fixed
+- Fix an exception error that occurs while editing the code
+
+
 ## [0.35.0] - 2024-11-15
 
 ### Added
