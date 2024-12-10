@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog][keep a changelog] and this project adheres to [Semantic Versioning][semantic versioning].
 
+## [0.36.1] - 2024-12-10
+
+### Added
+- Speed ​​up diagnostics by implementing this process in a background thread
+
+
 ## [0.36.0] - 2024-12-09
 
 ### Added

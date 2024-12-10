@@ -1,0 +1,1 @@
+/*! For license information please see diagnostic-worker.js.LICENSE.txt */
