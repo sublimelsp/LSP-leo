@@ -4,6 +4,45 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog][keep a changelog] and this project adheres to [Semantic Versioning][semantic versioning].
 
+## [0.37.0] - 2025-01-08
+
+### Added
+- Implement diagnostics when struct, mapping, or array contains a future
+- Add diagnostics when type of variable is defined by struct from imported file
+- Implement diagnostics of CheatCode algorithm
+- Implement diagnostics when a constant declaration is defined as a tuple with variables
+- Implement diagnostics when a call to an async transition follows a call to a non-async transition, and the async call returns a `Future` that itself takes a `Future` as an input
+- Implement diagnostics for looping inner iterators
+- Add diagnostics for error [ETYC0372003] when a value of another type is passed to an asynchronous function instead of a Future
+- Implement `Future` used improperly diagnostic [ESAZ0374005]
+- Implement diagnostics when not async functions take a Future as a parameter
+- Add [ETYC0372005] diagnostics for not defined Futures
+
+### Changed
+- Change a warning code if not all paths through the function await all futures
+- Change the error code when any future is never awaited
+- Change warning and error codes if future is awaited more than once
+
+### Deprecated
+- Rename deprecated [ETYC0372093]
+- Rename deprecated [WTYC0372003]
+- Rename deprecated [ETYC0372095]/[ETYC0372097]
+
+### Removed
+- Remove redundant error [ETYC0372003] when array have a Future as an element type
+- Remove diagnostics errors if the variable type is defined by a structure defined in the imported program
+- Remove redundant diagnostics if an async function parameter is a constant
+
+### Fixed
+- Fix [ETYC0372003] and [ETYC0372007] errors messages when they have boolean type
+- Fix highlighting of comments after mapping
+- Fix error range for function parameters
+- The error is not diagnosed if the function does not have a block
+- Fix diagnostics for error [ETYC0372003] when a type in the main program is defined by a type from an external program
+
+### Security
+ 
+
 ## [0.36.1] - 2024-12-10
 
 ### Added

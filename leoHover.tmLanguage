@@ -547,7 +547,7 @@
         <key>name</key>
         <string>storage.algorithm.leo.hover</string>
         <key>match</key>
-        <string>\b(ChaCha|BHP256|BHP512|BHP768|BHP1024|Pedersen64|Pedersen128|Poseidon2|Poseidon4|Poseidon8|Keccak256|Keccak384|Keccak512|SHA3_256|SHA3_384|SHA3_512)\b</string>
+        <string>\b(ChaCha|BHP256|BHP512|BHP768|BHP1024|Pedersen64|Pedersen128|Poseidon2|Poseidon4|Poseidon8|Keccak256|Keccak384|Keccak512|SHA3_256|SHA3_384|SHA3_512|CheatCode)\b</string>
       </dict>
       <key>integer_literal</key>
       <dict>
