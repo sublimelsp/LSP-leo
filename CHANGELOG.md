@@ -4,6 +4,115 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog][keep a changelog] and this project adheres to [Semantic Versioning][semantic versioning].
 
+## [0.38.0] - 2025-04-09
+
+### Added
+- Implement diagnostics when an external transition call is made after a local async function call
+- Implement diagnostics when the arms of a ternary conditional expression have different types
+- Implement new diagnostics if a type of a left-hand side of a `DefinitionStatement` is a unit type ()
+- Implement new diagnostics when calling an element from a non-existent nested array or from a variable that is not an array
+- Implement new diagnostics when a tuple expression has no elements
+- Implement new diagnostics when the unit type appears as an array type
+- Implement diagnostics for a Future element that is not the last element in the tuple
+- Implement new diagnostics for operators abs(), abs_wrapper(), double(), inv(), neg(), not(), square(), square_root(), to_x_coordinate(), to_x_coordinate()
+- Add diagnostics for the type cast operator
+- Implement new diagnostics for Mapping operations
+- Add diagnostics when local and external programs have two struct definitions with the same name that do not match
+- Implement new diagnostics when computing a Pedersen commitment up to a 64-bit input
+- Implement new diagnostics when computing a Pedersen commitment up to a 128-bit input
+- Implement new diagnostics when computing the Pedersen hash up to a 64-bit input
+- Implement new diagnostics when computing the Pedersen hash up to a 128-bit input
+- Implement new diagnostics when the value of a const declaration is defined by a variable
+- Add diagnostic of the Error [ETYC0372117] if the expected operator result type is not supported by the operator
+- Implement new diagnostics if there is an unsigned integer with minus sign
+- Implement new diagnostics if a core constant call is associated with an invalid structure
+- Implement new diagnostics when a struct member is called from an entity other than the structure
+- Add Help Info to diagnostic messages [EPAR0370022]
+- Implement new diagnostics when an array index is not an integer type
+- Implement diagnostics when upper bound of loop is greater than or equal to array size
+- Implement diagnostics when the array access index cannot be determined during compilation
+- Implement new diagnostics if operands of a mul() operator are invalid
+- Implement diagnostics when invalid types are received for the `*` operation
+- Implement new and remove redundant diagnostics for operators /, %
+- Implement new diagnostics for operator add()
+- Implement new and remove redundant diagnostics for operators +, -, &, |
+- Implement new diagnostics for eq() operator
+- Implement new diagnostics for operators gt(), gte(), lt(), lte()
+- Implement new and remove deprecated diagnostics for operators >>=, <<=
+- Implement new and remove deprecated diagnostics for operators +=, -=, &=, |=
+- Implement new diagnostics for global and local constants definition
+- Implement new and remove deprecated diagnostics when unary or binary operations are failed at compile time
+- Implement new diagnostics when defining constants
+- Implement a new test execution approach
+   
+### Changed
+- Change error code and error message when a loop bound constant type mismatch a loop bound variable type
+- Change [ETYC0372005] text message for unknown struct or record
+- Change the error code if the array type does not match the expected one
+- Change error code when block.height is assigned to a variable whose type is not u32
+
+### Removed
+- Remove redundant diagnostics if an async transition calls a non-existent async function and his name matches the function name in the external program
+- Remove unnecessary diagnostics when an async transition returns an async function and the output data type in the async transition signature is not defined
+- Remove unnecessary diagnostics when an async function whose parameters are futures is not called by an async transition
+- Remove deprecated diagnostics for loop bounds
+- Remove duplicates of errors [ETYC0372117] if the expected result type of an operator is not supported by the operator
+- Remove diagnostics errors when type u64 or i64 is passed to the Pedersen128 algorithm
+- Remove diagnostics errors when core functions are function inputs
+- Remove redundant diagnostics when the unit type is appeared as a struct member type or as a function argument type
+- Remove deprecated when a variable from a conditional scope in an async function is reassigned
+- Remove diagnostics of function argument types mismatch (error [ETYC0372117]) if the arguments amount is mismatched
+- Remove unnecessary diagnostics when comparing string types (operator ==)
+- Remove unnecessary diagnostics when a tuple index is out of range
+- Remove duplicates of error [EPAR0370029] when a tuple expression contains only one element
+- Remove deprecated warnings [WPAR0370001]
+
+### Fixed
+- Fix diagnostics of multiplication operations for groups
+- Fix multiplication operator diagnostics if the first operand is an unsupported 'string'
+- Fix the [ETYC0372003] message if the name of the external program is specified when the variable type definition
+- Fix diagnostics for error [ETYC0372003] when a type in the main program is defined by a type from an external program
+- Fix error message [ETYC0372014] when there is an invalid core function
+- Fix diagnostics when array index is a non-integer literal or a mapping or a struct or a function
+- Fix a Help Info of the [ETYC0372030] error if a struct member is a tuple with records
+- Fix diagnostics when a struct and mapping or function argument or local variable or global constant have the same name
+- Fix diagnostics for error [ETYC0372058] when there is a cyclic dependency between records and structs
+- There is no diagnostics for error [ETYC0372017] when an array is defined whose type is not found in the current scope
+- Fix a Help Info of the error [ETYC0372109]
+- Constant should be white
+- Diagnostics error if `group` type enclosed in parentheses when calling constant GEN
+- Fix diagnostics when an array type is defined as a tuple with one element
+- Fix a highlight range for error [ETYC0372017] when an array is defined whose type is not found in the current scope
+- Help Info missing in error message [EAST0372015]
+- Fix diagnostics when any identifier is used to access a tuple member
+- Fix diagnostics if tuple elements are expressions with binary operators
+- Fix diagnostics of the error [ETYC0372017] when a struct member is called but the structure type is not found in the current scope
+- No diagnostics if an expression in parentheses is entered instead of a tuple when defining a tuple
+- Fix diagnostics when a type casting operator is applied to a ternary if-else operator
+- Fix a highlight range for error [ETYC0372036] when the function type is defined but it does not return a value
+
+## [0.37.3] - 2025-02-06
+
+### Added
+
+## [0.37.2] - 2025-01-27
+
+### Added
+
+### Changed
+
+## [0.37.1] - 2025-01-10
+
+### Added
+- Add diagnostics when an expression statement is not a function call but is an external call with tuple access
+- Add error diagnostics [ETYC0372003] if the type of a variable does not match the type of the value assigned to the variable and returned by the transition from the external program
+
+### Changed
+
+### Fixed
+- Fix diagnostics when the output of an async function is not assigned to anything
+- Fix a highlight range for errors [ETYC0372042], [ETYC0372107], [ETYC0372101]
+
 ## [0.37.0] - 2025-01-08
 
 ### Added
@@ -39,9 +148,6 @@ The format is based on [Keep a Changelog][keep a changelog] and this project adh
 - Fix error range for function parameters
 - The error is not diagnosed if the function does not have a block
 - Fix diagnostics for error [ETYC0372003] when a type in the main program is defined by a type from an external program
-
-### Security
- 
 
 ## [0.36.1] - 2024-12-10
 
