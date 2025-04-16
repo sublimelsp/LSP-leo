@@ -4,6 +4,21 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog][keep a changelog] and this project adheres to [Semantic Versioning][semantic versioning].
 
+## [0.38.2] - 2025-04-16
+
+### Added
+- Implement a new highlight range for error [ETYC0372072] when the number of tuple elements does not match the expected
+  
+### Fixed
+- Diagnostics for unary and binary methods do not work if they are together with operators in an expression
+- Fix multi file LeoCompilerTestsDiagnostic
+- Fix a highlighting range of the [ETYC0372083] error
+- Fix diagnostics if a tuple member identifier starts with an unexpected character when defining a tuple
+
+## [0.38.1] - 2025-04-10
+
+### Changed
+
 ## [0.38.0] - 2025-04-09
 
 ### Added
