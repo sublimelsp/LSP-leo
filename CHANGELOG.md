@@ -4,6 +4,18 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog][keep a changelog] and this project adheres to [Semantic Versioning][semantic versioning].
 
+## [0.38.3] - 2025-05-01
+
+### Added
+- Implement new diagnostics when async transition returns a type that mismatch the async transition output signature
+- Add diagnostics when tuple is returned by imported function and tuple index is out of tuple range
+- Implement diagnostics when functions defined in external programs are called
+- Implement diagnostics when external transitions return records with the same names
+
+### Fixed
+- Error [ETYC0372003] is not diagnosed when the type returned by a transition of an external program does not match the expected type
+- Fix diagnostics if an async transition returns a tuple in which the Future argument does not match the expected one
+
 ## [0.38.2] - 2025-04-16
 
 ### Added
