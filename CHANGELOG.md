@@ -4,6 +4,19 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog][keep a changelog] and this project adheres to [Semantic Versioning][semantic versioning].
 
+## [0.38.4] - 2025-05-08
+
+### Added
+- Add diagnostics if the function type is defined but it does not return a value
+
+### Fixed
+- Fix diagnostics when a locator refers to the program in which it is located
+- Diagnostics errors if there is a double if-else ternary expression
+- Fix diagnostics when assert_eq and assert_neq functions have arguments of different types
+- Remove redundant diagnostics when the argument to the assert() function is not bool
+- Fix a highlighting range of the [EPAR0370005] error
+- Remove redundant diagnostics when an expression whose first member is a variable calls a method
+
 ## [0.38.3] - 2025-05-01
 
 ### Added
