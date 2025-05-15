@@ -4,6 +4,18 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog][keep a changelog] and this project adheres to [Semantic Versioning][semantic versioning].
 
+## [0.38.5] - 2025-05-15
+
+### Removed
+- Remove duplicate error messages [ETYC0372117] when constants with unexpected types define loop boundaries
+  
+### Fixed
+- Fix error message [EPAR0370004] when literal value with minus sign
+- Error [ETYC0372045] is not diagnosed when the type of a function or tuple element is defined as string
+- Fix the [EPAK0375040] error message if a comma is missing in the program.json file
+    
+### Security
+
 ## [0.38.4] - 2025-05-08
 
 ### Added

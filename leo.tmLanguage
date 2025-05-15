@@ -186,6 +186,10 @@
         <array>
           <dict>
             <key>include</key>
+            <string>#conditional_statement</string>
+          </dict>
+          <dict>
+            <key>include</key>
             <string>#statement_return</string>
           </dict>
           <dict>
@@ -1209,10 +1213,6 @@
         <string>\}</string>
         <key>patterns</key>
         <array>
-          <dict>
-            <key>include</key>
-            <string>#circuit_attribute</string>
-          </dict>
           <dict>
             <key>include</key>
             <string>#conditional_statement</string>
