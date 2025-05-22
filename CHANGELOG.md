@@ -4,6 +4,22 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog][keep a changelog] and this project adheres to [Semantic Versioning][semantic versioning].
 
+## [0.38.6] - 2025-05-22
+
+### Added
+- Implement arrays overwrite diagnostics
+- Implement diagnostics when self.caller or self.signer is assigned to a variable that is not an address
+- Implement new diagnostics when a mapping write fails
+- Implement new diagnostics for redefining tuple members  
+
+### Removed
+- Remove duplicate error [ETYC0372117] if a variable in the conditions of a for statement is defined as a tuple
+- Remove redundant diagnostics when defining a tuple with one element
+
+### Fixed
+- Fix diagnostics of the [EPAK0375038] error when the src source directory contains two files
+- Remove duplicate the [ETYC0372117] error message when a mapping read fails
+
 ## [0.38.5] - 2025-05-15
 
 ### Removed
@@ -13,8 +29,6 @@ The format is based on [Keep a Changelog][keep a changelog] and this project adh
 - Fix error message [EPAR0370004] when literal value with minus sign
 - Error [ETYC0372045] is not diagnosed when the type of a function or tuple element is defined as string
 - Fix the [EPAK0375040] error message if a comma is missing in the program.json file
-    
-### Security
 
 ## [0.38.4] - 2025-05-08
 
