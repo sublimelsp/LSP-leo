@@ -4,6 +4,28 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog][keep a changelog] and this project adheres to [Semantic Versioning][semantic versioning].
 
+## [0.38.7] - 2025-05-29
+
+### Added
+- Implement diagnostics when the last argument of the verify function is a mapping or a tuple
+- Add diagnostics for a [WTYC0372004] warning when `self.caller` is used as the owner of record
+- Implement the error [ETYC0372126] diagnostic when a record is  instantiated in the context of an async function
+- Implement diagnostics when a programs, records, or record members have "aleo" in their names
+- Add error diagnostics [ETYC0372134] when the loop iterator range bounds are of mismatched types
+
+### Changed
+- Update the error [EPAR0370005] message if there is an unexpected string in the program scope
+
+### Removed
+- Remove deprecated diagnostics when the variable type is not explicitly defined
+
+### Fixed
+- Fix [ETYC0372000] error message
+- Fix a highlighting range of the [ESAZ0374006] error
+- Implement new diagnostics when async function is not assigned to a Future
+- Remove a duplicate and fix a highlighting range of the [WSAZ0374000] warning
+- Remove a duplicate and fix a highlighting range of the [ESAZ0374001] error
+
 ## [0.38.6] - 2025-05-22
 
 ### Added
