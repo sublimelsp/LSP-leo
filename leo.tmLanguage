@@ -110,6 +110,10 @@
         <key>include</key>
         <string>#console_methods</string>
       </dict>
+      <dict>
+        <key>include</key>
+        <string>#script_keyword</string>
+      </dict>
     </array>
     <key>repository</key>
     <dict>
@@ -840,6 +844,15 @@
         <key>match</key>
         <string>\b(transition)\b</string>
       </dict>
+      <key>script_keyword</key>
+      <dict>
+        <key>comment</key>
+        <string>Storage type script</string>
+        <key>name</key>
+        <string>storage.type.script.leo</string>
+        <key>match</key>
+        <string>\b(script)\b</string>
+      </dict>
       <key>inline_keyword</key>
       <dict>
         <key>comment</key>
@@ -1272,6 +1285,10 @@
           <dict>
             <key>include</key>
             <string>#transition_keyword</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#script_keyword</string>
           </dict>
           <dict>
             <key>include</key>

@@ -4,6 +4,29 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog][keep a changelog] and this project adheres to [Semantic Versioning][semantic versioning].
 
+## [0.39.0] - 2025-06-05
+
+### Added
+- Implement diagnostics when a record name is prefixed by another record name
+- Implement diagnostics when a ternary conditional operator is used over an external type
+- Implement diagnostics when assigning to an external type record or its member 
+- Implement diagnostics when assigning to an external record, a tuple containing an external record, or an external record member
+- Implement new diagnostics for invalid annotations
+- Implement diagnostics for annotations with arguments
+
+### Deprecated
+- Remove deprecated diagnostic: Error [EPAR0370032]: console statements are not yet supported
+
+### Removed
+- Remove deprecated diagnostics when the loop condition variable type is not explicitly defined
+- Remove diagnostics error when defining the external record
+
+### Fixed
+- Fix diagnostics when unary or binary operations with integer literals are failed at compile time
+- Remove unnecessary and false diagnostics of error [ETYC0372117] when implicit values define array elements
+- Implement new diagnostics when a tuple is assigned to not tuple types
+- Remove redundant diagnostics when a negative index is used to access a tuple element
+
 ## [0.38.7] - 2025-05-29
 
 ### Added
