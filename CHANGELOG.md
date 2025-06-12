@@ -4,6 +4,25 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog][keep a changelog] and this project adheres to [Semantic Versioning][semantic versioning].
 
+## [0.39.2] - 2025-06-12
+
+### Added
+- Add diagnostics for loop iterator range bounds
+- Implement new diagnostics for deprecated statement console
+- Implement a new highlighting range for multiline errors [ETYC0372015] and [ETYC0372016]
+- Implement a new highlighting range of the [WTYC0372002] warning
+
+### Fixed
+- Fix the highlighting range for the [ETYC0372036] error when a function does not return a value
+- Fix diagnostics when struct, record and transition have the same name
+- Fix the highlighting range for the [ETYC0372088] error when an async transition does not call an async function
+- Fix the highlighting range for the [ETYC0372113] error when a function is defined with no parameters
+- Fix the highlighting range for the [ETYC0372106] error when an async function returns a value
+
+## [0.39.1] - 2025-06-06
+
+### Fixed
+
 ## [0.39.0] - 2025-06-05
 
 ### Added
