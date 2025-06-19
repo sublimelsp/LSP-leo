@@ -4,6 +4,34 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog][keep a changelog] and this project adheres to [Semantic Versioning][semantic versioning].
 
+## [0.40.0] - 2025-06-19
+
+### Added
+- Add diagnostics for loop iterator range bounds
+- Implement new diagnostics for deprecated statement console
+- Implement a new highlighting range for multiline errors [ETYC0372015] and [ETYC0372016]
+- Implement new error message [ETYC0372110] when not async transition returns Future
+- Implement new error message [ETYC0372067] when a Mapping function is used in the not async function
+- Implement diagnostics when implicit hexadecimal, octal, and binary literals are used to define fields, scalars, or groups
+- Add error diagnostics [ETYC0372117] when operand types do not match expected ones
+- Implement new diagnostics when an implicit value is assigned to a variable
+- Implement diagnostics when the type of a variable in a loop condition and types of loop boundaries are not explicitly defined
+- Implement diagnostics for generic functions
+- Implement new diagnostics when an unsuffixed literal is an operand of a unary method
+
+### Removed
+- Remove false diagnostics when using Poseidon8::hash_to_u8
+- Remove incorrect diagnostics when a variable is defined and re-assigned in a conditional scope in an async function
+- Remove diagnostics error when a Future is awaited
+
+### Fixed
+- Fix the highlighting range for the [ETYC0372062] error when the number of mappings exceeds the maximum
+- Fix error message [ETYC0372018] when accessing a non-existent structure member
+- Fix diagnostics when a record name is a prefix of multiple other record names 
+- Fix error highlighting range [EAST0372015] when there are different structs with the same name
+- Fix error highlighting range [ETYC0372026]
+- Diagnostics error if a loop condition variable is used inside a loop block and its type is not explicitly defined
+
 ## [0.39.2] - 2025-06-12
 
 ### Added
