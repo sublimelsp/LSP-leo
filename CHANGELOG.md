@@ -4,6 +4,21 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog][keep a changelog] and this project adheres to [Semantic Versioning][semantic versioning].
 
+## [0.40.1] - 2025-06-26
+
+### Added
+- Add diagnosis of error [EPAR0370044] when variable identifier is more than 31 bytes
+- Implement diagnostics when infering types for unsuffixed literals in binary operators or methods
+
+### Deprecated
+- Remove deprecated diagnostics when array size is defined by integer literal
+
+### Fixed
+- Fix error diagnostic [ETYC0372117] for the second operand of the mod() method
+- Fix error highlighting range [ETYC0372020]
+- Fix error highlighting range [ETYC0372019]
+- Fix diagnostics when the target of a binary method is not explicitly defined and the second operand is an unsuffixed literal
+
 ## [0.40.0] - 2025-06-19
 
 ### Added
