@@ -114,6 +114,98 @@
         <key>include</key>
         <string>#script_keyword</string>
       </dict>
+      <dict>
+        <key>include</key>
+        <string>#conditional_statement</string>
+      </dict>
+      <dict>
+        <key>include</key>
+        <string>#variable_declaration</string>
+      </dict>
+      <dict>
+        <key>include</key>
+        <string>#loop_definition</string>
+      </dict>
+      <dict>
+        <key>include</key>
+        <string>#return_type</string>
+      </dict>
+      <dict>
+        <key>include</key>
+        <string>#statement_return</string>
+      </dict>
+      <dict>
+        <key>include</key>
+        <string>#function_call</string>
+      </dict>
+      <dict>
+        <key>include</key>
+        <string>#mapping_declaration</string>
+      </dict>
+      <dict>
+        <key>include</key>
+        <string>#async_keyword</string>
+      </dict>
+      <dict>
+        <key>include</key>
+        <string>#function_keyword</string>
+      </dict>
+      <dict>
+        <key>include</key>
+        <string>#struct_keyword</string>
+      </dict>
+      <dict>
+        <key>include</key>
+        <string>#transition_keyword</string>
+      </dict>
+      <dict>
+        <key>include</key>
+        <string>#inline_keyword</string>
+      </dict>
+      <dict>
+        <key>include</key>
+        <string>#record_strucut_definition</string>
+      </dict>
+      <dict>
+        <key>include</key>
+        <string>#circuit_static_call</string>
+      </dict>
+      <dict>
+        <key>include</key>
+        <string>#circuit_call</string>
+      </dict>
+      <dict>
+        <key>include</key>
+        <string>#core_types</string>
+      </dict>
+      <dict>
+        <key>include</key>
+        <string>#address_literal</string>
+      </dict>
+      <dict>
+        <key>include</key>
+        <string>#invoking_attribute</string>
+      </dict>
+      <dict>
+        <key>include</key>
+        <string>#method_name_call</string>
+      </dict>
+      <dict>
+        <key>include</key>
+        <string>#future_type</string>
+      </dict>
+      <dict>
+        <key>include</key>
+        <string>#future_type_parameters</string>
+      </dict>
+      <dict>
+        <key>comment</key>
+        <string>Context Annotation</string>
+        <key>name</key>
+        <string>support.other.annotation.leo</string>
+        <key>match</key>
+        <string>@[a-zA-Z][a-zA-Z0-9_]*</string>
+      </dict>
     </array>
     <key>repository</key>
     <dict>
@@ -259,7 +351,7 @@
         <key>comment</key>
         <string>Circuit call(Threads)</string>
         <key>begin</key>
-        <string>(?&lt;=^|\s)([a-zA-Z_]\w*)\s*\{</string>
+        <string>(?&lt;=^|\s|\()([a-zA-Z_]\w*)\s*\{</string>
         <key>end</key>
         <string>\}</string>
         <key>beginCaptures</key>
@@ -272,6 +364,10 @@
         </dict>
         <key>patterns</key>
         <array>
+          <dict>
+            <key>include</key>
+            <string>#circuit_call</string>
+          </dict>
           <dict>
             <key>include</key>
             <string>#circuit_attribute</string>
@@ -451,6 +547,10 @@
           <dict>
             <key>include</key>
             <string>#future_type_parameters</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#custom_type_identifier</string>
           </dict>
         </array>
       </dict>
@@ -871,6 +971,58 @@
         <key>match</key>
         <string>\b(bool|field|scalar|u8|u16|u32|u64|u128|i8|i16|i32|i64|i128|string|address|signature|group|integer)\b</string>
       </dict>
+      <key>loop_definition</key>
+      <dict>
+        <key>comment</key>
+        <string>For loop definition</string>
+        <key>begin</key>
+        <string>(?:(?&lt;=\bfor\b))</string>
+        <key>end</key>
+        <string>(?=\{)</string>
+        <key>beginCaptures</key>
+        <dict>
+          <key>0</key>
+          <dict>
+            <key>name</key>
+            <string>keyword.control.leo</string>
+          </dict>
+        </dict>
+        <key>patterns</key>
+        <array>
+          <dict>
+            <key>include</key>
+            <string>#control_keyword</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#core_types</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#future_type</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#future_type_parameters</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#integer_literal</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#built-in_core_assign</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#boolean_constant</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#address_literal</string>
+          </dict>
+        </array>
+      </dict>
       <key>variable_declaration</key>
       <dict>
         <key>comment</key>
@@ -944,6 +1096,10 @@
           <dict>
             <key>include</key>
             <string>#line_comment</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#custom_type_identifier</string>
           </dict>
         </array>
       </dict>
@@ -1240,7 +1396,7 @@
           </dict>
           <dict>
             <key>include</key>
-            <string>#statement_for_iterator_type</string>
+            <string>#loop_definition</string>
           </dict>
           <dict>
             <key>include</key>
@@ -1393,10 +1549,6 @@
           <dict>
             <key>include</key>
             <string>#method_name_call</string>
-          </dict>
-          <dict>
-            <key>include</key>
-            <string>#console_methods</string>
           </dict>
           <dict>
             <key>include</key>

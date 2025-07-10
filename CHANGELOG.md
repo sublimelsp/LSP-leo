@@ -4,6 +4,26 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog][keep a changelog] and this project adheres to [Semantic Versioning][semantic versioning].
 
+## [0.41.0] - 2025-07-10
+
+### Added
+- Add diagnostics when an array length is defined by an unknown variable
+- Implement diagnostics of project test files
+- Implement diagnostics for the new array initialization syntax
+- Implement diagnostics when the type of an implicit value cannot be determined
+- Implement diagnostics when argument or generic constant of the  inline function is an unknown variable
+- Implement diagnostics when inline functions with generic constant parameters have the same name
+- Implement diagnostics for inline functions with generic constant parameters and invalid code
+- Implement diagnostics when a regular function has generic const parameters
+- Implement diagnostics when the number or types of generic constant arguments are wrong
+- Add diagnostics when defining an array with a length greater than the maximum value of the u32 type
+
+### Removed
+- Remove unnecessary and erroneous diagnostics for asynchronous functions
+
+### Fixed
+- Fix diagnostics when accessing a generic constant parameter
+
 ## [0.40.1] - 2025-06-26
 
 ### Added
