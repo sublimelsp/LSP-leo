@@ -4,6 +4,22 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog][keep a changelog] and this project adheres to [Semantic Versioning][semantic versioning].
 
+## [0.41.1] - 2025-07-17
+
+### Added
+- Add diagnostics when a transition with generic constant parameters is called from another transition
+- Add diagnostics when generic const parameter is reassigned in an inline function
+- Implement diagnostics for structs with const generic parameters
+- Implement diagnostics when there is an invalid call of a function with generic constant parameters
+- Implement diagnostics for records declared with generic constant parameters
+- Implement diagnostics when constructor is used as identifier
+
+### Fixed
+- Fix diagnostics when a boundary of the external loop is defined as expression with a constant
+- Fix diagnostics of types returned by external async transition
+- Remove false diagnostics when a constant is defined by a non-suffix literal
+- Fix diagnostics when unsuffixed literal is an array index
+
 ## [0.41.0] - 2025-07-10
 
 ### Added

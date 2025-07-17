@@ -252,7 +252,7 @@
         <key>comment</key>
         <string>Function calls(Threads)</string>
         <key>match</key>
-        <string>\b([a-zA-Z_]\w*)\s*(?=\()</string>
+        <string>\b([a-zA-Z_]\w*)\s*(?=(::\s*\[[^\]]*\])?\s*\()</string>
         <key>captures</key>
         <dict>
           <key>1</key>
