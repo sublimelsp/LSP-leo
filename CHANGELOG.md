@@ -4,6 +4,25 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog][keep a changelog] and this project adheres to [Semantic Versioning][semantic versioning].
 
+## [0.42.0] - 2025-07-24
+
+### Added
+- Implement diagnostics when a struct member type is defined as array whose size is defined by a generic constant
+- Implement diagnostics when struct  with a generic constant defines a member type of another struct
+- Implement diagnostics when an inline function declared in an external program is called
+- Implement diagnostics when a generic const parameter is a tuple, array, struct, or signature
+- Implement diagnostics when the declared generic constant type does not match the generic constant type in the struct expression
+- Add diagnostics for unexpected generic const arguments
+- Implement support for project dependencies from Location.Network
+
+### Fixed
+- Fix diagnostics when struct with a generic constant defines a member type of another struct and program tree is broken
+- Remove erroneous diagnostics when the program tree is broken
+- Fix diagnostics when a struct member type is array whose size is defined by a generic constant and program tree is broken
+- Remove false diagnostics when a function parameter type is defined by a struct with generic constant
+- Remove false diagnostics for a constant that is a struct with generics
+- Remove false diagnostics when an array is a member of a struct with a generic constant
+
 ## [0.41.1] - 2025-07-17
 
 ### Added
