@@ -4,6 +4,26 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog][keep a changelog] and this project adheres to [Semantic Versioning][semantic versioning].
 
+## [0.42.1] - 2025-07-31
+
+### Added
+- Implement diagnostic generic const count mismatch
+- Implement diagnostics when an array repeat count is zero
+- Implement diagnostics when an array repeat count more than 32
+- Implement diagnostics when an array repeat count is not a valid value
+- Implement diagnostics for an async block
+- Implement diagnostics when a type is defined by a struct from a network
+- Implement new message for the [ETYC0372067] error
+- Implement new message for the [ETYC0372088] error
+- Add diagnostics of the [ETYC0372067] error when Mapping or Random functions are used inside an async transition with an async block
+
+### Removed
+
+### Fixed
+- Fix the [ETYC0372017] error range when struct member type is defined by non-existent struct with generic constants
+- Remove false diagnostics when block.height or Mapping functions are used in an async block
+- Remove false diagnostics when an async transition returns an async block
+
 ## [0.42.0] - 2025-07-24
 
 ### Added
