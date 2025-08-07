@@ -4,6 +4,24 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog][keep a changelog] and this project adheres to [Semantic Versioning][semantic versioning].
 
+## [0.42.2] - 2025-08-07
+
+### Added
+- Implement diagnostics when a variable declared outside an async block is assigned inside an async block
+- Add error [ETYC0372102] diagnostics when an external transition calls are appeared after the local async block
+- Implement diagnostics when accessing an argument from a future produced by an `async` block
+- Add error diagnostics [ETYC0372148] if an `async` block is inside a transition, function, or inline
+- Implement diagnostics when an async block is inside a loop body
+- Implement diagnostics when an `async` block is inside a  conditional block
+- Implement error diagnostics when transition contains more than one async entity
+- Implement diagnostics when an array size is defined by a variable
+- Add error diagnostics [ETYC0372042] when an `inline` is called from an async block
+
+### Fixed
+- Fix diagnostics when an `async` block contains a `return` statement
+- Remove false diagnostics when struct member types are arrays whose length are defined by generics and generics are defined by constants
+- Remove false diagnostics when Future from network is passed to async function
+
 ## [0.42.1] - 2025-07-31
 
 ### Added
