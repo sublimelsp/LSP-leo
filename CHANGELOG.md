@@ -4,6 +4,22 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog][keep a changelog] and this project adheres to [Semantic Versioning][semantic versioning].
 
+## [0.43.0] - 2025-08-14
+
+### Added
+- Implement error diagnostics [ETYC0372147] when a self.signer, or self.caller is used in an async block
+- Implement error diagnostics [ESAZ0374011] when an async block captures more than 16 variables
+- Implement diagnostics for an @admin annotation
+- Implement new message for the [ETYC0372042] error
+- Implement diagnostics for self.id
+- Implement diagnostics for self.checksum
+- Implement diagnostics when an identifier contains a double underscore `__`
+- Implement diagnostics for new core functions Program::checksum(), Program::edition(), Program::program_owner()
+- Add error diagnostics [ETYC0372156] when a mapping specified in @checksum annotation does not exist
+- Add error diagnostics [ETYC0372156] when a mapping in @checksum annotation is invalid
+- Add error diagnostics [ETYC0372156] when an @admin annotation doesn`t have an 'address' key
+- Add error diagnostics [ETYC0372156] when an address in @admin annotation is invalid
+
 ## [0.42.2] - 2025-08-07
 
 ### Added
