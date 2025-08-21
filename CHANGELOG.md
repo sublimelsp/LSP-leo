@@ -4,6 +4,24 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog][keep a changelog] and this project adheres to [Semantic Versioning][semantic versioning].
 
+## [0.43.2] - 2025-08-21
+
+### Added
+- Add error diagnostics [ETYC0372156] when an @admin, checksum, or noupgrade constructor is not empty
+- Implement error diagnostics [ETYC0372156] when a custom constructor is empty
+- Implement error diagnostics [ETYC0372156] when a program has more than one constructor
+- Add diagnostics when a loop bound is defined as a function argument or an expression with a function argument
+- Implement diagnostics when core Program functions are used in transitions
+- Implement error diagnostics [EPAR0370005] when a constructor is not preceded by the asinc keyword
+- Implement error diagnostics [ETYC0372042] when a function or transition is called from a constructor
+
+### Fixed
+- Fix diagnostics when in arguments of core Program functions in program IDs, there are spaces before or after the dot
+
+## [0.43.1] - 2025-08-15
+
+### Changed
+
 ## [0.43.0] - 2025-08-14
 
 ### Added
