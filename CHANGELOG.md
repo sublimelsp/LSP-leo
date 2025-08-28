@@ -4,6 +4,19 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog][keep a changelog] and this project adheres to [Semantic Versioning][semantic versioning].
 
+## [0.43.3] - 2025-08-28
+
+### Added
+- Implement a new error message [ETYC0372059] for cyclic dependency between functions
+- Implement diagnostics when an entity defined in the outer scope is re-assigned in conditional scope in an async block
+- Implement a new error diagnostics [ETYC0372040] if the not allowed accesses to `self` are used 
+- Add error diagnostics [ETYC0372104] if not all Futures are consumed in an async block
+- Add error diagnostics [ETYC0372104] when a Future contained in a tuple is not consumed
+
+### Fixed
+- Remove redundant diagnostics when an async transition returns an async function and a Future is not specified in its output signature
+- Remove false diagnostics if a global constant is assigned to a struct member with the same name when a struct instance is created 
+
 ## [0.43.2] - 2025-08-21
 
 ### Added
