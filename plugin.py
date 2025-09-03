@@ -1,13 +1,29 @@
 import os
-import sublime, sublime_plugin
+import sublime
+import sublime_plugin
 from lsp_utils import NpmClientHandler
 from LSP.plugin.core.registry import windows
-from LSP.plugin.core.protocol import Request
+from LSP.plugin.core.protocol import Range, Request
 from LSP.plugin.core.views import range_to_region, region_to_range
-from LSP.plugin.core.typing import Any, Dict
+from LSP.plugin.core.typing import Any, Callable, Dict, List, TypedDict
 from LSP.plugin.core.url import view_to_uri
 from lsp_utils import request_handler
 from LSP.plugin import uri_to_filename
+
+
+ServerPoint = TypedDict('ServerPoint', {
+    'row': int,
+    'column': int,
+})
+ServerRange = TypedDict('ServerRange', {
+    'start': ServerPoint,
+    'end': ServerPoint,
+})
+ColorizeRequest = TypedDict('ColorizeRequest', {
+    'uri': str,
+    'scopes': Dict[str, List[ServerRange]]
+})
+
 
 def plugin_loaded() -> None:
     LspLeoPlugin.setup()
@@ -33,7 +49,7 @@ class LspLeoPlugin(NpmClientHandler):
     skip_npm_install = True
 
     @request_handler('ColoringService.colorize')
-    def on_coloring_service_colorize(self, request, response):
+    def on_coloring_service_colorize(self, request: ColorizeRequest, response: Callable[[Any], None]):
         filename = uri_to_filename(request['uri'])
         view = sublime.active_window().find_open_file(filename)
 
@@ -41,13 +57,12 @@ class LspLeoPlugin(NpmClientHandler):
             # Get all views, including cloned ones (opened in Split View mode)
             views = view.buffer().views()
             for v in views:
-                syntax_coloring = SyntaxColoring()
-                syntax_coloring.view = v
+                syntax_coloring = SyntaxColoring(v)
                 syntax_coloring.colorize(request)
         # Server doesn't require any specific response.
         response(None)
 
-def sendColorizeRequest(view):
+def send_colorize_request(view: sublime.View):
     listener = windows.listener_for_view(view)
     if listener:
         language = listener.get_language_id()
@@ -65,29 +80,38 @@ def sendColorizeRequest(view):
 
 class SyntaxColoringViewListener(sublime_plugin.ViewEventListener):
     def on_selection_modified_async(self):
-        sendColorizeRequest(self.view)
+        send_colorize_request(self.view)
 
 class SyntaxColoringEventListener(sublime_plugin.EventListener):
-    def on_clone(self, view):
-        file_extension = os.path.splitext(view.file_name())[1][1:]
-        if file_extension:
-            settings = sublime.load_settings("LSP-leo.sublime-settings")
-            if settings:
-                languages = settings.get("languages")
-                if isinstance(languages, list):
-                    for language in languages:
-                        language_id = language.get("languageId")
-                        if isinstance(language_id, str) and language_id == file_extension:
-                            # Get all views, including cloned ones (opened in Split View mode)
-                            # This hack helps to send ColorizeRequest for non cloned views
-                            # (for cloned views there is no listener in LSP for some reason)
-                            views = view.buffer().views()
-                            for v in views:
-                                sendColorizeRequest(v)
-                            break
+    def on_clone(self, view: sublime.View):
+        filename = view.file_name()
+        if not filename:
+            return
+        file_extension = os.path.splitext(filename)[1][1:]
+        if not file_extension:
+            return
+        settings = sublime.load_settings("LSP-leo.sublime-settings")
+        if not settings:
+            return
+        languages = settings.get("languages")
+        if not isinstance(languages, list):
+            return
+        for language in languages:
+            language_id = language.get("languageId")
+            if isinstance(language_id, str) and language_id == file_extension:
+                # Get all views, including cloned ones (opened in Split View mode)
+                # This hack helps to send ColorizeRequest for non cloned views
+                # (for cloned views there is no listener in LSP for some reason)
+                views = view.buffer().views()
+                for v in views:
+                    send_colorize_request(v)
+                break
 
-class SyntaxColoring():
-    def colorize(self, request) -> None:
+class SyntaxColoring:
+    def __init__(self, view: sublime.View) -> None:
+        self.view = view
+
+    def colorize(self, request: ColorizeRequest) -> None:
         settings = self.view.settings()
         color_scheme = settings.get("color_scheme")
         if color_scheme != "leo.sublime-color-scheme":
@@ -96,38 +120,38 @@ class SyntaxColoring():
         for key, values in request["scopes"].items():
             if len(values):
                 flags = sublime.DRAW_NO_OUTLINE
-                regularScope = key
-                highlightedScope = key.replace("server.leo", "highlight.server.leo")
-                self.view.erase_regions(regularScope)
-                self.view.erase_regions(highlightedScope)
-                regularRegions = []
-                highlightedRegions = []
+                regular_scope = key
+                highlighted_scope = key.replace("server.leo", "highlight.server.leo")
+                self.view.erase_regions(regular_scope)
+                self.view.erase_regions(highlighted_scope)
+                regular_regions = []
+                highlighted_regions = []
                 for item in values:
                     lsp_range = self.server_range_to_lsp(item)
                     region = range_to_region(lsp_range, self.view)
                     selected_row = self.view.sel()
-                    cursorRegion = selected_row[0]
-                    scope = regularScope
-                    is_point = cursorRegion.begin() == cursorRegion.end()
+                    cursor_region = selected_row[0]
+                    scope = regular_scope
+                    is_point = cursor_region.begin() == cursor_region.end()
 
                     if not is_point and selected_row.contains(region):
-                        scope = highlightedScope
+                        scope = highlighted_scope
 
                     if is_point and highlight_line:
-                        cursorRange = region_to_range(self.view, cursorRegion)
-                        if lsp_range.start.row == cursorRange.start.row:
-                            scope = highlightedScope
+                        cursor_range = region_to_range(self.view, cursor_region)
+                        if lsp_range['start']['line'] == cursor_range['start']['line']:
+                            scope = highlighted_scope
 
-                    if scope == regularScope:
-                        regularRegions.append(region)
+                    if scope == regular_scope:
+                        regular_regions.append(region)
                     else:
-                        highlightedRegions.append(region)
+                        highlighted_regions.append(region)
 
-                self.view.add_regions(regularScope, regularRegions, scope=regularScope, flags=flags)
-                self.view.add_regions(highlightedScope, highlightedRegions, scope=highlightedScope, flags=flags)
+                self.view.add_regions(regular_scope, regular_regions, scope=regular_scope, flags=flags)
+                self.view.add_regions(highlighted_scope, highlighted_regions, scope=highlighted_scope, flags=flags)
 
 
-    def server_range_to_lsp(self, sever_range: Dict[str, Any]) -> Dict[str, Any]:
+    def server_range_to_lsp(self, sever_range: ServerRange) -> Range:
         return {
             'start': {
                 "line": sever_range["start"]["row"],
