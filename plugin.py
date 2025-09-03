@@ -8,7 +8,6 @@ from LSP.plugin.core.typing import Any, Dict
 from LSP.plugin.core.url import view_to_uri
 from lsp_utils import request_handler
 from LSP.plugin import uri_to_filename
-from LSP.plugin.documents import DocumentSyncListener
 
 def plugin_loaded() -> None:
     LspLeoPlugin.setup()
@@ -17,7 +16,7 @@ def plugin_loaded() -> None:
 def plugin_unloaded() -> None:
     LspLeoPlugin.cleanup()
 
-def setup_leohover_settings() -> None:  
+def setup_leohover_settings() -> None:
     preferences_filename = 'Preferences.sublime-settings'
     preferences = sublime.load_settings(preferences_filename)
     value = preferences.get("mdpopups.sublime_user_lang_map")
@@ -32,7 +31,7 @@ class LspLeoPlugin(NpmClientHandler):
     server_directory = 'language-server'
     server_binary_path = os.path.join(server_directory, 'server.js')
     skip_npm_install = True
-    
+
     @request_handler('ColoringService.colorize')
     def on_coloring_service_colorize(self, request, response):
         filename = uri_to_filename(request['uri'])
@@ -52,7 +51,7 @@ def sendColorizeRequest(view):
     listener = windows.listener_for_view(view)
     if listener:
         language = listener.get_language_id()
-        if language == "leo":    
+        if language == "leo":
             exists = bool(listener.session_async('hoverProvider'))
             if not exists:
                 # if there is no listener need to wait for it
@@ -92,7 +91,7 @@ class SyntaxColoring():
         settings = self.view.settings()
         color_scheme = settings.get("color_scheme")
         if color_scheme != "leo.sublime-color-scheme":
-            return None
+            return
         highlight_line = settings.get("highlight_line")
         for key, values in request["scopes"].items():
             if len(values):
@@ -110,7 +109,7 @@ class SyntaxColoring():
                     cursorRegion = selected_row[0]
                     scope = regularScope
                     is_point = cursorRegion.begin() == cursorRegion.end()
-                    
+
                     if not is_point and selected_row.contains(region):
                         scope = highlightedScope
 
@@ -126,7 +125,7 @@ class SyntaxColoring():
 
                 self.view.add_regions(regularScope, regularRegions, scope=regularScope, flags=flags)
                 self.view.add_regions(highlightedScope, highlightedRegions, scope=highlightedScope, flags=flags)
-                    
+
 
     def server_range_to_lsp(self, sever_range: Dict[str, Any]) -> Dict[str, Any]:
         return {
