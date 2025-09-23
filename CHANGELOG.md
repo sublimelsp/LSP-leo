@@ -4,6 +4,28 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog][keep a changelog] and this project adheres to [Semantic Versioning][semantic versioning].
 
+## [0.44.0] - 2025-09-11
+
+### Added
+- Implement diagnostics when a constructor returns a value
+- Add diagnostics when Future arguments are accessed in assert functions inputs
+- Add diagnostics when a Future is awaited twice
+- Add diagnostics if a Future is not awaited in the order in which it was passed into the `async` function
+- Implement diagnostics for accessing Future arguments
+- Add a warning [WSAZ0374003] if a Future is awaited out of the order in which it was passed to the async function
+
+### Removed
+- Remove duplicates of error [ETYC0372045] when strings not supported in Leo are compared in a condition of the if statement
+
+### Fixed
+- Remove false diagnostics when accessing a Future contained in a tuple
+- Remove false error diagnostics [ESAZ0374003] when a Future type is not explicitly defined
+- Remove false diagnostics when accessing a future in tuple
+- Fix diagnostics errors when accessing arguments of a Future in an async block
+- Remove false diagnostics when an async block contains a Future defined outside the async block
+- Error [ETYC0372117] is not diagnosed when a Future argument type does not match an expected
+- Fix the highlighting of the error [ESAZ0374000] and the warning [WSAZ0374001]
+
 ## [0.43.3] - 2025-08-28
 
 ### Added
