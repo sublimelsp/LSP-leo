@@ -8,7 +8,7 @@ from LSP.plugin.core.views import range_to_region, region_to_range
 from LSP.plugin.core.typing import Any, Callable, Dict, List, TypedDict
 from LSP.plugin.core.url import view_to_uri
 from lsp_utils import request_handler
-from LSP.plugin import uri_to_filename
+from LSP.plugin import parse_uri
 
 
 ServerPoint = TypedDict('ServerPoint', {
@@ -50,7 +50,7 @@ class LspLeoPlugin(NpmClientHandler):
 
     @request_handler('ColoringService.colorize')
     def on_coloring_service_colorize(self, request: ColorizeRequest, response: Callable[[Any], None]):
-        filename = uri_to_filename(request['uri'])
+        _, filename = parse_uri(request['uri'])
         view = sublime.active_window().find_open_file(filename)
 
         if view:
