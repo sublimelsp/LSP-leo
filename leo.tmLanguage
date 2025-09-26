@@ -589,12 +589,36 @@
           </dict>
         </array>
       </dict>
+      <key>const_parameters</key>
+      <dict>
+        <key>comment</key>
+        <string>Const parameters</string>
+        <key>begin</key>
+        <string>(?&lt;!\b(?:struct|record)[ \t]*)\b(\w+)::\[</string>
+        <key>end</key>
+        <string>\]</string>
+        <key>beginCaptures</key>
+        <dict>
+          <key>1</key>
+          <dict>
+            <key>name</key>
+            <string>entity.name.type.custom.leo</string>
+          </dict>
+        </dict>
+        <key>patterns</key>
+        <array>
+          <dict>
+            <key>include</key>
+            <string>#integer_literal</string>
+          </dict>
+        </array>
+      </dict>
       <key>custom_type_identifier</key>
       <dict>
         <key>comment</key>
         <string>Custom type identifiers(Threads)</string>
         <key>match</key>
-        <string>\b([a-zA-Z_]\w*)(?=\s*[\],;)=\{])</string>
+        <string>\b([a-zA-Z_]\w*)(?=\s*[\[,;)=\{])</string>
         <key>captures</key>
         <dict>
           <key>1</key>
@@ -1075,6 +1099,10 @@
         <array>
           <dict>
             <key>include</key>
+            <string>#const_parameters</string>
+          </dict>
+          <dict>
+            <key>include</key>
             <string>#core_types</string>
           </dict>
           <dict>
@@ -1153,6 +1181,10 @@
         <string>(?={)</string>
         <key>patterns</key>
         <array>
+          <dict>
+            <key>include</key>
+            <string>#const_parameters</string>
+          </dict>
           <dict>
             <key>include</key>
             <string>#core_types</string>
@@ -1609,6 +1641,10 @@
             <string>support.other.annotation.leo</string>
             <key>match</key>
             <string>@[a-zA-Z][a-zA-Z0-9_]*</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#const_parameters</string>
           </dict>
         </array>
       </dict>

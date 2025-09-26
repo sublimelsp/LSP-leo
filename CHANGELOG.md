@@ -4,6 +4,28 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog][keep a changelog] and this project adheres to [Semantic Versioning][semantic versioning].
 
+## [0.44.3] - 2025-09-26
+
+### Added
+- Implement constructor parse support for project dependencies from Location.Network
+
+### Removed
+- Remove outdated diagnostics when .env file is missing in Leo project
+- Remove redundant diagnostics when a struct expression has extra members
+- Remove duplicate of error message [ETYC0372002] when assigning a value to a constant
+
+### Fixed
+- Fix highlighting range for error [ETYC0372115] when an array has a Future as an element type
+- Fix highlighting range for error [ECMP0376007] when a constant is defined by a variable or an expression containing a variable
+- Fix highlighting range for error [ETYC0372017] when trying to create a struct of an undefined type
+- Fix highlighting range for error [ESAZ0374005] when defining Future as a tuple element
+- Fix a highlighting range for the error [ETYC0372154]
+- Fix highlighting range for error [ETYC0372117] when a Future argument type does not match an expected
+
+## [0.44.2] - 2025-09-25
+
+### Fixed
+
 ## [0.44.0] - 2025-09-11
 
 ### Added
