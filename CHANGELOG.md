@@ -4,6 +4,18 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog][keep a changelog] and this project adheres to [Semantic Versioning][semantic versioning].
 
+## [0.44.4] - 2025-10-02
+
+### Added
+
+### Fixed
+- Fix the highlight range for the error [ETYC0372156] when a program has two constructors
+- Fix highlight range for the error [ETYC0372123] when a variable type is defined as a unit type ()
+- Fix highlight range for the error [ETYC0372119] when different types are received for assert operations
+- Fix highlight range for the error [ETYC0372123] when the unit type () appears as the array type in the function output signature
+- Fix highlight range for the error [ETYC0372032] when an input to an async function is private or constant
+- Fix highlight range for the error [ETYC0372038] when a returned value is a constant
+
 ## [0.44.3] - 2025-09-26
 
 ### Added
