@@ -589,12 +589,40 @@
           </dict>
         </array>
       </dict>
+      <key>circuit_definition_const_parameters</key>
+      <dict>
+        <key>comment</key>
+        <string>Circuit parameters (after 'struct' or 'record')</string>
+        <key>begin</key>
+        <string>\b(?:(?&lt;=\bstruct\b)|(?&lt;=\brecord\b))\s+(\w+)::\[</string>
+        <key>end</key>
+        <string>\]</string>
+        <key>captures</key>
+        <dict>
+          <key>1</key>
+          <dict>
+            <key>name</key>
+            <string>variable.other.leo</string>
+          </dict>
+        </dict>
+        <key>patterns</key>
+        <array>
+          <dict>
+            <key>include</key>
+            <string>#integer_literal</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#core_types</string>
+          </dict>
+        </array>
+      </dict>
       <key>const_parameters</key>
       <dict>
         <key>comment</key>
         <string>Const parameters</string>
         <key>begin</key>
-        <string>(?&lt;!\b(?:struct|record)[ \t]*)\b(\w+)::\[</string>
+        <string>\b(\w+)::\[</string>
         <key>end</key>
         <string>\]</string>
         <key>beginCaptures</key>
@@ -1645,6 +1673,10 @@
           <dict>
             <key>include</key>
             <string>#const_parameters</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#circuit_definition_const_parameters</string>
           </dict>
         </array>
       </dict>

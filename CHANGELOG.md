@@ -4,6 +4,20 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog][keep a changelog] and this project adheres to [Semantic Versioning][semantic versioning].
 
+## [0.45.0] - 2025-11-04
+
+### Added
+- Implement error diagnostics [ETYC0372077] for the new maximum allowed array length of 512
+- Implement diagnostics in modules containing inline functions and structs
+
+### Removed
+-[lsp] Remove false diagnostics when an inline function has more than 16 input parameters
+
+### Fixed
+- Fix the error loading syntax file "leo.tmLanguage" in Sublime Text
+- Fix highlight range for the error [ETYC0372060] when a struct contains a member with mode constant, private, or public
+- Fix the error diagnostics code when programs, records, or record members have "aleo" in their names
+
 ## [0.44.4] - 2025-10-02
 
 ### Added
