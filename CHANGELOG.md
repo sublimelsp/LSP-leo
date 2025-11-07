@@ -4,6 +4,14 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog][keep a changelog] and this project adheres to [Semantic Versioning][semantic versioning].
 
+## [0.45.1] - 2025-11-07
+
+### Added
+- Entities from the module must be available in the main program
+
+### Fixed
+- Fix error message [ECMP0376004] when the program name does not match the name specified in program.json
+
 ## [0.45.0] - 2025-11-04
 
 ### Added
