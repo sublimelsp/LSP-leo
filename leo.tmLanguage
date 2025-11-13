@@ -1279,6 +1279,14 @@
           </dict>
           <dict>
             <key>include</key>
+            <string>#control_keyword</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#core_types</string>
+          </dict>
+          <dict>
+            <key>include</key>
             <string>#address_literal</string>
           </dict>
           <dict>

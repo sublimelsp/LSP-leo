@@ -4,6 +4,27 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog][keep a changelog] and this project adheres to [Semantic Versioning][semantic versioning].
 
+## [0.45.2] - 2025-11-13
+
+### Added
+- Implement error diagnostics [ETYC0372169] when a transition or function has more than 16 output parameters
+- Add error diagnostics [ETYC0372117] when a core 'self' function is assigned to a variable of a different type
+- Implement diagnostics for the error [ETYC0372158] when none is assigned to a type that is not optional
+- Implement diagnostics for the error [ETYC0372117] when methods unwrap or unwrap_or are used to a type that is not optional
+- Implement diagnostics for CheatCode::set_signer() core function
+- Implement error diagnostics [ETYC0372156] when CheatCode::set_signer is called with an invalid private key
+- Add error diagnostics [ETYC0372117] when the core function CheatCode::set_signer() is called with a type other than string
+- Implement error diagnostics [ETYC0372168] when a transition or function has more than 16 input parameters
+- Add error diagnostics [ETYC0372005] when non-existent entities are called from non-existent modules
+
+### Removed
+- Remove error diagnostics [ELUN0379000] when a loop range is decreased
+- Remove redundant error diagnostics [EPAR0370009] when a tuple of constants is defined
+
+### Fixed
+- Fix an error message [ENV03711001] when record members have "aleo" in their names
+- Fix error diagnostics [ETYC0372117] when the types of array members do not match the expected ones
+
 ## [0.45.1] - 2025-11-07
 
 ### Added
