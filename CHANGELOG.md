@@ -4,6 +4,31 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog][keep a changelog] and this project adheres to [Semantic Versioning][semantic versioning].
 
+## [0.45.3] - 2025-11-20
+
+### Added
+- Implement diagnostics for the error [ETYC0372161] when an optional type is used as the key or value in a mapping
+- Implement diagnostics for the error [ETYC0372163] when constants have an optional type or a type that contains an optional
+- Implement diagnostics for the error [ETYC0372164] when inputs are or contain an optional type
+- Implement diagnostics for the error [ETYC0372165] when outputs of `transition`, `async transition`, or `function` are or contain optional types
+- Add diagnostics for the error [ETYC0372119] when an optional type is compared to a non-optional type
+- Add error diagnostics [ECMP0376014] when an array repeat count can not be determined at compile time
+- Implement diagnostics for the error [ETYC0372162] when a record field is or contains an optional type
+- Implement error diagnostics [ENV03711000] when reserved keywords are invalid record member names
+- Implement error diagnostics [ETYC0372160] when the type address or signature is wrapped in an optional
+- Implement diagnostics when tuple, signature, or Future are wrapped in an optional
+- Implement error diagnostics [ETYC0372034] when `storage access` is outside an async function block
+- Implement the [ECMP0376012] error diagnostic when a non-const expression is passed to an inline function as a const generic argument
+
+### Removed
+- Remove redundant error diagnostics [EPAR0370041] when there is no comma after a member declaration in a struct
+- Remove redundant error diagnostics [EPAR0370005] when the output in the function signature is defined by a reserved keyword
+- Remove duplicate [EPAR0370005] error message in assert function
+
+### Fixed
+- Remove false diagnostic [ETYC0372090] when accessing Future arguments returned from an external program
+- Remove false diagnostic [ETYC0372090] when accessing members of a tuple that is returned by an async transition from an external program
+
 ## [0.45.2] - 2025-11-13
 
 ### Added

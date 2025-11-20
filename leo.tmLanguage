@@ -96,6 +96,10 @@
       </dict>
       <dict>
         <key>include</key>
+        <string>#storage_type_storage</string>
+      </dict>
+      <dict>
+        <key>include</key>
         <string>#inside_braces</string>
       </dict>
       <dict>
@@ -909,6 +913,15 @@
         <key>match</key>
         <string>\b(mapping)\b</string>
       </dict>
+      <key>storage_type_storage</key>
+      <dict>
+        <key>comment</key>
+        <string>Storage type storage</string>
+        <key>name</key>
+        <string>storage.type.storage.leo</string>
+        <key>match</key>
+        <string>\b(storage)\b</string>
+      </dict>
       <key>storage_type_public</key>
       <dict>
         <key>comment</key>
@@ -1565,6 +1578,10 @@
           <dict>
             <key>include</key>
             <string>#storage_type_mapping</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#storage_type_storage</string>
           </dict>
           <dict>
             <key>include</key>
