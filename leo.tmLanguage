@@ -405,6 +405,10 @@
         <array>
           <dict>
             <key>include</key>
+            <string>#variable_declaration</string>
+          </dict>
+          <dict>
+            <key>include</key>
             <string>#circuit_call</string>
           </dict>
           <dict>

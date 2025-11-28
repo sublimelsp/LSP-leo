@@ -4,6 +4,28 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog][keep a changelog] and this project adheres to [Semantic Versioning][semantic versioning].
 
+## [0.45.4] - 2025-11-28
+
+### Added
+- Implement error diagnostics [ETYC0372004] when the type of expression cannot be determined
+- Implement error diagnostics [ETYC0372004] when the empty array type cannot be determined
+- Implement [ETYC0372166] error for invalid storage types
+- Implement [ETYC0372034] error `storage write` must be inside an async function block
+- Add error diagnostics [ETYC0372158] when `none is passed to a function whose input is not optional
+- Implement diagnostics for the error [ETYC0372004] when `none` calls the `unwrap` or `unwrap_or` method
+- Add error diagnostics [ETYC0372117] when the type that calls the unwrap_or() method does not match the type that is passed to this method
+- Implement diagnostics for the error [ETYC0372159] when a record is wrapped in an optional type
+
+### Removed
+- Remove deprecated error diagnostics [EPAR0370034] for empty arrays
+
+### Fixed
+- Fix error when expected and given same array type with zero length
+- Remove error diagnostics [ETYC0372004] when implicit type annotations are used in Mapping functions
+- Remove error diagnostics [ETYC0372034] when using set(), and get() functions associated to a vector
+- Remove error diagnostics [ETYC0372117] when using set(), and get() functions associated to a vector
+- Remove error diagnostics [ETYC0372034] when `storage access` using in an async block
+
 ## [0.45.3] - 2025-11-20
 
 ### Added
