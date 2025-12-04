@@ -4,6 +4,19 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog][keep a changelog] and this project adheres to [Semantic Versioning][semantic versioning].
 
+## [0.46.0] - 2025-12-04
+
+### Added
+- Add error diagnostics [ETYC0372117] when a variable of an optional type is assigned to a storage of the same type 
+- Add error diagnostics [ETYC0372167] when an assignment in a definition operation is a storage vector
+- Add diagnostics for error [ETYC0372005] when creating a non-existent local struct whose name matches the name of a struct in an external program and the external struct is not used
+
+### Fixed
+- Remove error diagnostics [ETYC0372117] when a signed integer with an implicit type annotation is assigned to a signed integer storage
+- Remove error diagnostics [EPAR0370021] when using pop(), push(), clear(), and swap_remove() functions associated to a vector
+- Remove error diagnostics [ETYC0372117] when a struct or record is wrapped in an optional
+- Remove unnecessary error diagnostics [EAST0372015] when there are two structures with the same name and the external struct is not used
+
 ## [0.45.4] - 2025-11-28
 
 ### Added
