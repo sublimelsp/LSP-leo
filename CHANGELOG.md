@@ -4,6 +4,28 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog][keep a changelog] and this project adheres to [Semantic Versioning][semantic versioning].
 
+## [0.46.1] - 2025-12-11
+
+### Added
+- Implement error diagnostics [EPAR0370049] when modules use reserved keywords as names
+- Implement error diagnostics [EPAR0370049] when reserved keywords are used as folder names that contain modules
+- Add error diagnostics [ETYC0372000] when a assignment target is a vector
+- Add error diagnostics [ETYC0372004] when a none is assigned to a vector
+- Implement diagnostics for Optional types
+- Add Help Info to diagnostic messages [ETYC0372160]
+- Implement new and remove deprecated diagnostics when calling an argument from a Future
+- Implement new error diagnostics [ETYC0372015] when multiple members with the same name are declared in a struct
+- Implement new error diagnostics [ETYC0372016] when a record variable with the same name is declared multiple times
+- Add error diagnostics [ETYC0372170] when a function is defined with  only empty parameters
+- Implement error diagnostics [EAST0372017] when the same name is defined multiple times in the program scope
+
+### Changed
+- Change [ETYC0372159] to [ETYC0372160] when optional wrap a record
+
+### Fixed
+- Remove false diagnostics when optionals are defined by expressions with unsuffixed literals
+- Remove false error diagnostics [ETYC0372117] when optionals are defined by unary operators with unsuffixed literals
+
 ## [0.46.0] - 2025-12-04
 
 ### Added
