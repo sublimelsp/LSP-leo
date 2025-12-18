@@ -4,6 +4,24 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog][keep a changelog] and this project adheres to [Semantic Versioning][semantic versioning].
 
+## [0.46.2] - 2025-12-18
+
+### Added
+- Add error diagnostics [ETYC0372043] when a local transition function is called from a transition function
+- Add [ETYC0372171] error when a struct has only zero-sized members
+- Add [ETYC0372031] error when mapping key or value is zero-sized
+- Add error diagnostics [ETYC0372117] when the input type of the CheatCode::set_block_timestamp method is not `i64`
+- Add error diagnostics [ETYC0372034] when `block.timestamp` is not in an async block or an async function
+
+### Fixed
+- Fix an error message [ETYC0372034] when vector methods are not in an async function or an async block
+- Remove false error diagnostics [ETYC0372166] when an address is a storage type
+- Remove false error diagnostics [ETYC0372009] and [ETYC0372014] when using the CheatCode::set_block_timestamp method
+- Remove false error diagnostics [ETYC0372065] when `block.timestamp` is used
+- Remove false diagnostics when Serialize core functions are used
+- Remove false diagnostics when Deserialize core functions are used
+- Remove false diagnostics of errors [ETYC0372009] and [ETYC0372014] for core ECDSA functions
+
 ## [0.46.1] - 2025-12-11
 
 ### Added
