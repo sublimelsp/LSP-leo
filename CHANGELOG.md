@@ -4,6 +4,24 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog][keep a changelog] and this project adheres to [Semantic Versioning][semantic versioning].
 
+## [0.46.3] - 2025-12-24
+
+### Added
+- Implement the [ETYC0372144] error diagnostic when an array size is defined by a constant of field, scalar, group, or by a constant with a negative value of i8, i16, i32, i64, or i128
+- Implement the [ECMP0376012] error diagnostic when a non-const expression is passed to a struct as a const generic parameter
+- Implement diagnostics for modules containing inline functions and structs with generic constants
+- Implement the [ETYC0372117] error diagnostic when a declared struct type with generic constants does not match the type of a struct expression with generic constants
+- Implement the [ETYC0372117] error diagnostic when a struct with a generic constant is a member of another struct with a generic constant
+- Add error diagnostics [ETYC0372017] when the name of a generic constant matches the name of an entity defined in the program scope
+
+### Fixed
+- Remove error diagnostics [ESAZ0374007] when comparing tuples
+- Remove false error diagnostics [ETYC0372023] when the input to the assert() function is a comparison of tuples whose elements are elements of other tuples
+- Remove false error [ECMP0376013] diagnostics when struct member types are arrays whose length is defined by generic constants
+- Remove error diagnostics [ETYC0372146] when in a module file, the type of a member of a struct with a generic constant is determined by another struct with a generic constant
+- Remove false diagnostics [ECMP0376009] when an expression with a generic constant parameter defines an array index
+- Fix error diagnostics [ETYC0372003] when an array size in a function's output signature is defined by a function generic constant
+
 ## [0.46.2] - 2025-12-18
 
 ### Added

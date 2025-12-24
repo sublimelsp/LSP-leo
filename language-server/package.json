@@ -1,7 +1,7 @@
 {
   "name": "leo-package",
   "private": "true",
-  "version": "0.46.2",
+  "version": "0.46.3",
   "publisher": "aleohq",
   "license": "GPL-3.0",
   "description": "Official leo package"
