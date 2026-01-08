@@ -4,6 +4,20 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog][keep a changelog] and this project adheres to [Semantic Versioning][semantic versioning].
 
+## [0.46.4] - 2026-01-08
+
+### Added
+- Implement error diagnostics [ESAZ0374012] when a `@custom` constructor has no statements after dead code elimination
+- Add error diagnostics [EPAR0370049] when a folder containing an empty module uses a reserved keyword as its name
+
+### Fixed
+- Fix [ETYC0372058] error message
+- Fix error message [ETYC0372013] if a struct member is missing when struct initialization
+- Remove false error diagnostics [ETYC0372008] and [ESAZ0374007] for shl() and shl_wrapped() functions
+- Remove false error diagnostics [ETYC0372004] when an array with implicitly members is assigned to an optional array
+- Fix error message [ETYC0372140]: change 'struct' to 'composite'
+- Fix error message [ETYC0372166]: change 'struct' to 'composite'
+
 ## [0.46.3] - 2025-12-24
 
 ### Added
