@@ -4,6 +4,22 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog][keep a changelog] and this project adheres to [Semantic Versioning][semantic versioning].
 
+## [0.46.5] - 2026-01-15
+
+### Added
+- Implement diagnostics when array size is determined by a loop condition variable
+- Add error diagnostics [ESAZ0374006] when unary operations fail at compile time
+- Add error diagnostics [ESAZ0374007] when binary operations fail at compile time
+- Add error diagnostics [ESAZ0374004] when an async transition call follows a non-async transition call, and the async call returns a `Future` that itself takes a `Future` as an input
+- Add error diagnostics [ESAZ0374007] for i64, i128, u64, u128 types
+- Add error diagnostics [EPAR0370005] for an identifier that begins with an underscore
+- Add error diagnostics [ETYC0372117] when input data types of ECDSA core functions do not match expected ones
+
+### Fixed
+- Remove false error diagnostics [ETYC0372009] and [ETYC0372014] for native raw hashes functions
+- Remove false error diagnostics [ETYC0372009] and [ETYC0372014] when using native hash functions that return bit arrays
+- Fix error highlighting [ETYC0372034] for block.timestamp and block.height
+
 ## [0.46.4] - 2026-01-08
 
 ### Added
