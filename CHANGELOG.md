@@ -4,6 +4,25 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog][keep a changelog] and this project adheres to [Semantic Versioning][semantic versioning].
 
+## [0.46.6] - 2026-01-22
+
+### Added
+- Implement error diagnostics [ETYC0372136], [ETYC0372137], [ETYC0372135] when assigning to external records or members of external records
+- Add error diagnostics [ETYC0372000] when there is an invalid assignment target: x::y
+- Add error diagnostics [ETYC0372117] when a boolean value is passed to the native hash_to_field_raw() function
+- Add error diagnostics [ETYC0372117] when a wrong type is passed to Deserialize::from_bits_raw() functions
+- Add error diagnostics [EPAR0370047] when there are unknown associated Mapping functions
+
+### Fixed
+- Remove redundant error diagnostics [ECMP0376007] when Leo operation fails at compile time
+- Remove false error diagnostics [ETYC0372005]
+- Remove redundant [ECMP0376007] error diagnostics when trying to compute the inversion of 0field
+- Remove false error diagnostics [ETYC0372117] when the unwrap_or() function with an implicit input type is assigned to an optional target
+- Fix diagnostics when an overflow occurs when applying the abs() operator to minimum values ​​of a signed integer type
+- Fix error diagnostics [ETYC0372156] when an address checksum in @admin annotation is invalid
+- Fix error highlighting [ETYC0372066]
+- Remove false error diagnostics [ETYC0372017] when a structure is an inline parameter in a module
+
 ## [0.46.5] - 2026-01-15
 
 ### Added

@@ -168,11 +168,19 @@
       </dict>
       <dict>
         <key>include</key>
-        <string>#record_strucut_definition</string>
+        <string>#record_struct_definition</string>
       </dict>
       <dict>
         <key>include</key>
         <string>#circuit_static_call</string>
+      </dict>
+      <dict>
+        <key>include</key>
+        <string>#group_gen</string>
+      </dict>
+      <dict>
+        <key>include</key>
+        <string>#module_entities</string>
       </dict>
       <dict>
         <key>include</key>
@@ -238,9 +246,9 @@
       <key>circuit_static_call</key>
       <dict>
         <key>comment</key>
-        <string>Circuit staitc call(Threads)</string>
+        <string>Circuit static call(Threads). Review when old syntax is deprecated</string>
         <key>match</key>
-        <string>(\w+)\s*::\s*(\w+)</string>
+        <string>(BHP256|BHP512|BHP768|BHP1024|ChaCha|ECDSA|Keccak256|Keccak384|Keccak512|Mapping|Pedersen64|Pedersen128|Poseidon2|Poseidon4|Poseidon8|SHA3_256|SHA3_384|SHA3_512|Serialize|Deserialize|signature|Program|CheatCode)\s*::\s*(\w+)\s*(\(|::\s*\[)</string>
         <key>captures</key>
         <dict>
           <key>1</key>
@@ -252,6 +260,56 @@
           <dict>
             <key>name</key>
             <string>entity.name.function.static.leo</string>
+          </dict>
+        </dict>
+      </dict>
+      <key>group_gen</key>
+      <dict>
+        <key>comment</key>
+        <string>Group generator static call</string>
+        <key>match</key>
+        <string>(group)::(GEN)</string>
+        <key>captures</key>
+        <dict>
+          <key>1</key>
+          <dict>
+            <key>name</key>
+            <string>entity.name.struct.leo</string>
+          </dict>
+          <key>2</key>
+          <dict>
+            <key>name</key>
+            <string>entity.name.function.static.leo</string>
+          </dict>
+        </dict>
+      </dict>
+      <key>module_entities</key>
+      <dict>
+        <key>comment</key>
+        <string>Module path with final identifier.</string>
+        <key>match</key>
+        <string>(\w+(?:::\w+)*)::(?=(\w+)\s*;|(\w+)\s*\(|(\w+)\s*\{|(\w+)\s*::\s*\[)</string>
+        <key>captures</key>
+        <dict>
+          <key>1</key>
+          <dict>
+            <key>name</key>
+            <string>entity.name.type.import.leo</string>
+          </dict>
+          <key>3</key>
+          <dict>
+            <key>name</key>
+            <string>entity.name.function.static.leo</string>
+          </dict>
+          <key>4</key>
+          <dict>
+            <key>name</key>
+            <string>entity.name.struct.leo</string>
+          </dict>
+          <key>5</key>
+          <dict>
+            <key>name</key>
+            <string>entity.name.struct.leo</string>
           </dict>
         </dict>
       </dict>
@@ -493,7 +551,7 @@
           </dict>
         </array>
       </dict>
-      <key>record_strucut_definition</key>
+      <key>record_struct_definition</key>
       <dict>
         <key>comment</key>
         <string>Record definition</string>
@@ -573,6 +631,14 @@
           </dict>
           <dict>
             <key>include</key>
+            <string>#group_gen</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#module_entities</string>
+          </dict>
+          <dict>
+            <key>include</key>
             <string>#circuit_call</string>
           </dict>
           <dict>
@@ -645,7 +711,23 @@
         <array>
           <dict>
             <key>include</key>
+            <string>#method_name_call</string>
+          </dict>
+          <dict>
+            <key>include</key>
             <string>#integer_literal</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#address_literal</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#built-in_core_assign</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#boolean_constant</string>
           </dict>
         </array>
       </dict>
@@ -671,7 +753,7 @@
         <key>name</key>
         <string>constant.other.address.leo</string>
         <key>match</key>
-        <string>\baleo1[A-z0-9]*</string>
+        <string>\baleo1[A-z0-9]*\b</string>
       </dict>
       <key>invoking_attribute</key>
       <dict>
@@ -1577,7 +1659,7 @@
           </dict>
           <dict>
             <key>include</key>
-            <string>#record_strucut_definition</string>
+            <string>#record_struct_definition</string>
           </dict>
           <dict>
             <key>include</key>
@@ -1614,6 +1696,14 @@
           <dict>
             <key>include</key>
             <string>#circuit_static_call</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#group_gen</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#module_entities</string>
           </dict>
           <dict>
             <key>include</key>
