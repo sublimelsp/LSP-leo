@@ -180,7 +180,19 @@
       </dict>
       <dict>
         <key>include</key>
-        <string>#module_entities</string>
+        <string>#module_entities_constant</string>
+      </dict>
+      <dict>
+        <key>include</key>
+        <string>#module_entities_function</string>
+      </dict>
+      <dict>
+        <key>include</key>
+        <string>#module_entities_struct</string>
+      </dict>
+      <dict>
+        <key>include</key>
+        <string>#module_entities_struct_generic</string>
       </dict>
       <dict>
         <key>include</key>
@@ -283,12 +295,12 @@
           </dict>
         </dict>
       </dict>
-      <key>module_entities</key>
+      <key>module_entities_constant</key>
       <dict>
         <key>comment</key>
-        <string>Module path with final identifier.</string>
+        <string>Module path with constant identifier.</string>
         <key>match</key>
-        <string>(\w+(?:::\w+)*)::(?=(\w+)\s*;|(\w+)\s*\(|(\w+)\s*\{|(\w+)\s*::\s*\[)</string>
+        <string>(\w+(?:::\w+)*)::(\w+)\s*;</string>
         <key>captures</key>
         <dict>
           <key>1</key>
@@ -296,17 +308,62 @@
             <key>name</key>
             <string>entity.name.type.import.leo</string>
           </dict>
-          <key>3</key>
+        </dict>
+      </dict>
+      <key>module_entities_function</key>
+      <dict>
+        <key>comment</key>
+        <string>Module path with function identifier.</string>
+        <key>match</key>
+        <string>(\w+(?:::\w+)*)::(\w+)\s*\(</string>
+        <key>captures</key>
+        <dict>
+          <key>1</key>
+          <dict>
+            <key>name</key>
+            <string>entity.name.type.import.leo</string>
+          </dict>
+          <key>2</key>
           <dict>
             <key>name</key>
             <string>entity.name.function.static.leo</string>
           </dict>
-          <key>4</key>
+        </dict>
+      </dict>
+      <key>module_entities_struct</key>
+      <dict>
+        <key>comment</key>
+        <string>Module path with struct identifier.</string>
+        <key>match</key>
+        <string>(\w+(?:::\w+)*)::(\w+)\s*\{</string>
+        <key>captures</key>
+        <dict>
+          <key>1</key>
+          <dict>
+            <key>name</key>
+            <string>entity.name.type.import.leo</string>
+          </dict>
+          <key>2</key>
           <dict>
             <key>name</key>
             <string>entity.name.struct.leo</string>
           </dict>
-          <key>5</key>
+        </dict>
+      </dict>
+      <key>module_entities_struct_generic</key>
+      <dict>
+        <key>comment</key>
+        <string>Module path with struct identifier with generic parameters.</string>
+        <key>match</key>
+        <string>(\w+(?:::\w+)*)::(\w+)\s*::\s*\[</string>
+        <key>captures</key>
+        <dict>
+          <key>1</key>
+          <dict>
+            <key>name</key>
+            <string>entity.name.type.import.leo</string>
+          </dict>
+          <key>2</key>
           <dict>
             <key>name</key>
             <string>entity.name.struct.leo</string>
@@ -428,6 +485,10 @@
           <dict>
             <key>include</key>
             <string>#storage_type_private</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#storage_type_const</string>
           </dict>
           <dict>
             <key>include</key>
@@ -635,7 +696,19 @@
           </dict>
           <dict>
             <key>include</key>
-            <string>#module_entities</string>
+            <string>#module_entities_constant</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#module_entities_function</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#module_entities_struct</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#module_entities_struct_generic</string>
           </dict>
           <dict>
             <key>include</key>
@@ -1096,7 +1169,7 @@
         <key>comment</key>
         <string>Storage type async</string>
         <key>match</key>
-        <string>\b(async)\b\s+(?:(constructor)\s*\(|(transition|function|inline)\s+\w+\s*\()</string>
+        <string>\b(async)\b(?:\s+(?:(constructor)\s*\(|(transition|function|inline)\s+\w+\s*\(|\{))?</string>
         <key>captures</key>
         <dict>
           <key>1</key>
@@ -1375,6 +1448,10 @@
           <dict>
             <key>include</key>
             <string>#integer_literal</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#async_keyword</string>
           </dict>
           <dict>
             <key>include</key>
@@ -1703,7 +1780,19 @@
           </dict>
           <dict>
             <key>include</key>
-            <string>#module_entities</string>
+            <string>#module_entities_constant</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#module_entities_function</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#module_entities_struct</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#module_entities_struct_generic</string>
           </dict>
           <dict>
             <key>include</key>

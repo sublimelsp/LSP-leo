@@ -21,3 +21,59 @@ and limitations under the License.
  * Based on Underscore.js 1.8.3 <http://underscorejs.org/LICENSE>
  * Copyright Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
  */
+
+//!
+
+//!     ..
+
+//!     let x = a + b;
+
+//!     let y = "c.0" + "c.1";
+
+//!     let y = c.0 + c.1;
+
+//! # Example
+
+//! // Call
+
+//! // Original block
+
+//! // Rewritten as a function + call expression (assume `variant` is `AsyncFunction` here)
+
+//! The original block is then reconstructed with all symbol references
+
+//! This pass analyzes symbol accesses inside the block, determines which
+
+//! Transforms a captured `Block` into a standalone async `Function` plus a
+
+//! ```
+
+//! ```leo
+
+//! and call-site arguments. Tuple and tuple-field accesses are normalized so
+
+//! async function generated_async(a: i32, b: i32, "c.0": i32, "c.1": i32) {
+
+//! corresponding call expression.
+
+//! generated_async(a, b, c.0, c.1);
+
+//! let a: i32 = 1;
+
+//! let b: i32 = 2;
+
+//! let c: (i32, i32) = (3, 4);
+
+//! reconstruction when needed.
+
+//! replaced by these synthesized parameters. The result is a function
+
+//! that each accessed element becomes a unique parameter, with full-tuple
+
+//! that encapsulates the block's logic and a call expression that invokes it.
+
+//! variables must become parameters, and synthesizes the necessary `Input`s
+
+//! {
+
+//! }

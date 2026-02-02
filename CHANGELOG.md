@@ -4,6 +4,39 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog][keep a changelog] and this project adheres to [Semantic Versioning][semantic versioning].
 
+## [0.46.7] - 2026-02-02
+
+### Added
+- Add warning diagnostics [WSAZ0374000] when not all paths through the function await all Futures
+
+### Removed
+- Remove false error diagnostics [ETYC0372103] when calling an external async transition with async block
+- Remove false error diagnostics [EAST0372015] when two definitions of a struct do not match 
+- Remove false error diagnostics [ETYC0372059] 
+- Remove false error diagnostics [ECMP0376012] and [ECMP0376013] when a local constant defines a struct generic constant 
+- Remove false error diagnostics [ETYC0372154] when accessing an argument from Future produced by an async block
+
+### Fixed
+- Fix the highlighting range of the error [ETYC0372104] when not all futures are consumed
+- Fix error message [ETYC0372117] that has a reference to a struct (add program_name.aleo)
+- Fix error message [ETYC0372125] (add program_name.aleo)
+- Fix error message [ETYC0372139] (add program_name.aleo)
+- Fix error messages [ETYC0372017] and [ETYC0372117] (add program_name.aleo)
+- Fix error messages [ETYC0372119] (add program_name.aleo)
+- Fix error messages [ETYC0372164] and [ETYC0372165] (add program_name.aleo)
+- Fix error message [ETYC0372161] (add program_name.aleo)
+- Fix error message [ETYC0372160] (add program_name.aleo)
+- Fix error message [ETYC0372162] (add program_name.aleo)
+- Fix warning message [WTYC0372004] (add program_name.aleo)
+- Fix error message [ETYC0372000] (add program_name.aleo)
+- Fix error messages [ETYC0372017] and [ETYC0372005] when using a non-existent struct
+- Fix error message [ETYC0372002] (add program_name.aleo)
+- Fix error message [ETYC0372146] (add program_name.aleo)
+- Fix error message [ECMP0376012] (add program_name.aleo)
+- Fix error message [ESAZ0374004] (add program_name.aleo)
+- Fix error message [ETYC0372111] (add program_name.aleo)
+- Fix error messages [ETYC0372030] and [ETYC0372058]
+
 ## [0.46.6] - 2026-01-22
 
 ### Added
