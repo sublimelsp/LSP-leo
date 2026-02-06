@@ -4,6 +4,19 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog][keep a changelog] and this project adheres to [Semantic Versioning][semantic versioning].
 
+## [0.47.0] - 2026-02-06
+
+### Added
+- Implement error diagnostics [ETYC0372173] when creating a record that is defined in another program
+- Add error diagnostics [ESAZ0374007] when binary operations fail at compile time
+- Add error diagnostics [ESAZ0374007] when the result of an operation on a loop variable is overflow
+
+### Removed
+- Remove false error diagnostics [ETYC0372140] when a generic const struct defines a type of function input or output in an external program
+- Remove false error diagnostics [ETYC0372005] when tuple members are called from the async block
+
+### Fixed
+
 ## [0.46.7] - 2026-02-02
 
 ### Added
