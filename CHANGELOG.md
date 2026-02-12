@@ -4,6 +4,20 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog][keep a changelog] and this project adheres to [Semantic Versioning][semantic versioning].
 
+## [0.48.0] - 2026-02-12
+
+### Added
+- Add error diagnostics [ETYC0372108] when external vectors are used
+- Implement error diagnostics [ETYC0372174] when there is an assignment to storage variables of another program
+- Implement ETYC0372094 error on future variable reassignment
+- Implement error diagnostics [ETYC0372061] when an external inline function is called
+- Add diagnostics [ESAZ0374007] inside the constructor containing the loop
+
+### Fixed
+- Fix error message [ETYC0372005] (add program_name.aleo)
+- Fix diagnostics of "group" type validity
+- Fix error message [ETYC0372000] when there is an invalid assignment target with cast expression
+
 ## [0.47.0] - 2026-02-06
 
 ### Added
