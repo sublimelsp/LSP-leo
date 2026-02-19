@@ -4,6 +4,21 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog][keep a changelog] and this project adheres to [Semantic Versioning][semantic versioning].
 
+## [0.48.1] - 2026-02-19
+
+### Added
+
+### Removed
+- Remove false error diagnostics [ETYC0372005] when a valid signature literal is used
+- Remove false error diagnostics [ETYC0372160] when the type signature is wrapped in an optional
+- Remove deprecated MappingDiagnostic class and replace logic
+- Remove unnecessary error diagnostics [EPAR0370005] when a colon is missing after a function parameter identifier
+
+### Fixed
+- A diagnostic [ESAZ0374007] must be emitted inside the loop body after conditional and assign statements with array access expression
+- A diagnostic [ESAZ0374007] must be emitted inside the loop body after definition statement with optional array type
+- The "Error loading syntax file 'Packages/LSP-leo/leoHover.tmLanguage' occurs when disabling or removing the LSP-leo extension to Sublime Text
+
 ## [0.48.0] - 2026-02-12
 
 ### Added

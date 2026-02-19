@@ -208,6 +208,10 @@
       </dict>
       <dict>
         <key>include</key>
+        <string>#signature_literal</string>
+      </dict>
+      <dict>
+        <key>include</key>
         <string>#invoking_attribute</string>
       </dict>
       <dict>
@@ -468,6 +472,10 @@
           </dict>
           <dict>
             <key>include</key>
+            <string>#signature_literal</string>
+          </dict>
+          <dict>
+            <key>include</key>
             <string>#built-in_core_assign</string>
           </dict>
           <dict>
@@ -557,6 +565,10 @@
           <dict>
             <key>include</key>
             <string>#address_literal</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#signature_literal</string>
           </dict>
           <dict>
             <key>include</key>
@@ -796,6 +808,10 @@
           </dict>
           <dict>
             <key>include</key>
+            <string>#signature_literal</string>
+          </dict>
+          <dict>
+            <key>include</key>
             <string>#built-in_core_assign</string>
           </dict>
           <dict>
@@ -827,6 +843,15 @@
         <string>constant.other.address.leo</string>
         <key>match</key>
         <string>\baleo1[A-z0-9]*\b</string>
+      </dict>
+      <key>signature_literal</key>
+      <dict>
+        <key>comment</key>
+        <string>Signature</string>
+        <key>name</key>
+        <string>constant.other.signature.leo</string>
+        <key>match</key>
+        <string>\bsign1[A-z0-9]*\b</string>
       </dict>
       <key>invoking_attribute</key>
       <dict>
@@ -1285,6 +1310,10 @@
             <key>include</key>
             <string>#address_literal</string>
           </dict>
+          <dict>
+            <key>include</key>
+            <string>#signature_literal</string>
+          </dict>
         </array>
       </dict>
       <key>variable_declaration</key>
@@ -1464,6 +1493,10 @@
           <dict>
             <key>include</key>
             <string>#address_literal</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#signature_literal</string>
           </dict>
           <dict>
             <key>include</key>
@@ -1805,6 +1838,10 @@
           <dict>
             <key>include</key>
             <string>#address_literal</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#signature_literal</string>
           </dict>
           <dict>
             <key>include</key>

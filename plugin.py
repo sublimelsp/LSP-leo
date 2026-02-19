@@ -16,6 +16,7 @@ def plugin_loaded() -> None:
 
 def plugin_unloaded() -> None:
     LspLeoPlugin.cleanup()
+    cleanup_leohover_settings()
 
 def setup_leohover_settings() -> None:  
     preferences_filename = 'Preferences.sublime-settings'
@@ -27,6 +28,16 @@ def setup_leohover_settings() -> None:
     preferences.set("mdpopups.sublime_user_lang_map", value)
     sublime.save_settings(preferences_filename)
 
+def cleanup_leohover_settings() -> None:
+    preferences_filename = 'Preferences.sublime-settings'
+    preferences = sublime.load_settings(preferences_filename)
+    value = preferences.get("mdpopups.sublime_user_lang_map")
+    if not isinstance(value, dict):
+        return
+    if "leohover" in value:
+        del value["leohover"]
+        preferences.set("mdpopups.sublime_user_lang_map", value)
+        sublime.save_settings(preferences_filename)
 class LspLeoPlugin(NpmClientHandler):
     package_name = __package__
     server_directory = 'language-server'
