@@ -4,7 +4,7 @@ Leo is a new programming language built with intuitive semantics to enable devel
 
 Aleo programs are files with a .aleo extension. Aleo programs contain Aleo instructions - an assembly-like programming language. Aleo instructions are compiled into AVM opcodes that can be executed by the Aleo Virtual Machine.
 
-https://developer.aleo.org/overview/
+https://docs.leo-lang.org/leo
 
 Leo support for Sublime's LSP plugin provided through language-server.
 
