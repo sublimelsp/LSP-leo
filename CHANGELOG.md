@@ -4,6 +4,11 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog][keep a changelog] and this project adheres to [Semantic Versioning][semantic versioning].
 
+## [0.48.2] - 2026-02-27
+
+### Fixed
+- Remove false error diagnostics [ETYC0372008] for operations with 'group' types
+
 ## [0.48.1] - 2026-02-19
 
 ### Added
