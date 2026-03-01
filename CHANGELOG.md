@@ -4,6 +4,11 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog][keep a changelog] and this project adheres to [Semantic Versioning][semantic versioning].
 
+## [0.48.3] - 2026-03-01
+
+### Deprecated
+- Remove deprecated "languages" setting
+
 ## [0.48.2] - 2026-02-27
 
 ### Fixed
