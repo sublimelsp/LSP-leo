@@ -1,14 +1,20 @@
-import os
-import sublime, sublime_plugin
-from lsp_utils import NpmClientHandler
-from LSP.plugin.core.registry import windows
-from LSP.plugin.core.protocol import Request
-from LSP.plugin.core.views import range_to_region, region_to_range
-from LSP.plugin.core.typing import Any, Dict
-from LSP.plugin.core.url import view_to_uri
-from lsp_utils import request_handler
+from __future__ import annotations
+
+from LSP.plugin import Promise
+from LSP.plugin import request_handler
 from LSP.plugin import uri_to_filename
-from LSP.plugin.documents import DocumentSyncListener
+from LSP.plugin.core.protocol import Request
+from LSP.plugin.core.registry import windows
+from LSP.plugin.core.url import view_to_uri
+from LSP.plugin.core.views import range_to_region
+from LSP.plugin.core.views import region_to_range
+from LSP.protocol import TextDocumentIdentifier
+from lsp_utils import NpmClientHandler
+from typing import Any
+import os
+import sublime
+import sublime_plugin
+
 
 def plugin_loaded() -> None:
     LspLeoPlugin.setup()
@@ -38,14 +44,16 @@ def cleanup_leohover_settings() -> None:
         del value["leohover"]
         preferences.set("mdpopups.sublime_user_lang_map", value)
         sublime.save_settings(preferences_filename)
+
+
 class LspLeoPlugin(NpmClientHandler):
-    package_name = __package__
+    package_name = str(__package__)
     server_directory = 'language-server'
     server_binary_path = os.path.join(server_directory, 'server.js')
     skip_npm_install = True
     
     @request_handler('ColoringService.colorize')
-    def on_coloring_service_colorize(self, request, response):
+    def on_coloring_service_colorize(self, request: TextDocumentIdentifier) -> Promise[None]:
         filename = uri_to_filename(request['uri'])
         view = sublime.active_window().find_open_file(filename)
 
@@ -57,7 +65,8 @@ class LspLeoPlugin(NpmClientHandler):
                 syntax_coloring.view = v
                 syntax_coloring.colorize(request)
         # Server doesn't require any specific response.
-        response(None)
+        return Promise.resolve(None)
+
 
 def sendColorizeRequest(view):
     listener = windows.listener_for_view(view)
@@ -98,12 +107,12 @@ class SyntaxColoringEventListener(sublime_plugin.EventListener):
                                 sendColorizeRequest(v)
                             break
 
-class SyntaxColoring():
+class SyntaxColoring:
     def colorize(self, request) -> None:
         settings = self.view.settings()
         color_scheme = settings.get("color_scheme")
         if color_scheme != "leo.sublime-color-scheme":
-            return None
+            return
         highlight_line = settings.get("highlight_line")
         for key, values in request["scopes"].items():
             if len(values):
@@ -139,7 +148,7 @@ class SyntaxColoring():
                 self.view.add_regions(highlightedScope, highlightedRegions, scope=highlightedScope, flags=flags)
                     
 
-    def server_range_to_lsp(self, sever_range: Dict[str, Any]) -> Dict[str, Any]:
+    def server_range_to_lsp(self, sever_range: dict[str, Any]) -> dict[str, Any]:
         return {
             'start': {
                 "line": sever_range["start"]["row"],
