@@ -1,120 +1,121 @@
 from __future__ import annotations
 
+from LSP.plugin import LspPlugin
+from LSP.plugin import LspTextCommand
+from LSP.plugin import OnPreStartContext
 from LSP.plugin import Promise
+from LSP.plugin import Request
 from LSP.plugin import request_handler
-from LSP.plugin import uri_to_filename
-from LSP.plugin.core.protocol import Request
-from LSP.plugin.core.registry import windows
-from LSP.plugin.core.url import view_to_uri
+from LSP.plugin import SessionViewProtocol
+from LSP.plugin.core.protocol import Point
 from LSP.plugin.core.views import range_to_region
 from LSP.plugin.core.views import region_to_range
-from LSP.protocol import TextDocumentIdentifier
-from lsp_utils import NpmClientHandler
+from LSP.plugin.core.views import text_document_identifier
+from LSP.protocol import Range
+from LSP.protocol import URI
+from lsp_utils import NodeManager
+from pathlib import Path
+from sublime_lib import ResourcePath
 from typing import Any
-import os
+from typing import final
+from typing import TypedDict
+from typing_extensions import override
 import sublime
 import sublime_plugin
 
 
+class ServerPoint(TypedDict):
+    row: int
+    column: int
+
+class ServerRange(TypedDict):
+    start: ServerPoint
+    end: ServerPoint
+
+class ColorizeParams(TypedDict):
+    uri: URI
+    scopes: dict[str, list[ServerRange]]
+
+
 def plugin_loaded() -> None:
-    LspLeoPlugin.setup()
-    setup_leohover_settings()
+    LspLeoPlugin.register()
+
 
 def plugin_unloaded() -> None:
-    LspLeoPlugin.cleanup()
-    cleanup_leohover_settings()
-
-def setup_leohover_settings() -> None:  
-    preferences_filename = 'Preferences.sublime-settings'
-    preferences = sublime.load_settings(preferences_filename)
-    value = preferences.get("mdpopups.sublime_user_lang_map")
-    if not value:
-        value = {}
-    value["leohover"] = (('leohover',), ('LSP-leo/leoHover',))
-    preferences.set("mdpopups.sublime_user_lang_map", value)
-    sublime.save_settings(preferences_filename)
-
-def cleanup_leohover_settings() -> None:
-    preferences_filename = 'Preferences.sublime-settings'
-    preferences = sublime.load_settings(preferences_filename)
-    value = preferences.get("mdpopups.sublime_user_lang_map")
-    if not isinstance(value, dict):
-        return
-    if "leohover" in value:
-        del value["leohover"]
-        preferences.set("mdpopups.sublime_user_lang_map", value)
-        sublime.save_settings(preferences_filename)
+    LspLeoPlugin.unregister()
 
 
-class LspLeoPlugin(NpmClientHandler):
-    package_name = str(__package__)
-    server_directory = 'language-server'
-    server_binary_path = os.path.join(server_directory, 'server.js')
-    skip_npm_install = True
-    
+@final
+class LspLeoPlugin(LspPlugin):
+
+    @classmethod
+    @override
+    def on_pre_start_async(cls, context: OnPreStartContext) -> None:
+        package_name = cls.plugin_storage_path.name
+        NodeManager.on_pre_start_async(
+            context,
+            cls.plugin_storage_path,
+            ResourcePath('Packages', package_name, 'language-server'),
+            Path('server.js'),
+            node_version_requirement='>=16',
+            skip_npm_install=True,
+        )
+
     @request_handler('ColoringService.colorize')
-    def on_coloring_service_colorize(self, request: TextDocumentIdentifier) -> Promise[None]:
-        filename = uri_to_filename(request['uri'])
-        view = sublime.active_window().find_open_file(filename)
+    def on_coloring_service_colorize(self, params: ColorizeParams) -> Promise[None]:
+        session = self.weaksession()
+        if not session:
+            return Promise.resolve(None)
 
-        if view:
-            # Get all views, including cloned ones (opened in Split View mode)
-            views = view.buffer().views()
-            for v in views:
-                syntax_coloring = SyntaxColoring()
-                syntax_coloring.view = v
-                syntax_coloring.colorize(request)
-        # Server doesn't require any specific response.
-        return Promise.resolve(None)
+        def colorize(view: sublime.View | None) -> None:
+            if view:
+                # Get all views, including cloned ones (opened in Split View mode)
+                for view in view.buffer().views():
+                    syntax_coloring = SyntaxColoring()
+                    syntax_coloring.view = view
+                    syntax_coloring.colorize(params)
 
+        return session.open_uri_async(params['uri']).then(colorize)
 
-def sendColorizeRequest(view):
-    listener = windows.listener_for_view(view)
-    if listener:
-        language = listener.get_language_id()
-        if language == "leo":    
-            exists = bool(listener.session_async('hoverProvider'))
-            if not exists:
-                # if there is no listener need to wait for it
-                print("No listener found!")
-                return
-            for session in listener.sessions_async():
-                uri = view_to_uri(view)
-                params = {"uri": uri}
-                request = Request("ColoringService.colorize", params)
-                session.send_request_async(request, lambda res: res, lambda res: res)
+    @override
+    def on_selection_modified_async(self, session_view: SessionViewProtocol) -> None:
+        session = self.weaksession()
+        if session:
+            request = Request("ColoringService.colorize", {"uri": session_view.get_uri()})
+            session.send_request_task(request)
 
-class SyntaxColoringViewListener(sublime_plugin.ViewEventListener):
-    def on_selection_modified_async(self):
-        sendColorizeRequest(self.view)
 
 class SyntaxColoringEventListener(sublime_plugin.EventListener):
-    def on_clone(self, view):
-        file_extension = os.path.splitext(view.file_name())[1][1:]
-        if file_extension:
-            settings = sublime.load_settings("LSP-leo.sublime-settings")
-            if settings:
-                languages = settings.get("languages")
-                if isinstance(languages, list):
-                    for language in languages:
-                        language_id = language.get("languageId")
-                        if isinstance(language_id, str) and language_id == file_extension:
-                            # Get all views, including cloned ones (opened in Split View mode)
-                            # This hack helps to send ColorizeRequest for non cloned views
-                            # (for cloned views there is no listener in LSP for some reason)
-                            views = view.buffer().views()
-                            for v in views:
-                                sendColorizeRequest(v)
-                            break
+
+    def on_clone_async(self, view: sublime.View):
+        view.run_command('lsp_leo_handle_clone')
+
+
+class LspLeoHandleCloneCommand(LspTextCommand):
+
+    def run(self, edit: sublime.Edit, **kwargs: Any):
+        sublime.set_timeout_async(self._run_async)
+
+    def _run_async(self) -> Any:
+        if session := self.session_by_name(self.session_name):
+            # Get all views, including cloned ones (opened in Split View mode)
+            # This hack helps to send ColorizeRequest for non cloned views
+            # (for cloned views there is no listener in LSP for some reason)
+            for view in self.view.buffer().views():
+                request = Request("ColoringService.colorize", text_document_identifier(view))
+                session.send_request_task(request)
+
 
 class SyntaxColoring:
-    def colorize(self, request) -> None:
+    view: sublime.View
+
+    def colorize(self, params: ColorizeParams) -> None:
         settings = self.view.settings()
         color_scheme = settings.get("color_scheme")
         if color_scheme != "leo.sublime-color-scheme":
             return
         highlight_line = settings.get("highlight_line")
-        for key, values in request["scopes"].items():
+        for key, values in params["scopes"].items():
             if len(values):
                 flags = sublime.DRAW_NO_OUTLINE
                 regularScope = key
@@ -130,13 +131,13 @@ class SyntaxColoring:
                     cursorRegion = selected_row[0]
                     scope = regularScope
                     is_point = cursorRegion.begin() == cursorRegion.end()
-                    
+
                     if not is_point and selected_row.contains(region):
                         scope = highlightedScope
 
                     if is_point and highlight_line:
                         cursorRange = region_to_range(self.view, cursorRegion)
-                        if lsp_range.start.row == cursorRange.start.row:
+                        if lsp_range['start']['line'] == cursorRange['start']['line']:
                             scope = highlightedScope
 
                     if scope == regularScope:
@@ -146,16 +147,9 @@ class SyntaxColoring:
 
                 self.view.add_regions(regularScope, regularRegions, scope=regularScope, flags=flags)
                 self.view.add_regions(highlightedScope, highlightedRegions, scope=highlightedScope, flags=flags)
-                    
 
-    def server_range_to_lsp(self, sever_range: dict[str, Any]) -> dict[str, Any]:
+    def server_range_to_lsp(self, server_range: ServerRange) -> Range:
         return {
-            'start': {
-                "line": sever_range["start"]["row"],
-                "character": sever_range["start"]["column"]
-            },
-            'end': {
-                "line": sever_range["end"]["row"],
-                "character": sever_range["end"]["column"]
-            }
+            'start': Point(server_range["start"]["row"], server_range["start"]["column"]).to_lsp(),
+            'end': Point(server_range["end"]["row"], server_range["end"]["column"]).to_lsp()
         }
