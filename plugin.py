@@ -3,7 +3,6 @@ from __future__ import annotations
 from LSP.plugin import LspPlugin
 from LSP.plugin import LspTextCommand
 from LSP.plugin import OnPreStartContext
-from LSP.plugin import Promise
 from LSP.plugin import Request
 from LSP.plugin import request_handler
 from LSP.plugin import SessionViewProtocol
@@ -18,6 +17,7 @@ from pathlib import Path
 from sublime_lib import ResourcePath
 from typing import Any
 from typing import final
+from typing import Literal
 from typing import TypedDict
 from typing_extensions import override
 import sublime
@@ -62,12 +62,12 @@ class LspLeoPlugin(LspPlugin):
         )
 
     @request_handler('ColoringService.colorize')
-    def on_coloring_service_colorize(self, params: ColorizeParams) -> Promise[None]:
+    async def on_coloring_service_colorize(self, params: ColorizeParams) -> None:
         session = self.weaksession()
         if not session:
-            return Promise.resolve(None)
+            return
 
-        def colorize(view: sublime.View | None) -> None:
+        def colorize(view: sublime.View | Literal[False] | None) -> None:
             if view:
                 # Get all views, including cloned ones (opened in Split View mode)
                 for view in view.buffer().views():
@@ -75,7 +75,7 @@ class LspLeoPlugin(LspPlugin):
                     syntax_coloring.view = view
                     syntax_coloring.colorize(params)
 
-        return session.open_uri_async(params['uri']).then(colorize)
+        colorize(await session.open_uri(params['uri']))
 
     @override
     def on_selection_modified_async(self, session_view: SessionViewProtocol) -> None:
