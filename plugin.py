@@ -4,13 +4,13 @@ from LSP.plugin import LspPlugin
 from LSP.plugin import LspTextCommand
 from LSP.plugin import OnPreStartContext
 from LSP.plugin import Promise
+from LSP.plugin import region_to_range
 from LSP.plugin import Request
 from LSP.plugin import request_handler
 from LSP.plugin import SessionViewProtocol
-from LSP.plugin.core.protocol import Point
+from LSP.plugin import text_document_identifier
+from LSP.plugin import TextPosition
 from LSP.plugin.core.views import range_to_region
-from LSP.plugin.core.views import region_to_range
-from LSP.plugin.core.views import text_document_identifier
 from LSP.protocol import Range
 from LSP.protocol import URI
 from lsp_utils import NodeManager
@@ -150,6 +150,6 @@ class SyntaxColoring:
 
     def server_range_to_lsp(self, server_range: ServerRange) -> Range:
         return {
-            'start': Point(server_range["start"]["row"], server_range["start"]["column"]).to_lsp(),
-            'end': Point(server_range["end"]["row"], server_range["end"]["column"]).to_lsp()
+            'start': TextPosition(server_range["start"]["row"], server_range["start"]["column"]).to_lsp(),
+            'end': TextPosition(server_range["end"]["row"], server_range["end"]["column"]).to_lsp()
         }
