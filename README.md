@@ -8,18 +8,20 @@ https://docs.leo-lang.org/leo
 
 Leo support for Sublime's LSP plugin provided through language-server.
 
-### Installation
+## Installation
 
 - Install [LSP](https://packagecontrol.io/packages/LSP) and [LSP-leo](https://packagecontrol.io/packages/LSP-leo) from Package Control.
+- It's also recommended to install the [LSP-file-watcher-rust](https://packagecontrol.io/packages/LSP-file-watcher-rust) package. It's required for the server to be notified about changes to files made outside of Sublime Text or to files that are not open.
 - Restart Sublime.
 
-### Recommendations
+
+## Recommendations
 
 In order for the highlighting of tokens, hover, and token semantics to work, you need to select a color scheme.
 
 - From `Preferences > Select Color Scheme... > LSP-leo`
 
-### Configuration
+## Configuration
 
 There are some ways to configure the package and the language server.
 
