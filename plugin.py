@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from LSP.plugin import IsApplicableContext
 from LSP.plugin import LspPlugin
 from LSP.plugin import LspTextCommand
 from LSP.plugin import OnPreStartContext
@@ -47,6 +48,16 @@ def plugin_unloaded() -> None:
 
 @final
 class LspLeoPlugin(LspPlugin):
+
+    @classmethod
+    @override
+    def is_applicable_async(cls, context: IsApplicableContext) -> bool:
+        if not super().is_applicable_async(context):
+            return False
+        # Only attach to JSON files that are Leo project manifests.
+        if (syntax := context.view.syntax()) and syntax.scope == 'source.json':
+            return bool(file_name := context.view.file_name()) and Path(file_name).name == 'program.json'
+        return True
 
     @classmethod
     @override

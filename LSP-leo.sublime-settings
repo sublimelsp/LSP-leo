@@ -7,13 +7,14 @@
   // Open "Preferences: LSP Utils Settings" from the Command Palette to customize the Node runtime.
   "command": ["${node_bin}", "${server_path}", "--stdio"],
   "selector": "source.aleo | source.leo | source.out | source.state | source.json",
+  // Requires the LSP-file-watcher-rust package to be installed.
   "file_watcher": {
     "patterns": [
       "**/*.aleo",
       "**/*.leo",
       "**/*.state",
       "**/*.out",
-      "**/*.json"
+      "**/program.json"
     ],
     "events": ["create", "change", "delete"],
     "ignores": []
