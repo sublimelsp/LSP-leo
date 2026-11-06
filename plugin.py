@@ -5,13 +5,13 @@ from LSP.plugin import LspPlugin
 from LSP.plugin import LspTextCommand
 from LSP.plugin import OnPreStartContext
 from LSP.plugin import Promise
+from LSP.plugin import range_to_region
 from LSP.plugin import region_to_range
 from LSP.plugin import Request
 from LSP.plugin import request_handler
 from LSP.plugin import SessionViewProtocol
 from LSP.plugin import text_document_identifier
 from LSP.plugin import TextPosition
-from LSP.plugin.core.views import range_to_region
 from LSP.protocol import Range
 from LSP.protocol import URI
 from lsp_utils import NodeManager
@@ -137,7 +137,7 @@ class SyntaxColoring:
                 highlightedRegions = []
                 for item in values:
                     lsp_range = self.server_range_to_lsp(item)
-                    region = range_to_region(lsp_range, self.view)
+                    region = range_to_region(self.view, lsp_range)
                     selected_row = self.view.sel()
                     cursorRegion = selected_row[0]
                     scope = regularScope
